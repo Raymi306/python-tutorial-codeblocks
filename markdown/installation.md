@@ -1,5 +1,10 @@
 # Installation
-Choose the latest active Python release for your operating system, and follow the instructions
+Choose the latest active Python release for your operating system, and follow the instructions.
+
+Linux distributions often come with a version of Python already installed.
+It is worth checking the version on your system; If you would like to use a newer version, package managers often have several versions available.
+For some package managers, you may need to add another source to retrieve versions not normally included in your distributions package manager.
+Installing from source is also always an option.
 
 [link to download page](https://www.python.org/downloads/)
 
