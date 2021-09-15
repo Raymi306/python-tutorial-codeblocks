@@ -106,3 +106,29 @@ Return to the original indentation level when you wish to write code that occurs
 
 White space is important in Python! Some languages use brackets `{}` to group code together logically, Python relies on levels of indentation, using either tabs or spaces (take care not to mix them).
 4 spaces are the standard level of indentation when coding in Python, however, so long as you are consistent, your code will work.
+
+## Repetition, Looping
+
+Generally, code executes line by line, starting at the top and continuing to the bottom. If we want to do the same thing more than once, repeating yourself is clumsy and hard to read. We program to be lazy, a good mantra is DRY: Don't Repeat Yourself! Loops provide the structure to do a task repeatedly, repeat until a condition is met, repeat until every item in a collection is examined, or repeat indefinitely.
+
+Lets first examine the `while` loop:
+
+```py
+while True:
+    print('hewwo???')
+```
+
+This highly cursed code will cause your computer to scream out in pain, forever. Feel free to run it, you can stop the code from executing by sending a 'keyboard interrupt', by pressing `Ctrl + c`.
+
+The infinite loop can be a valuable tool for programs that you want to run until the user wishes to perform some action to close out of it. Let's combine a while loop with some earlier knowledge, and demonstrate how to exit a loop with the `break` keyword:
+
+```py
+while True:
+    user_input = input('Type \'q\' to exit')
+    if user_input == 'q':
+        break
+    # An alternate way to format strings, note the f before the lead quote, and the braces around the variable name
+    print(f'You said, {user_input}')
+```
+
+This program will continually prompt the user for input, and print it back out to them. Unless, that is, the user enters 'q'. Then, when code execution reaches the 'break' statement, code execution will exit the loop. Since that is the end of this code sample, the program ends.
