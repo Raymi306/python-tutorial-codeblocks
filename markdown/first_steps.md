@@ -1,6 +1,7 @@
 # Humble Beginnings
 Lets explore two built in tools provided to us by Python, `print` and `input`.
 
+## \<built-in function print\>
 `print` is something called a function, when called, it prints a statement to the screen. 
 A simple syntax to use it is as follows:
 
@@ -10,7 +11,11 @@ print('Hello world')
 
 The parentheses denote that we are calling this function, that we are invoking its action.
 The quotation marks around 'Hello world' tell Python that this is a string, a data type that holds text content.
+It is important to indicate that 'Hello world' is a string, otherwise, Python will view this as a syntax error; It would try and interpret 'Hello' and 'world' as labels with special meaning, perhaps user defined variables, and syntactically it would require a comma between these two labels.
 
+Try running this code, and try to put different things inside of the quotation marks and see what effect it has. Python makes the classic 'Hello world' programming tutorial very simple indeed!
+
+## \<built-in function input\>
 `input` is also a function, and it has something of the opposite effect.
 When input is called, it waits for the user to hit the enter button.
 When the user hits the enter button, any keys that they have pressed will be saved as a string, and 'returned' by input.
