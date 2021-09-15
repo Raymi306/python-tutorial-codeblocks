@@ -8,7 +8,12 @@
 - open up an interpreter
 - type `python3` and hit enter
 Output will likely be similar to this:
-![image](https://user-images.githubusercontent.com/45133114/133455803-9c3912be-0f14-420e-8f73-3fa4e4dae9bc.png)
+
+```
+Python 3.9.2 (default, Feb 28 2021, 17:03:44)
+[GCC 10.2.1 20210110] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+```
 
 Inside the interpreter, you can type anything you like and Python will attempt to run it as code.
 When you see the default prompt of '>>>' the interpreter is ready for you to type more things and hit enter.
