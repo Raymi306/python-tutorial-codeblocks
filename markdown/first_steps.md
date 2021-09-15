@@ -70,6 +70,7 @@ else:
     print(my_number * 2)
 ```
 
+## Conditions and Branching
 Reacting the same way to every possible input is boring. Let's take a different action, depending on what the user types
 
 ```py
