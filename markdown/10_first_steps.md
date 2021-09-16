@@ -70,7 +70,7 @@ else:
     print(my_number * 2)
 ```
 
-### A Few Steps Back...\<built-in function help\>
+### A Few Steps Back...Using help()
 
 Go ahead and drop into the python interpreter. Type `help()` and then press enter.
 Now, go ahead and enter `print`, and you should see something like this:
