@@ -1,5 +1,5 @@
 # Humble Beginnings
-Lets explore two built in tools provided to us by Python, `print` and `input`.
+Lets explore two built-in tools provided to us by Python, `print` and `input`.
 
 ## \<built-in function print\>
 `print` is something called a function, when called, it prints a statement to the screen. 
