@@ -7,6 +7,7 @@
 ### On Linux:
 - open up an interpreter
 - type `python3` and hit enter
+
 Output will likely be similar to this:
 
 ```
