@@ -190,11 +190,12 @@ while True:
 
 This program will continually prompt the user for input, and print it back out to them. Unless, that is, the user enters 'q'. Then, when code execution reaches the 'break' statement, code execution will exit the loop. Since that is the end of this code sample, the program ends.
 
+
 ```py
 counter = 0
 target = 3
 while counter < target:
-    val = input(f'You have typed \'q\' {counter} times. Type \'q\' and press enter {target - counter} times to exit.')
+    val = input(f'You have typed \'q\' {counter} times. Type \'q\' and press enter {target - counter} times to exit.\n')
     if val == 'q':
         counter += 1 # equivalent to `counter = counter + 1`
     print('Loopedy loop...')
@@ -202,3 +203,24 @@ while counter < target:
 
 This program uses 2 variables, and places a condition just like the ones we use with 'if' statements after the 'while' keyword.
 Can you guess what you have to do to exit this program once it begins running? No cheating by using a keyboard interrupt!
+
+Sometimes in a loop, we want to skip to the next iteration if a condition is met. We can achieve this effect with the `continue` keyword.
+
+```py
+# TODO is this example too contrived..?
+num = 0
+while num <= 10:
+    num += 1
+    if num % 2:
+        continue
+    print(num)
+    
+# Output:
+# 2
+# 4
+# 6
+# 8
+# 10
+```
+
+Here, we also introduce the modulus operator '%'. This operator returns the remainder of a division.
