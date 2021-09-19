@@ -1,6 +1,6 @@
 # Installation
 ## Windows | [link to download page](https://www.python.org/downloads/windows/)
-Find the download link for the latest stable version of Python, and download it. Once the download is complete, make sure to run the file. For Windows, you are presented with a simple installer that guides you through the setup process. However, there are some options that it presents whose meaning might not be initially obvious. Of the options presented, **ensure that you select the checkmark to add Python to the [path](https://github.com/Raymi306/python-tutorial/blob/miscellanea/markdown/misc.md#path-variables).**
+Find the download link for the latest stable version of Python, and download it. Once the download is complete, make sure to run the file. A typical installer will guide you through the setup process, requiring little more than pressing 'Next'. However, there are some options that it presents whose meaning might not be initially obvious. Of the options presented, **ensure that you select the checkmark to add Python to the [path](https://github.com/Raymi306/python-tutorial/blob/miscellanea/markdown/misc.md#path-variables).**
 ## Linux
 Linux distributions often come with a version of Python already installed.
 It is worth checking the version on your system, this can be done with running `python3 -V` from the command line; If you would like to use a newer version, package managers often have several versions available.
