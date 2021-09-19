@@ -11,12 +11,13 @@ print('Hello world')
 
 The parentheses denote that we are calling a function, that is to say that we are invoking its action.
 The quotation marks around 'Hello world' tell Python that it is a string, a data type used to hold human-readable text.
-It is important to indicate that 'Hello world' is a string, otherwise, Python will view this as a syntax error; It would try and interpret 'Hello' and 'world' as labels with special meaning, perhaps user defined variables, and syntactically it would require a comma between these two labels. Feel free to try this in the interpreter to see how Python tries to tell us what we're doing wrong, even if 'syntax error' is a little vague to us right now.
-
-Try running this code, and try to put different things inside of the quotation marks and see what effect it has. Python makes the classic 'Hello world' programming tutorial very simple indeed!
+It is important to indicate that 'Hello world' is a string, otherwise, Python will view this as a syntax error; 
+It would try and interpret 'Hello' and 'world' as labels with special meaning, perhaps user defined variables, and syntactically it would require a comma between these two labels. 
+When you try running this code, experiment with removing the quotation marks and removing words to see how Python tries to tell us what we're doing wrong. 
+'syntax error' may be a little vague to us right now, but getting comfortable with common errors will make it easier to know where to look for help and what to do next time. Overall, though, Python makes the classic 'Hello world' programming tutorial very simple indeed!
 
 ## \<built-in function input\>
-`input` is also a function, and it has something of the opposite effect.
+`input` is also a function, and it has something of the opposite intent of `print`.
 When input is called, it waits for the user to hit the enter button.
 When the user hits the enter button, any keys that they have pressed will be saved as a string, and 'returned' by input.
 
