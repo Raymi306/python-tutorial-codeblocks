@@ -17,4 +17,4 @@ When you try to run a command, such as `ping` on the command line, one of the pl
 When you install Python on linux, typically this is done for you, so you can type `python3` on the command line to drop into an interpreter. 
 If Python is added to your path on Windows, then you can simply type `python` in the command line to invoke the program without having to navigate to the directory in which the program installed itself.
 
-To reach a terminal to run Python on Windows, type 'cmd' or 'powershell' into the Window's search bar, and select the desired terminal. Both will work for these tutorials.
+\**To reach a terminal to run Python on Windows, type 'cmd' or 'powershell' into the Window's search bar, and select the desired terminal. Both will work for these tutorials.*
