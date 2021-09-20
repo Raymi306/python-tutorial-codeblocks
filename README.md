@@ -1,5 +1,5 @@
-# python-tutorial
+# python-tutorial (WIP)
 
-There's not much here yet!
+A tutorial with eventual content for both absolute beginners and experienced programmers.
 
 There is a project board where some initial planning and drafting is going on.
