@@ -6,7 +6,7 @@ We can use `print` to print text to the screen.
 A simple syntax to use it is as follows:
 
 ```py
-print('Hello world')
+{{hello_world}}
 ```
 
 The parentheses denote that we are calling a function, that is to say that we are invoking its action.
@@ -22,7 +22,7 @@ When input is called, it waits for the user to hit the enter button.
 When the user hits the enter button, any keys that they have pressed will be saved as a string, and 'returned' by input.
 
 ```py
-input()
+{{input_noop}}
 ```
 
 This is boring because it doesn't do anything.
@@ -32,8 +32,7 @@ What we need is a way to store that information for later, so that we can manipu
 
 
 ```py
-my_variable = input()
-print('You typed: ' + my_variable)
+{{input_and_print}}
 ```
 
 Here, we are assigning the result of input, the *return value*, to a variable that we decided to call 'my_variable'.
@@ -53,31 +52,26 @@ Note also that we must specify that we want a space in 'You typed: '; Python won
 input always returns what we type as a string, but sometimes we would like to interpret the value as a number so we can do fun things like maths.
 
 ```py
-my_number = input()
-print(my_number * 2)
+{{input_and_print_twice}}
 ```
 
 This returns whatever you type in twice, even if you type in a number! That's not quite what we want.
 What we need is a way to interpret the string data as numeric data, in our case, as an integer:
 
 ```py
-my_number = int(input())
-print(my_number * 2)
+{{input_and_print_double_v1}}
 ```
 
 With programming, there are often multiple approaches to a problem that are effectively the same:
 
 ```py
-my_number = input()
-print(int(my_number) * 2)
+{{input_and_print_double_v2}}
 ```
 ```py
-print(int(input()) * 2)
+{{input_and_print_double_v3}}
 ```
 ```py
-my_number = input()
-my_number = int(my_number)
-print(my_number * 2)
+{{input_and_print_double_v4}}
 ```
 
 These snippets all properly double whatever number we type in! `int` is being used here to interpret the result of input as an integer; a whole number.

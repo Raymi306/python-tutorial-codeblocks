@@ -55,20 +55,92 @@ def input_noop():
     >>> input_noop()
     """
     with patch('builtins.input') as input:
-        # START
         input()
-        # END
 
-def input_and_print():
+def input_and_print(mocked_input_ret):
     """
-    >>> input_and_print()
+    >>> input_and_print('hello')
     You typed: hello
     """
     with patch('builtins.input') as input:
-        input.return_value = 'hello'
+        input.return_value = mocked_input_ret
         # START
         my_variable = input()
         print('You typed: ' + my_variable)
+        # END
+
+def input_and_print_twice(mocked_input_ret):
+    """
+    >>> input_and_print_twice('7')
+    77
+    >>> input_and_print_twice('foo')
+    foofoo
+    """
+    with patch ('builtins.input') as input:
+        input.return_value = mocked_input_ret
+        # START
+        my_number = input()
+        print(my_number * 2)
+        # END
+
+def input_and_print_double_v1(mocked_input_ret):
+    """
+    >>> input_and_print_double_v1('7')
+    14
+    >>> input_and_print_double_v1('foo')
+    Traceback (most recent call last):
+    ValueError: invalid literal for int() with base 10: 'foo'
+    """
+    with patch('builtins.input') as input:
+        input.return_value = mocked_input_ret
+        # START
+        my_number = int(input())
+        print(my_number * 2)
+        # END
+
+def input_and_print_double_v2(mocked_input_ret):
+    """
+    >>> input_and_print_double_v1('7')
+    14
+    >>> input_and_print_double_v1('foo')
+    Traceback (most recent call last):
+    ValueError: invalid literal for int() with base 10: 'foo'
+    """
+    with patch('builtins.input') as input:
+        input.return_value = mocked_input_ret
+        # START
+        my_number = input()
+        print(int(my_number) * 2)
+        # END
+
+def input_and_print_double_v3(mocked_input_ret):
+    """
+    >>> input_and_print_double_v1('7')
+    14
+    >>> input_and_print_double_v1('foo')
+    Traceback (most recent call last):
+    ValueError: invalid literal for int() with base 10: 'foo'
+    """
+    with patch('builtins.input') as input:
+        input.return_value = mocked_input_ret
+        # START
+        print(int(input()) * 2)
+        # END
+
+def input_and_print_double_v4(mocked_input_ret):
+    """
+    >>> input_and_print_double_v1('7')
+    14
+    >>> input_and_print_double_v1('foo')
+    Traceback (most recent call last):
+    ValueError: invalid literal for int() with base 10: 'foo'
+    """
+    with patch('builtins.input') as input:
+        input.return_value = mocked_input_ret
+        # START
+        my_number = input()
+        my_number = int(my_number)
+        print(my_number * 2)
         # END
 
 def futures_try_int_input(mocked_input_ret):
@@ -186,10 +258,15 @@ def loops_weird_continue():
             continue
         print(num)
 
-names = (
+CODEBLOCK_NAMES = (
     'hello_world',
     'input_noop',
     'input_and_print',
+    'input_and_print_twice',
+    'input_and_print_double_v1',
+    'input_and_print_double_v2',
+    'input_and_print_double_v3',
+    'input_and_print_double_v4',
     'futures_try_int_input',
     'conditions_names',
     'conditions_indent',
@@ -200,4 +277,4 @@ names = (
     )
 
 locals_proxy = locals()
-codeblocks = {func_name: get_func_body(locals_proxy[func_name]) for func_name in names}
+codeblocks = {func_name: get_func_body(locals_proxy[func_name]) for func_name in CODEBLOCK_NAMES}

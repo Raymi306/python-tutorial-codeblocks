@@ -3,3 +3,4 @@ setuptools
 Jinja2
 markdown
 pygments
+aiohttp[speedups]
