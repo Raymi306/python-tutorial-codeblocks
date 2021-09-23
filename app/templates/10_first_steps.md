@@ -1,27 +1,28 @@
 # Humble Beginnings
 Lets explore two built-in tools provided to us by Python, `print` and `input`.
 
-## \<built-in function print\>
+## <built-in function print\>
 We can use `print` to print text to the screen.
 A simple syntax to use it is as follows:
 
 ```py
-print('Hello world')
+{{hello_world}}
 ```
 
 The parentheses denote that we are calling a function, that is to say that we are invoking its action.
 The quotation marks around 'Hello world' tell Python that it is a string, a data type used to hold human-readable text.
-It is important to indicate that 'Hello world' is a string, otherwise, Python will view this as a syntax error; It would try and interpret 'Hello' and 'world' as labels with special meaning, perhaps user defined variables, and syntactically it would require a comma between these two labels. Feel free to try this in the interpreter to see how Python tries to tell us what we're doing wrong, even if 'syntax error' is a little vague to us right now.
+It is important to indicate that 'Hello world' is a string, otherwise, Python will view this as a syntax error; 
+It would try and interpret 'Hello' and 'world' as labels with special meaning, perhaps user defined variables, and syntactically it would require a comma between these two labels. 
+When you try running this code, experiment with removing the quotation marks and removing words to see how Python tries to tell us what we're doing wrong. 
+'syntax error' may be a little vague to us right now, but getting comfortable with common errors will make it easier to know where to look for help and what to do next time. Overall, though, Python makes the classic 'Hello world' programming tutorial very simple indeed!
 
-Try running this code, and try to put different things inside of the quotation marks and see what effect it has. Python makes the classic 'Hello world' programming tutorial very simple indeed!
-
-## \<built-in function input\>
-`input` is also a function, and it has something of the opposite effect.
+## <built-in function input\>
+`input` is also a function, and it has something of the opposite intent of `print`.
 When input is called, it waits for the user to hit the enter button.
 When the user hits the enter button, any keys that they have pressed will be saved as a string, and 'returned' by input.
 
 ```py
-input()
+{{input_noop}}
 ```
 
 This is boring because it doesn't do anything.
@@ -31,8 +32,7 @@ What we need is a way to store that information for later, so that we can manipu
 
 
 ```py
-my_variable = input()
-print('You typed: ' + my_variable)
+{{input_and_print}}
 ```
 
 Here, we are assigning the result of input, the *return value*, to a variable that we decided to call 'my_variable'.
@@ -52,31 +52,26 @@ Note also that we must specify that we want a space in 'You typed: '; Python won
 input always returns what we type as a string, but sometimes we would like to interpret the value as a number so we can do fun things like maths.
 
 ```py
-my_number = input()
-print(my_number * 2)
+{{input_and_print_twice}}
 ```
 
 This returns whatever you type in twice, even if you type in a number! That's not quite what we want.
 What we need is a way to interpret the string data as numeric data, in our case, as an integer:
 
 ```py
-my_number = int(input())
-print(my_number * 2)
+{{input_and_print_double_v1}}
 ```
 
 With programming, there are often multiple approaches to a problem that are effectively the same:
 
 ```py
-my_number = input()
-print(int(my_number) * 2)
+{{input_and_print_double_v2}}
 ```
 ```py
-print(int(input()) * 2)
+{{input_and_print_double_v3}}
 ```
 ```py
-my_number = input()
-my_number = int(my_number)
-print(my_number * 2)
+{{input_and_print_double_v4}}
 ```
 
 These snippets all properly double whatever number we type in! `int` is being used here to interpret the result of input as an integer; a whole number.
@@ -92,14 +87,7 @@ We will discuss error handling later, although an example is included below.
 # leaving notes for yourself and others can be very important as you write more code
 # its not uncommon to return to code after just a week away and have no idea where you left off or why...
 
-my_number_as_string = input()
-try:
-    my_number = int(my_number_as_string)
-except ValueError:
-    # Python has several built in error types, knowing when and how to reference the documentation is a valuable skill in its own right
-    print('That\'s not a number!')
-else:
-    print(my_number * 2)
+{{futures_try_int_input}}
 ```
 
 ### A Few Steps Back...Using help()
@@ -131,13 +119,7 @@ You can also ask for help on other things, when inside interactive help, try typ
 Reacting the same way to every possible input is boring. Let's take a different action, depending on what the user types
 
 ```py
-user_input = input('What\'s your name?')
-if user_input == 'max':
-    print('weeb')
-elif user_input == 'jax':
-    print('cool name!')
-else:
-    print('Hello, ' + user_input)
+{{conditions_names}}
 ```
 
 Several things are going on here. 
@@ -154,9 +136,7 @@ Furthermore, on the next line, we must indent.
 If you have multiple lines indented to the same level, they will all execute if that branch is taken, ie:
 
 ```py
-if True:
-    print('True is true...')
-    print('You\'ll see this get printed too!')
+{{conditions_indent}}
 ```
 
 Return to the original indentation level when you wish to write code that occurs AFTER your if statement.
@@ -171,8 +151,7 @@ Generally, code executes line by line, starting at the top and continuing to the
 Lets first examine the `while` loop:
 
 ```py
-while True:
-    print('hewwo???')
+{{loops_scream}}
 ```
 
 This highly cursed code will cause your computer to scream out in pain, forever. Feel free to run it, you can stop the code from executing by sending a 'keyboard interrupt', by pressing `Ctrl + c`.
@@ -180,25 +159,14 @@ This highly cursed code will cause your computer to scream out in pain, forever.
 The infinite loop can be a valuable tool for programs that you want to run until the user wishes to perform some action to close out of it. Let's combine a while loop with some earlier knowledge, and demonstrate how to exit a loop with the `break` keyword:
 
 ```py
-while True:
-    user_input = input('Type \'q\' to exit')
-    if user_input == 'q':
-        break
-    # An alternate way to format strings, note the f before the lead quote, and the braces around the variable name
-    print(f'You said, {user_input}')
+{{loops_input_to_break}}
 ```
 
 This program will continually prompt the user for input, and print it back out to them. Unless, that is, the user enters 'q'. Then, when code execution reaches the 'break' statement, code execution will exit the loop. Since that is the end of this code sample, the program ends.
 
 
 ```py
-counter = 0
-target = 3
-while counter < target:
-    val = input(f'You have typed \'q\' {counter} times. Type \'q\' and press enter {target - counter} times to exit.\n')
-    if val == 'q':
-        counter += 1 # equivalent to `counter = counter + 1`
-    print('Loopedy loop...')
+{{loops_2_var_counter}}
 ```
 
 This program uses 2 variables, and places a condition just like the ones we use with 'if' statements after the 'while' keyword.
@@ -208,13 +176,7 @@ Sometimes in a loop, we want to skip to the next iteration if a condition is met
 
 ```py
 # TODO is this example too contrived..?
-num = 0
-while num <= 10:
-    num += 1
-    if num % 2:
-        continue
-    print(num)
-    
+{{loops_weird_continue}} 
 # Output:
 # 2
 # 4
