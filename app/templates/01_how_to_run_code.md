@@ -1,7 +1,7 @@
 # How to run code
 ## Using the Interpreter
 ### On Windows:
-- open up the [command line](https://github.com/Raymi306/python-tutorial/blob/miscellanea/markdown/misc.md#command-prompts-shells-terminals)
+- open up the [command line]({{misc_shells}})
 - type `python` and hit enter
 
 ### On Linux:
@@ -22,10 +22,10 @@ If you see '...' the interpreter recognizes that you have begun a multiline stat
 You can hit enter again to finish the multiline statement.
 
 ## Running Code from a File
-Write the python code using a [text editor](https://github.com/Raymi306/python-tutorial/blob/miscellanea/markdown/misc.md#common-text-editors) or interactive developer environment (IDE) of your choice.
+Write the python code using a [text editor]({{misc_text_editors}}) or interactive developer environment (IDE) of your choice.
 
 When ready to run the code, make sure to save it.
-From your operating system's command prompt, call the python executable and pass the [path to your file](https://github.com/Raymi306/python-tutorial/blob/miscellanea/markdown/misc.md#file-paths) as the argument.
+From your operating system's command prompt, call the python executable and pass the [path to your file]({{misc_file_paths}}) as the argument.
 ```sh
 python3 helloworld.py
 ```

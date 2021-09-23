@@ -55,7 +55,9 @@ def input_noop():
     >>> input_noop()
     """
     with patch('builtins.input') as input:
+        # START
         input()
+        # END
 
 def input_and_print(mocked_input_ret):
     """
