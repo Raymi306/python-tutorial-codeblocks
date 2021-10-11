@@ -1,4 +1,7 @@
+<<[prev]({{int_running_code}}) [home]({{int_home}})
+
 [TOC]
+
 # Humble Beginnings
 Lets explore two built-in tools provided to us by Python, `print` and `input`.
 
