@@ -1,7 +1,10 @@
+"""Exports doctested, minimal codeblocks for templating"""
 import inspect
 from unittest.mock import patch
 
+
 def normalize_indentation(line, set_level, level):
+    """Remove unnecessary indentation resulting from doctesting of code"""
     counter = 0
     length = len(line)
     while counter < length - 1 and line[counter] == ' ':
@@ -14,7 +17,15 @@ def normalize_indentation(line, set_level, level):
         result = line[index:], level
     return ''.join(result[0]) + '\n', result[1]
 
+
 def get_func_body(name):
+    """
+    Remove docstrings, indentation, and testing artifacts from function
+    indicated by name for use with templating as a codeblock
+
+    Functions can be marked with # START and # END comments for special
+    trimming of testing code
+    """
     raw = inspect.getsource(name)
     lines = raw.split('\n')[1:]
     set_level = True
@@ -32,23 +43,26 @@ def get_func_body(name):
             if '# START' in line:
                 take = True
         return ''.join(result).strip()
-    else:
-        docstring_occurences = 0
-        for line in lines:
-            if docstring_occurences >= 2:
-                line, level = normalize_indentation(line, set_level, level)
-                set_level = False
-                result.append(line)
-            if '"""' in line:
-                docstring_occurences += 1
-        return ''.join(result).strip()
+    docstring_occurences = 0
+    for line in lines:
+        if docstring_occurences >= 2:
+            line, level = normalize_indentation(line, set_level, level)
+            set_level = False
+            result.append(line)
+        if '"""' in line:
+            docstring_occurences += 1
+    return ''.join(result).strip()
 
+
+# pylint: disable=line-too-long
+# pylint: disable=redefined-builtin
 def hello_world():
     """
     >>> hello_world()
     Hello world
     """
     print('Hello world')
+
 
 def input_noop():
     """
@@ -58,6 +72,7 @@ def input_noop():
         # START
         input()
         # END
+
 
 def input_and_print(mocked_input_ret):
     """
@@ -71,6 +86,7 @@ def input_and_print(mocked_input_ret):
         print('You typed: ' + my_variable)
         # END
 
+
 def input_and_print_twice(mocked_input_ret):
     """
     >>> input_and_print_twice('7')
@@ -78,12 +94,13 @@ def input_and_print_twice(mocked_input_ret):
     >>> input_and_print_twice('foo')
     foofoo
     """
-    with patch ('builtins.input') as input:
+    with patch('builtins.input') as input:
         input.return_value = mocked_input_ret
         # START
         my_number = input()
         print(my_number * 2)
         # END
+
 
 def input_and_print_double_v1(mocked_input_ret):
     """
@@ -100,6 +117,7 @@ def input_and_print_double_v1(mocked_input_ret):
         print(my_number * 2)
         # END
 
+
 def input_and_print_double_v2(mocked_input_ret):
     """
     >>> input_and_print_double_v1('7')
@@ -115,6 +133,7 @@ def input_and_print_double_v2(mocked_input_ret):
         print(int(my_number) * 2)
         # END
 
+
 def input_and_print_double_v3(mocked_input_ret):
     """
     >>> input_and_print_double_v1('7')
@@ -128,6 +147,7 @@ def input_and_print_double_v3(mocked_input_ret):
         # START
         print(int(input()) * 2)
         # END
+
 
 def input_and_print_double_v4(mocked_input_ret):
     """
@@ -144,6 +164,7 @@ def input_and_print_double_v4(mocked_input_ret):
         my_number = int(my_number)
         print(my_number * 2)
         # END
+
 
 def futures_try_int_input(mocked_input_ret):
     """
@@ -164,6 +185,7 @@ def futures_try_int_input(mocked_input_ret):
         else:
             print(my_number * 2)
         # END
+
 
 def conditions_names(mocked_input_ret):
     """
@@ -186,6 +208,8 @@ def conditions_names(mocked_input_ret):
             print('Hello, ' + user_input)
         # END
 
+
+# pylint: disable=using-constant-test
 def conditions_indent():
     """
     >>> conditions_indent()
@@ -195,6 +219,8 @@ def conditions_indent():
     if True:
         print('True is true...')
         print('You\'ll see this get printed too!')
+# pylint: enable=using-constant-test
+
 
 def loops_scream():
     """
@@ -202,6 +228,7 @@ def loops_scream():
     """
     while True:
         print('hewwo???')
+
 
 def loops_input_to_break(mocked_input_se):
     """
@@ -219,6 +246,7 @@ def loops_input_to_break(mocked_input_se):
             # An alternate way to format strings, note the f before the lead quote, and the braces around the variable name
             print(f'You said, {user_input}')
         # END
+
 
 def loops_2_var_counter(mocked_input_se):
     """
@@ -244,6 +272,7 @@ def loops_2_var_counter(mocked_input_se):
             print('Loopedy loop...')
         # END
 
+
 def loops_weird_continue():
     """
     >>> loops_weird_continue()
@@ -260,6 +289,8 @@ def loops_weird_continue():
             continue
         print(num)
 
+
+# names of functions to be exported as codeblocks
 CODEBLOCK_NAMES = (
     'hello_world',
     'input_noop',
@@ -279,4 +310,8 @@ CODEBLOCK_NAMES = (
     )
 
 locals_proxy = locals()
-codeblocks = {func_name: get_func_body(locals_proxy[func_name]) for func_name in CODEBLOCK_NAMES}
+codeblocks = {
+        func_name: get_func_body(
+            locals_proxy[func_name]
+            ) for func_name in CODEBLOCK_NAMES
+        }

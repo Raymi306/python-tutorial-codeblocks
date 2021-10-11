@@ -1,3 +1,4 @@
+"""Exports links for templating"""
 from app import config
 
 BASE_URL = config['TUTORIAL_BASE_URL']

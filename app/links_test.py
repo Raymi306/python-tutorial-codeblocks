@@ -1,24 +1,40 @@
+"""
+Send GET requests to a collection of http links,
+returning those links which do not return 200 OK
+When run directly, take links as cli arguments
+"""
 import asyncio
 import sys
-
 import aiohttp
 
-async def links_test(links):
-    """Given a list of valid URL links,
-    return all links that do not return a 200 status code using HTTP GET requests"""
-    failures = []
-    for link in links:
-        async with aiohttp.ClientSession() as session:
-            async with session.get(link) as response:
-                if response.status != 200:
-                    failures.append(response)
-    return failures
+CONCURRENCY = 16
 
-def run(links):
-    loop = asyncio.get_event_loop()
-    return loop.run_until_complete(links_test(links))
+
+async def fetch(session, lock, url):
+    """
+    Locked async HTTP GET
+    """
+    async with lock:
+        return await session.get(url)
+
+
+async def main(links):  # pylint: disable=redefined-outer-name
+    """
+    Send GET requests for link in links, return responses of requests
+    which do not return 200 OK. Semaphore limits number of concurrent
+    requests for performance reasons while remaining non-blocking
+    """
+    lock = asyncio.Semaphore(CONCURRENCY)
+    async with aiohttp.ClientSession() as session:
+        responses = await asyncio.gather(
+                *[fetch(session, lock, url) for url in links]
+                )
+        failures = [r for r in responses if r.status != 200]  # pylint: disable=redefined-outer-name
+        return failures
+
 
 if __name__ == '__main__':
-    fails = run(sys.argv[1:])
-    for f in fails:
-        print(f.url, f.status)
+    links = sys.argv[1:]
+    failures = asyncio.run(main(links))
+    for fail in failures:
+        print(fail.url, fail.status)
