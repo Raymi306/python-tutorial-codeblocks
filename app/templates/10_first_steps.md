@@ -1,7 +1,10 @@
+[TOC]
 # Humble Beginnings
 Lets explore two built-in tools provided to us by Python, `print` and `input`.
 
+---
 ## <built-in function print\>
+---
 We can use `print` to print text to the screen.
 A simple syntax to use it is as follows:
 
@@ -16,7 +19,9 @@ It would try and interpret 'Hello' and 'world' as labels with special meaning, p
 When you try running this code, experiment with removing the quotation marks and removing words to see how Python tries to tell us what we're doing wrong. 
 'syntax error' may be a little vague to us right now, but getting comfortable with common errors will make it easier to know where to look for help and what to do next time. Overall, though, Python makes the classic 'Hello world' programming tutorial very simple indeed!
 
+---
 ## <built-in function input\>
+---
 `input` is also a function, and it has something of the opposite intent of `print`.
 When input is called, it waits for the user to hit the enter button.
 When the user hits the enter button, any keys that they have pressed will be saved as a string, and 'returned' by input.
@@ -90,8 +95,9 @@ We will discuss error handling later, although an example is included below.
 {{futures_try_int_input}}
 ```
 
-### A Few Steps Back...Using help()
-
+---
+## A Few Steps Back...Using help()
+---
 Go ahead and drop into the python interpreter. Type `help()` and then press enter.
 Now, go ahead and enter `print`, and you should see something like this:
 
@@ -115,7 +121,7 @@ Not all of the help entries are as short as `print` and `input`. Some of them wi
 
 You can also ask for help on other things, when inside interactive help, try typing one of: `modules, keywords, symbols, topics`. Then, try entering one of the entries within into the help. Many of the topics go quite in depth, and should match the official documentation online for your version of Python. You can also get help outside of interactive help mode by using help as a function, and passing either a string with what you need help on (as listed in modules, keywords, etc), or a python object. I believe `help` to be an underutilized and underappreciated feature of Python that can help programmers of any skill level.
 
-## Conditions and Branching
+# Conditions and Branching
 Reacting the same way to every possible input is boring. Let's take a different action, depending on what the user types
 
 ```py
@@ -144,8 +150,7 @@ Return to the original indentation level when you wish to write code that occurs
 White space is important in Python! Some languages use brackets `{}` to group code together logically, Python relies on levels of indentation, using either tabs or spaces (take care not to mix them).
 4 spaces are the standard level of indentation when coding in Python, however, so long as you are consistent, your code will work.
 
-## Repetition, Looping
-
+# Repetition, Looping
 Generally, code executes line by line, starting at the top and continuing to the bottom. If we want to do the same thing more than once, repeating yourself is clumsy and hard to read. We program to be lazy, a good mantra is DRY: Don't Repeat Yourself! Loops provide the structure to do a task repeatedly, repeat until a condition is met, repeat until every item in a collection is examined, or repeat indefinitely.
 
 Lets first examine the `while` loop:

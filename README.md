@@ -15,4 +15,5 @@ After cloning the repository, create a virtual environment `python3 -m venv venv
 Then, run `python3 -m app.build` from the top level directory, and it should just work.
 Theoretically.
 
-TODO include pygments stylesheet in the build process
+Currently, the style sheet for pygments is being created using pygmentize cli:
+`pygmentize -S solarized-light -f html -a .codehilite > dist/styles.css`

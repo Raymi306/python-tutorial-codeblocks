@@ -28,8 +28,8 @@ def test_links():
     fails = asyncio.run(get_failing_links(links.values()))
     if fails:
         print('LINK TESTS FAILURES')
-        for f in fails:
-            print(f.url, f.status)
+        for fail in fails:
+            print(fail.url, fail.status)
 
 
 def build():
@@ -49,6 +49,7 @@ def build():
     py_md_extensions = (
             'fenced_code',
             'codehilite',
+            'toc',
             )
     base_html_template = env.get_template(BASE_HTML)
     for name in TEMPLATES:
