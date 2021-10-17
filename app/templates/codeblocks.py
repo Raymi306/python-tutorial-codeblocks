@@ -1,6 +1,6 @@
 """Exports doctested, minimal codeblocks for templating"""
 import inspect
-from unittest.mock import patch
+from unittest.mock import patch, Mock, MagicMock
 
 
 def normalize_indentation(line, set_level, level):
@@ -273,21 +273,46 @@ def loops_2_var_counter(mocked_input_se):
         # END
 
 
-def loops_weird_continue():
+def loops_sock_continue():
     """
-    >>> loops_weird_continue()
-    2
-    4
-    6
-    8
-    10
+    Can play with this by using netcat: nc -l 12345, run program, type into nc stdin
+    >>> with patch('time.sleep') as mock_sleep:
+    ...     mock_socket_se = ('h', 'i', None)
+    ...     mock_sleep.side_effect =  RuntimeError('STOP ITERATION FOR TESTING')
+    ...     with patch('socket.socket') as mock_socket:
+    ...         mock_socket().__enter__().recv.side_effect = mock_socket_se
+    ...         try:
+    ...             loops_sock_continue()
+    ...         except RuntimeError:
+    ...             pass
+    received h
+    received i
+    >>> with patch('time.sleep') as mock_sleep:
+    ...     mock_socket_se = (None, 'f', None, 'x', None)
+    ...     mock_sleep.side_effect =  (None, None, RuntimeError('STOP ITERATION FOR TESTING'))
+    ...     with patch('socket.socket') as mock_socket:
+    ...         mock_socket().__enter__().recv.side_effect = mock_socket_se
+    ...         try:
+    ...             loops_sock_continue()
+    ...         except RuntimeError:
+    ...             pass
+    received f
+    received x
     """
-    num = 0
-    while num <= 10:
-        num += 1
-        if num % 2:
-            continue
-        print(num)
+    from time import sleep
+    import socket
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.connect(('127.0.0.1', 12345)) # host, port
+        sock.setblocking(False)
+        while True:
+            try:
+                data = sock.recv(1) # unordinarily small receive size for demonstration purposes
+            except TimeoutError:
+                pass
+            if data:
+                print(f'received {data}')
+                continue
+            sleep(0.5)
 
 
 # names of functions to be exported as codeblocks
@@ -306,7 +331,7 @@ CODEBLOCK_NAMES = (
     'loops_scream',
     'loops_input_to_break',
     'loops_2_var_counter',
-    'loops_weird_continue',
+    'loops_sock_continue',
     )
 
 locals_proxy = locals()

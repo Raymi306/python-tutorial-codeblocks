@@ -1,4 +1,4 @@
-[home]({{int_home}}) [next]({{int_running_code}})>>
+[index]({{int_index}}) [next]({{int_running_code}})>>
 # Installation
 ## Windows | [link to download page]({{ext_python_dl_page}})
 Find the download link for the latest stable version of Python, and download it.

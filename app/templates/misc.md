@@ -1,4 +1,4 @@
-[home]({{int_home}})
+[index]({{int_index}})
 
 [TOC]
 

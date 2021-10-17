@@ -1,4 +1,4 @@
-<<[prev]({{int_running_code}}) [home]({{int_home}})
+<<[prev]({{int_running_code}}) [index]({{int_index}})
 
 [TOC]
 
@@ -183,14 +183,8 @@ Can you guess what you have to do to exit this program once it begins running? N
 Sometimes in a loop, we want to skip to the next iteration if a condition is met. We can achieve this effect with the `continue` keyword.
 
 ```py
-# TODO is this example too contrived..?
-{{loops_weird_continue}} 
-# Output:
-# 2
-# 4
-# 6
-# 8
-# 10
+{{loops_sock_continue}} 
 ```
 
-Here, we also introduce the modulus operator '%'. This operator returns the remainder of a division.
+This program checks to see if there is any data to consume, if there is, it will consume ALL data. However, if there is no data left, we sleep.
+In this program, we also introduce importing modules from python's standard library. If you are on a linux platform and would like to play with this example, first, run `nc -l 12345`, then, run this program. Finally, enter data into nc's stdin. When you hit enter, this program will print your input out one byte at a time.

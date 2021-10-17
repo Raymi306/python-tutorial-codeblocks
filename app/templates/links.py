@@ -4,9 +4,10 @@ from app import config
 BASE_URL = config['TUTORIAL_BASE_URL']
 
 links = {
+        'ext_github_repo': 'https://github.com/Raymi306/python-tutorial',
         'ext_python_dl_page': 'https://www.python.org/downloads/windows/',
-        'int_home_home': config['HOMEPAGE_URL'],
-        'int_home': f'{BASE_URL}/index.html',
+        'int_home': config['HOMEPAGE_URL'],
+        'int_index': f'{BASE_URL}/index.html',
         'int_misc': f'{BASE_URL}/misc.html',
         'int_misc_paths': f'{BASE_URL}/misc.html#path-variables',
         'int_misc_shells': f'{BASE_URL}/misc.html#command-prompts-shells-terminals',

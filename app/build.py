@@ -36,8 +36,7 @@ def build():
     """
     Perform all of the actions necessary to output the python tutorial webpages
     """
-    length = len(sys.argv)
-    arg = None if not length > 1 else sys.argv[1]
+    arg = None if not len(sys.argv) > 1 else sys.argv[1]
     if arg != 'dev':
         test_codeblocks()
         test_links()
@@ -45,7 +44,7 @@ def build():
             loader=PackageLoader('app'),
             autoescape=False,
             )
-    variables = {**codeblocks.codeblocks, **links}
+    context = {**codeblocks.codeblocks, **links}
     py_md_extensions = (
             'fenced_code',
             'codehilite',
@@ -55,7 +54,7 @@ def build():
     for name in TEMPLATES:
         template = env.get_template(name)
         html = markdown(
-                template.render(variables),
+                template.render(context),
                 extensions=py_md_extensions
                 )
         final_render = base_html_template.render({'body_content': html})
