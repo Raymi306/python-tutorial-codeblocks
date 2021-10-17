@@ -40,6 +40,8 @@ def build():
     if arg != 'dev':
         test_codeblocks()
         test_links()
+    if arg == 'test':
+        sys.exit(0)
     env = Environment(
             loader=PackageLoader('app'),
             autoescape=False,
