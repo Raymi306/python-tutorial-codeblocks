@@ -15,20 +15,22 @@ It can be used in the following way:
 {{hello_world}}
 ```
 
-Here, the spelling of print, parentheses after print, and quotation marks around 'Hello world' are all important for this code to work.
-The content inside of the quotation marks, and whether they are single or double quotes, generally do not matter so long as the start and end quotation types match.
+Here, the spelling of print, parentheses after print, and quotation marks around 'Hello world' are all necessary for this code to work.
+The content inside of the quotation marks does not matter. Python also allows you to use single or double quotes, so long as the opening and closing quotation mark match.
 
 
-In Python, there are key words with special meaning.
-They are case sensitive and only have one correct spelling.
-`print` is special as it is a built-in function, a tool provided in the language to perform a certain task.
-In this case, printing text for the user of the program to read.
-The parentheses are necessary any time we want to call a function, or invoke its action.
+In Python, key words and built-in functions are case sensitive and only have one correct spelling.
+`print` is an example of a built-in function, a tool provided in the language to perform a certain task; namely, printing text for the user of the program to read.
+Computers are incredibly literal machines, `Print` or `prnt` are meaningless at the beginning of a python program.
+
+
+The parentheses are necessary any time we want to call a function or invoke its action.
+
 The quotation marks around 'Hello world' tell Python that 'Hello world' is text data, rather than a label with special meaning.
 We refer to the type of data for representing text 'Strings' in programming, sometimes abbreviated as `str`.
 When you try running this code, experiment with removing the quotation marks and other pieces of the code to see how Python tries to tell us what we're doing wrong. 
 'syntax error' may be a little vague to us right now, but getting comfortable with common errors will make it easier to know where to look for help and what to do next time.
-Overall, though, Python makes the classic 'Hello world' programming tutorial very simple indeed!
+Overall, Python makes the classic 'Hello world' programming tutorial very simple indeed!
 
 ---
 ## <built-in function input\>
