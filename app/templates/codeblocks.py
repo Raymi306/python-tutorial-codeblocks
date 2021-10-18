@@ -418,6 +418,7 @@ CODEBLOCK_NAMES = (
     'loops_2_var_counter',
     'loops_simple_continue',
     'futures_sock_continue',
+    'loops_for_in',
     )
 
 locals_proxy = locals()
