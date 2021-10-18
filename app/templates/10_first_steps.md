@@ -25,7 +25,7 @@ They are case sensitive and only have one correct spelling.
 In this case, printing text for the user of the program to read.
 The parentheses are necessary any time we want to call a function, or invoke its action.
 The quotation marks around 'Hello world' tell Python that 'Hello world' is text data, rather than a label with special meaning.
-We refer to the type of data for representing text Strings in programming, sometimes abbreviated as `str`.
+We refer to the type of data for representing text 'Strings' in programming, sometimes abbreviated as `str`.
 When you try running this code, experiment with removing the quotation marks and other pieces of the code to see how Python tries to tell us what we're doing wrong. 
 'syntax error' may be a little vague to us right now, but getting comfortable with common errors will make it easier to know where to look for help and what to do next time.
 Overall, though, Python makes the classic 'Hello world' programming tutorial very simple indeed!
