@@ -115,13 +115,30 @@ print(...)
     flush: whether to forcibly flush the stream.
 ```
 
-So far, we have just been passing one value into the print function, specifically, strings. The information that you pass into a function is referred to as **arguments** or **parameters**. Print has several more useful abilities beyond printing strings; It can print useful information for any Python object, and can even accept multiple objects, separated by comments.  This ability to take multiple arguments is denoted by the '...' in the 2nd line of the help. The other arguments are keyword arguments, they can be specified by name as follows: `print('Hello world, with no line ending!', end='')` *('\n' is a way of indicating a new line)*. When using keyword arguments by name, make sure to put them after the positional arguments that do not have a name specified. If you forget, Python will remind you with an error!
+So far, we have just been passing one value into the print function, specifically, strings.
+The information that you pass into a function is referred to as **arguments** or **parameters**.
+Print has several more useful abilities beyond printing strings; It can print useful information for any Python object, and can even accept multiple objects, separated by comments.
+This ability to take multiple arguments is denoted by the '...' in the 2nd line of the help.
+The other arguments are keyword arguments, they can be specified by name as follows: `print('Hello world, with no line ending!', end='')` *('\n' is a way of indicating a new line)*.
+When using keyword arguments by name, make sure to put them after the positional arguments that do not have a name specified.
+If you forget, Python will remind you with an error!
 
-Feel free to read the help for `input` as well! It is ok if you don't understand everything the documentation is referring to, perhaps with the print function you have no concept of why forcibly flushing a stream is important, or what a stream even is. However, this still gives you a great starting point, and helps you to know what question to ask next in your learning journey.
+Feel free to read the help for `input` as well!
+It is ok if you don't understand everything the documentation is referring to, perhaps with the print function you have no concept of why forcibly flushing a stream is important, or what a stream even is.
+However, this still gives you a great starting point, and helps you to know what question to ask next in your learning journey.
 
-Not all of the help entries are as short as `print` and `input`. Some of them will require scrolling, and present a lot of information that you might want to search through. You can scroll using the up and down arrow keys, or `j` and `k` keys. To search for a term, press `/`, type your search query, and hit enter. To jump between matches, use `n` and `N` to go forwards and backwards respectively. When you are ready to leave, hit `q`
+Not all of the help entries are as short as `print` and `input`.
+Some of them will require scrolling, and present a lot of information that you might want to search through.
+You can scroll using the up and down arrow keys, or `j` and `k` keys.
+To search for a term, press `/`, type your search query, and hit enter.
+To jump between matches, use `n` and `N` to go forwards and backwards respectively.
+When you are ready to leave, hit `q`
 
-You can also ask for help on other things, when inside interactive help, try typing one of: `modules, keywords, symbols, topics`. Then, try entering one of the entries within into the help. Many of the topics go quite in depth, and should match the official documentation online for your version of Python. You can also get help outside of interactive help mode by using help as a function, and passing either a string with what you need help on (as listed in modules, keywords, etc), or a python object. I believe `help` to be an underutilized and underappreciated feature of Python that can help programmers of any skill level.
+You can also ask for help on other things, when inside interactive help, try typing one of: `modules, keywords, symbols, topics`.
+Then, try entering one of the entries within into the help.
+Many of the topics go quite in depth, and should match the official documentation online for your version of Python.
+You can also get help outside of interactive help mode by using help as a function, and passing either a string with what you need help on (as listed in modules, keywords, etc), or a python object.
+I believe `help` to be an underutilized and underappreciated feature of Python that can help programmers of any skill level.
 
 # Conditions and Branching
 Reacting the same way to every possible input is boring. Let's take a different action, depending on what the user types
@@ -177,15 +194,20 @@ Lets first examine the `while` loop:
 {{loops_scream}}
 ```
 
-This code will cause your computer to print 'hello...' forever. Feel free to run it, you can stop the code from executing by sending a 'keyboard interrupt', by pressing `Ctrl + c`.
+This code will cause your computer to print 'hello...' forever.
+Feel free to run it, you can stop the code from executing by sending a 'keyboard interrupt', by pressing `Ctrl + c`.
 
-The infinite loop can be a valuable tool for programs that you want to run until the user wishes to perform some action to close out of it. Let's combine a while loop with some earlier knowledge, and demonstrate how to exit a loop with the `break` keyword:
+The infinite loop can be a valuable tool for programs that you want to run until the user wishes to perform some action to close out of it.
+Let's combine a while loop with some earlier knowledge, and demonstrate how to exit a loop with the `break` keyword:
 
 ```py
 {{loops_input_to_break}}
 ```
 
-This program will continually prompt the user for input, and print it back out to them. Unless, that is, the user enters 'q'. Then, when code execution reaches the 'break' statement, code execution will exit the loop. Since that is the end of this code sample, the program ends.
+This program will continually prompt the user for input, and print it back out to them.
+Unless, that is, the user enters 'q'.
+Then, when code execution reaches the 'break' statement, code execution will exit the loop.
+Since that is the end of this code sample, the program ends.
 
 
 ```py
