@@ -1,6 +1,6 @@
 """Exports doctested, minimal codeblocks for templating"""
 import inspect
-from unittest.mock import patch, Mock, MagicMock
+from unittest.mock import patch
 
 
 def normalize_indentation(line, set_level, level):
@@ -176,6 +176,14 @@ def futures_try_int_input(mocked_input_ret):
     with patch('builtins.input') as input:
         input.return_value = mocked_input_ret
         # START
+
+        # preview of the future
+        # if we begin a line with a '#', Python will ignore it
+        # these lines are called comments
+        # they can be useful for documenting important things in your code
+        # leaving notes for yourself and others can be very important as you write more code
+        # its not uncommon to return to code after just a week away and have no idea where you left off or why...
+
         my_number_as_string = input()
         try:
             my_number = int(my_number_as_string)
@@ -221,13 +229,42 @@ def conditions_indent():
         print('You\'ll see this get printed too!')
 # pylint: enable=using-constant-test
 
+def conditions_boolean_logic():
+    """
+    >>> conditions_boolean_logic()
+    One is Foo!
+    Same length OR combined length longer than ten!
+    """
+
+    # Experimenting with conditional logic can be more convenient in the interpreter
+    var_1 = 'Foo'
+    var_2 = 'Bar'
+
+    if var_1 == 'Foo' and var_2 == 'Foo':
+        print('All Foo!')
+
+    if var_1 == 'Foo' or var_2 == 'Foo':
+        print('One is Foo!')
+        
+    if not var_1 or not var_2:
+        print('One is falsey!')
+
+    length_var_1 = len(var_1)
+    length_var_2 = len(var_2)
+
+    if length_var_1 == length_var_2 and length_var_1 + length_var_2 > 10:
+        print('Same length AND combined length longer than ten!')
+
+    if length_var_1 == length_var_2 or length_var_1 + length_var_2 > 10:
+        print('Same length OR combined length longer than ten!')
+
 
 def loops_scream():
     """
     NO TEST
     """
     while True:
-        print('hewwo???')
+        print('hello...', end='')
 
 
 def loops_input_to_break(mocked_input_se):
@@ -272,9 +309,30 @@ def loops_2_var_counter(mocked_input_se):
             print('Loopedy loop...')
         # END
 
-
-def loops_sock_continue():
+def loops_simple_continue():
     """
+    Skip iteration 3 and 7
+    >>> loops_simple_continue()
+    1
+    2
+    4
+    5
+    6
+    8
+    9
+    10
+    """
+    i = 0
+    while i < 10:
+        i += 1
+        if i in {3, 7}:
+            continue
+        print(i)
+
+# pylint: disable=import-outside-toplevel
+def futures_sock_continue():
+    """
+    An alternate continue example, with working networking code
     Can play with this by using netcat: nc -l 12345, run program, type into nc stdin
     >>> with patch('time.sleep') as mock_sleep:
     ...     mock_socket_se = ('h', 'i', None)
@@ -282,7 +340,7 @@ def loops_sock_continue():
     ...     with patch('socket.socket') as mock_socket:
     ...         mock_socket().__enter__().recv.side_effect = mock_socket_se
     ...         try:
-    ...             loops_sock_continue()
+    ...             futures_sock_continue()
     ...         except RuntimeError:
     ...             pass
     received h
@@ -293,7 +351,7 @@ def loops_sock_continue():
     ...     with patch('socket.socket') as mock_socket:
     ...         mock_socket().__enter__().recv.side_effect = mock_socket_se
     ...         try:
-    ...             loops_sock_continue()
+    ...             futures_sock_continue()
     ...         except RuntimeError:
     ...             pass
     received f
@@ -313,6 +371,32 @@ def loops_sock_continue():
                 print(f'received {data}')
                 continue
             sleep(0.5)
+# pylint: enable=import-outside-toplevel
+
+def loops_for_in():
+    """
+    >>> loops_for_in()
+    3
+    foo
+    bar
+    baz
+    ['foo', 'bar']
+    ['bar', 'baz']
+    for loop:
+    foo
+    bar
+    baz
+    """
+    our_list = ['foo', 'bar', 'baz']
+    print(len(our_list))
+    print(our_list[0])
+    print(our_list[1])
+    print(our_list[-1])
+    print(our_list[:2])
+    print(our_list[1:])
+    print('for loop:')
+    for item in our_list:
+        print(item)
 
 
 # names of functions to be exported as codeblocks
@@ -328,10 +412,12 @@ CODEBLOCK_NAMES = (
     'futures_try_int_input',
     'conditions_names',
     'conditions_indent',
+    'conditions_boolean_logic',
     'loops_scream',
     'loops_input_to_break',
     'loops_2_var_counter',
-    'loops_sock_continue',
+    'loops_simple_continue',
+    'futures_sock_continue',
     )
 
 locals_proxy = locals()
