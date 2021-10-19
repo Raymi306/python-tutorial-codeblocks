@@ -16,7 +16,7 @@ It can be used in the following way:
 ```
 
 Here, the spelling of print, parentheses after print, and quotation marks around 'Hello world' are all necessary for this code to work.
-The content inside of the quotation marks does not matter. Python also allows you to use single or double quotes, so long as the opening and closing quotation mark match.
+The content inside of the quotation marks does not matter. Python also allows you to use single or double quotes, so long as the opening and closing quotation marks match.
 
 In Python, key words and built-in functions are case sensitive and only have one correct spelling.
 `print` is an example of a built-in function, a tool provided in the language to perform a certain task; namely, printing text for the user of the program to read.
@@ -117,8 +117,8 @@ print(...)
 
 So far, we have just been passing one value into the print function, specifically, strings.
 The information that you pass into a function is referred to as **arguments** or **parameters**.
-Print has several more useful abilities beyond printing strings; It can print useful information for any Python object, and can even accept multiple objects, separated by comments.
-This ability to take multiple arguments is denoted by the '...' in the 2nd line of the help.
+Print has several more useful abilities beyond printing strings; It can print useful information for any Python object, and can even accept multiple objects, separated by commas.
+This ability to take multiple arguments is denoted by the '...' in the 2nd line of the above example.
 The other arguments are keyword arguments, they can be specified by name as follows: `print('Hello world, with no line ending!', end='')` *('\n' is a way of indicating a new line)*.
 When using keyword arguments by name, make sure to put them after the positional arguments that do not have a name specified.
 If you forget, Python will remind you with an error!
@@ -150,7 +150,7 @@ Reacting the same way to every possible input is boring. Let's take a different 
 Several things are going on here. 
 We are using some fancy new keywords, if, elif (pythonese for else if), and else.
 
-after our `if` keyword, we put a conditional statement.
+After our `if` keyword, we put a conditional statement.
 We're interested to know whether or not something is true. In this case, we are doing a comparison using '=='.
 Note that when we want to check for equality, we use TWO equal signs. One equal sign is for assigning variables!
 So, if the user puts their name as 'max', we take a special action, and print out 'weeb'. If it isn't max, we check to see if it is 'jax'.
@@ -179,7 +179,7 @@ Parentheses are used to have part of a statement evaluate as a group, similar to
 Using `and` to combine two statements means that the full condition will evaluate as true if and only if both sides are true.
 `or` evaluates as true if either side is true, or if both are true.
 You can negate a condition with `not` to test for the inverse of a condition.
-If you want to check for a condition that is False, negating the condition would give you `True` and thus would let the branch to evaluate.
+If you want to check for a condition that is False, negating the condition would give you `True` and thus would let the branch evaluate.
 Finally, if you wish to check that two items are not equal, you can use `!=`.
 
 # Repetition, Looping
