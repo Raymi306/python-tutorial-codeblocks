@@ -26,8 +26,8 @@ You can hit enter again to finish the multiline statement.
 Write the python code using a [text editor]({{int_misc_text_editors}}) or interactive developer environment (IDE) of your choice.
 
 When ready to run the code, make sure to save it.
-From your operating system's command prompt, call the python executable and pass the [path to your file]({{misc_file_paths}}) as the argument.
+From your operating system's command prompt, run the code by typing in the name of the python program followed by the [path to your code file]({{int_misc_file_paths}})
 ```sh
 python3 helloworld.py
 ```
-It will run your file to completion.
+It will interpret your file as code and run it from start to finish.
