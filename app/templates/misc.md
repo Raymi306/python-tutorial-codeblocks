@@ -19,6 +19,16 @@ If you have already installed Python, you should also see a directory containing
 ---
 ## File paths
 ---
+Files have a location within the filesystem of your computer.
+The file path indicates how to reach any given file.
+### Windows
+An example file path on Windows is `C:\Users\user\project\my_code.py`.
+A historical artifact of Windows is that filepaths start with a drive name, most commonly 'C'.
+### Linux
+An example file path on Linux is `/home/user/project/my_code.py`.
+On Linux, the root of the filesystem is represented by a `/`.
+From there, an absolute path to all common file locations can be made by specifiying every directory leading to the file.
+### File paths in Python
 STUB
 
 ---

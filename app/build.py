@@ -4,7 +4,7 @@ import doctest
 from pathlib import Path
 import sys
 
-from jinja2 import Environment, PackageLoader
+from jinja2 import Environment, PackageLoader, meta, DebugUndefined
 from markdown import markdown
 
 from app import config
@@ -32,6 +32,15 @@ def test_links():
             print(fail.url, fail.status)
 
 
+def test_unresolved_variables(env, context):
+    for template in TEMPLATES:
+        ast = env.parse(env.get_template(template).render())
+        vars_in_template = meta.find_undeclared_variables(ast)
+        if mismatch := vars_in_template.difference(set(context.keys())):
+            print(f'No matching variable found in {template}:')
+            print(mismatch)
+
+
 def build():
     """
     Perform all of the actions necessary to output the python tutorial webpages
@@ -40,11 +49,15 @@ def build():
     if arg != 'dev':
         test_codeblocks()
         test_links()
+    if arg == 'test':
+        sys.exit(0)
     env = Environment(
             loader=PackageLoader('app'),
             autoescape=False,
+            undefined=DebugUndefined,
             )
     context = {**codeblocks.codeblocks, **links}
+    test_unresolved_variables(env, context)
     py_md_extensions = (
             'fenced_code',
             'codehilite',
