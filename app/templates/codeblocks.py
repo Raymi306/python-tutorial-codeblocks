@@ -245,7 +245,7 @@ def conditions_boolean_logic():
 
     if var_1 == 'Foo' or var_2 == 'Foo':
         print('One is Foo!')
-        
+
     if not var_1 or not var_2:
         print('One is falsey!')
 

@@ -33,6 +33,7 @@ def test_links():
 
 
 def test_unresolved_variables(env, context):
+    """Make sure all variables in the template have a match in context"""
     for template in TEMPLATES:
         ast = env.parse(env.get_template(template).render())
         vars_in_template = meta.find_undeclared_variables(ast)
