@@ -1,5 +1,6 @@
 wheel
 setuptools
+pylint
 Jinja2
 markdown
 pygments
