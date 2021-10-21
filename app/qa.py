@@ -1,10 +1,11 @@
 """Testers and test helpers for QA of tutorial"""
 from abc import ABC
-import aiohttp
 import asyncio
 from dataclasses import dataclass, field
 import doctest
 import sys
+
+import aiohttp
 
 
 class BuildTestFailure(BaseException):
