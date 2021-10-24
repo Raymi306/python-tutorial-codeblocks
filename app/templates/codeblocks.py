@@ -229,6 +229,7 @@ def conditions_indent():
         print('You\'ll see this get printed too!')
 # pylint: enable=using-constant-test
 
+
 def conditions_boolean_logic():
     """
     >>> conditions_boolean_logic()
@@ -305,9 +306,10 @@ def loops_2_var_counter(mocked_input_se):
         while counter < target:
             val = input(f'You have typed \'q\' {counter} times. Type \'q\' and press enter {target - counter} times to exit.\n')
             if val == 'q':
-                counter += 1 # equivalent to `counter = counter + 1`
+                counter += 1  # equivalent to `counter = counter + 1`
             print('Loopedy loop...')
         # END
+
 
 def loops_simple_continue():
     """
@@ -329,6 +331,7 @@ def loops_simple_continue():
             continue
         print(i)
 
+
 # pylint: disable=import-outside-toplevel
 def futures_sock_continue():
     """
@@ -336,7 +339,7 @@ def futures_sock_continue():
     Can play with this by using netcat: nc -l 12345, run program, type into nc stdin
     >>> with patch('time.sleep') as mock_sleep:
     ...     mock_socket_se = ('h', 'i', None)
-    ...     mock_sleep.side_effect =  RuntimeError('STOP ITERATION FOR TESTING')
+    ...     mock_sleep.side_effect = RuntimeError('STOP ITERATION FOR TESTING')
     ...     with patch('socket.socket') as mock_socket:
     ...         mock_socket().__enter__().recv.side_effect = mock_socket_se
     ...         try:
@@ -347,7 +350,7 @@ def futures_sock_continue():
     received i
     >>> with patch('time.sleep') as mock_sleep:
     ...     mock_socket_se = (None, 'f', None, 'x', None)
-    ...     mock_sleep.side_effect =  (None, None, RuntimeError('STOP ITERATION FOR TESTING'))
+    ...     mock_sleep.side_effect = (None, None, RuntimeError('STOP ITERATION FOR TESTING'))
     ...     with patch('socket.socket') as mock_socket:
     ...         mock_socket().__enter__().recv.side_effect = mock_socket_se
     ...         try:
@@ -359,12 +362,13 @@ def futures_sock_continue():
     """
     from time import sleep
     import socket
+
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
-        sock.connect(('127.0.0.1', 12345)) # host, port
+        sock.connect(('127.0.0.1', 12345))  # host, port
         sock.setblocking(False)
         while True:
             try:
-                data = sock.recv(1) # unordinarily small receive size for demonstration purposes
+                data = sock.recv(1)  # unordinarily small receive size for demonstration purposes
             except TimeoutError:
                 pass
             if data:
@@ -373,20 +377,30 @@ def futures_sock_continue():
             sleep(0.5)
 # pylint: enable=import-outside-toplevel
 
-def loops_for_in():
+
+def collections_item_access():
     """
-    >>> loops_for_in()
+    >>> collections_item_access()
     3
     foo
     bar
     baz
     ['foo', 'bar']
     ['bar', 'baz']
-    for loop:
     foo
     bar
     baz
+    2
+    value
+    42
+    key
+    13
+    value
+    42
+    key value
+    13 42
     """
+    # lists
     our_list = ['foo', 'bar', 'baz']
     print(len(our_list))
     print(our_list[0])
@@ -394,9 +408,91 @@ def loops_for_in():
     print(our_list[-1])
     print(our_list[:2])
     print(our_list[1:])
-    print('for loop:')
     for item in our_list:
         print(item)
+    # dictionaries
+    our_dict = {'key': 'value', 13: 42}
+    print(len(our_dict))
+    print(our_dict['key'])
+    print(our_dict[13])
+    for key in our_dict:
+        print(key)
+    for value in our_dict.values():
+        print(value)
+    for key, value in our_dict.items():
+        print(key, value)
+
+
+def collections_instantiations():
+    """
+    >>> collections_instantiations()
+    [1, 2, 3, 4] (1, 2, 3) (1,)
+    {1, 2} {'key': 'value', 1: 2}
+    ['lorem ipsum', 123456, 'foo bar baz', 7890]
+    """
+    my_list = [1, 2, 3, 4]
+    my_tuple = (1, 2, 3)
+    my_tuple_single_item = (1,)
+    my_dictionary = {'key': 'value', 1: 2}
+    my_set = {1, 2}
+    my_big_list = [
+            'lorem ipsum',
+            123456,
+            'foo bar baz',
+            7890
+            ]
+    print(my_list, my_tuple, my_tuple_single_item)
+    print(my_set, my_dictionary)
+    print(my_big_list)
+
+
+def functions_define():
+    """
+    >>> functions_define()
+    30
+    9
+    1
+    1
+    2
+    3
+    5
+    8
+    13
+    """
+    def add_2(num_1, num_2):
+        return num_1 + num_2
+
+    def print_collection(collection):
+        for item in collection:
+            print(item)
+
+    value_1 = 10
+    value_2 = 20
+    print(add_2(value_1, value_2))
+    print(add_2(3, 6))
+    list_1 = [1, 1, 2, 3, 5, 8, 13]
+    print_collection(list_1)
+
+
+def functions_splat():
+    """
+    >>> functions_splat()
+    Both methods agree; sum of 1, 2, 3, 4 is 10
+    """
+    def sum_4_long_signature(num_1, num_2, num_3, num_4):
+        return num_1 + num_2 + num_3 + num_4
+
+    def sum_many(list_nums):
+        accumulator = 0
+        for num in list_nums:
+            accumulator += num
+        return accumulator
+
+    my_list = [1, 2, 3, 4]
+    result_1 = sum_4_long_signature(*my_list)
+    result_2 = sum_many(my_list)
+    if result_1 == result_2:
+        print(f'Both methods agree; sum of 1, 2, 3, 4 is {result_1}')
 
 
 # names of functions to be exported as codeblocks
@@ -418,7 +514,10 @@ CODEBLOCK_NAMES = (
     'loops_2_var_counter',
     'loops_simple_continue',
     'futures_sock_continue',
-    'loops_for_in',
+    'collections_item_access',
+    'collections_instantiations',
+    'functions_define',
+    'functions_splat',
     )
 
 locals_proxy = locals()
