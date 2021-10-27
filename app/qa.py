@@ -43,7 +43,7 @@ class BuildTest(ABC):
 
         if test_result:  # only take action on failures
             throw = False
-            cli_args = [sys.argv[1:]]
+            cli_args = sys.argv[1:]
             if 'dev' in cli_args:
                 if self.name:
                     print(f'{self.name}:')
