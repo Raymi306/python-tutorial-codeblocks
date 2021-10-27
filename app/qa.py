@@ -1,5 +1,5 @@
 """Testers and test helpers for QA of tutorial"""
-from abc import ABC
+from abc import ABC, abstractmethod
 import asyncio
 from dataclasses import dataclass, field
 import doctest
@@ -29,6 +29,7 @@ class BuildTest(ABC):
         """If a name is provided, use it for more descriptive output"""
         return ''
 
+    @abstractmethod
     def _test(self):
         """
         Children implement me
