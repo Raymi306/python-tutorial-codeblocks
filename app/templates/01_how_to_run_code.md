@@ -1,4 +1,4 @@
-<<[prev]({{int_installation}}) [index]({{int_index}}) [next]({{int_first_steps}})>>
+<<[prev]({{int_installation}}) [index]({{int_index}}) [next]({{int_programming_overview}})>>
 # How to run code
 ## Using the Interpreter
 ### On Windows:

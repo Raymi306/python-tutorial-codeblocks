@@ -15,5 +15,6 @@ links = {
         'int_misc_file_paths': f'{BASE_URL}/misc.html#file-paths',
         'int_installation': f'{BASE_URL}/00_installation.html',
         'int_running_code': f'{BASE_URL}/01_how_to_run_code.html',
+        'int_programming_overview': f'{BASE_URL}/02_programming_overview.html',
         'int_first_steps': f'{BASE_URL}/10_first_steps.html',
         }
