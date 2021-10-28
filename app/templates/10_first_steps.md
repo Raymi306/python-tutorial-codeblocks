@@ -224,19 +224,56 @@ Sometimes in a loop, we want to skip to the next iteration if a condition is met
 ```
 
 This program prints out the number of each iteration, except for the cases where the iteration is equal to 3 or 7.
+We also have a different approach for a conditional that wishes to check equality against several items.
+In this case, we ask if the number is within a set of other numbers.
 
+# Collections
+## Creating collections
 ```py
-{{futures_sock_continue}} 
+{{collections_instantiations}}
 ```
-
-This program uses several concepts we will cover in detail later; namely importing modules and context managers.
-It checks to see if there is any data to consume, if there is, it will consume ALL data as quickly as possible.
-However, if there is no data left, it sleeps, pausing and doing nothing.
-If you are on a Linux platform and would like to play with this example, first, run `nc -l 12345`, then, run this program.
-Finally, enter data into nc's stdin. When you hit enter, this program will print your input out one byte at a time.
-
+## Accessing items
 ```py
-{{loops_for_in}}
+{{collections_item_access}}
 ```
+Up until now, we've mostly dealt with individual items.
+Python has several ways to organize and interact with multiple items.
+The simplest conceptually is the list.
+You can access items in a list by index, or by slice, which returns a sublist.
+Remember that to get an item at the BEGINNING of the list, you use 0 as the index.
+To access the last item in a list, you can either use the length of the list - 1 or simply -1 as the index.
+A dictionary is a mapping between keys and values.
+It is indexed by a key, and this gives the associated value.
+Sets are incredibly useful when it comes to checking if something exists or not in a collection, or the difference between two collections.
+Tuples are similar to lists, but they are immutable.
+You cannot add or remove items from a tuple once it is created.
+All of these collections have helper functions for performing common tasks.
+Try calling
+```py
+help(list)
+help(dict)
+help(tuple)
+help(set)
+help(str)
+```
+to learn about the many options these collections provide.
+Strings can also be indexed and iterated over in a manner similar to a tuple or list, allowing you to access individual characters.
+Strings, like tuples, are immutable.
+Here, we also catch a glimpse of for loops. This syntax allows us to conveniently loop through each item in a collection.
+# Functions
+Last but not least on our whirlwind tour is an explanation of functions.
+```py
+{{functions_define}}
+```
+The magic of functions lies in structuring our code.
+We can write code inside of a function, and then reuse it anywhere we please in that same file (or others, if we import it)
+We have used functions throughout this introductory tutorial, now, we will learn how to create our own.
+The first line of a function is its signature. Here, we give the function a name, and inside the parentheses, indicate what data can be passed in to the function.
+The lines after the first, indented at least one level from the definition, constitute the body of a function.
+The body of a function is any code that you desire.
+One optional part of a function is return statements.
+In a similar way to how input returned a string, and int returned an integer, we can return data from inside our function to use elsewhere.
+Once a return statement is hit, the function exits with the value given in the statement.
+Functions are a powerful tool, and they can even call themselves, a concept called recursion.
 
-TODO: Explain list collection and for loops vs while loops, check if item `in` collection
+<<[prev]({{int_running_code}}) [index]({{int_index}})
