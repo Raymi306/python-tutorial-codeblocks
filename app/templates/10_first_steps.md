@@ -257,8 +257,9 @@ help(set)
 help(str)
 ```
 to learn about the many options these collections provide.
-As one final side note, strings can also be indexed and iterated over in a manner similar to a tuple or list, allowing you to access individual characters.
+Strings can also be indexed and iterated over in a manner similar to a tuple or list, allowing you to access individual characters.
 Strings, like tuples, are immutable.
+Here, we also catch a glimpse of for loops. This syntax allows us to conveniently loop through each item in a collection.
 # Functions
 Last but not least on our whirlwind tour is an explanation of functions.
 ```py
