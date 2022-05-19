@@ -48,20 +48,24 @@ there are a variety of options for terminal and shell use, all should be fine fo
 ---
 Some folks haven't done text editing outside of MS Word and might not immediately be aware of their options for non-styled text editing.
 Below is a non-exhaustive list of some choices
-Non-exhaustive
-### Windows
-- Notepad
-- IDLE
+- IDLE *this is included with some Python downloads, making it a solid beginning choice*
 - Notepad++
 - Sublime
 - Atom
 - Visual Studio Code
 - PyCharm
 - Visual Studio
-- VIM
+- Notepad
 ### Linux Terminal Editors
 - nano
 - vi/vim/nvim
 - emacs
 
-Note that smarter text editors and IDEs will have niceties such as autoindentation and the ability to run helpful tools to develop more efficiently. They will likely even have the option to run terminal commands without leaving the editor
+Smarter text editors and IDEs will have niceties such as autoindentation and the ability to run helpful tools to develop more efficiently.
+
+---
+## Windows File Extension Woes
+---
+On Windows, sometimes you want to change a files extension, for instance from .txt to .py.
+The default settings make this hard to do.
+To change this, you need to have the file explorer open. From there, go to options -> view -> advanced -> and uncheck 'Hide extensions for known file types'.

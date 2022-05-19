@@ -3,11 +3,13 @@
 ## Using the Interpreter
 ### On Windows:
 - open up the [command line]({{int_misc_shells}})
-- type `python` and hit enter
+- depending on the version installed, type `python` or `py` and hit enter
+- to exit, type quit(), and hit enter
 
 ### On Linux:
 - open up a terminal
 - type `python3` and hit enter
+- to exit, type quit(), and hit enter. You can also use Ctrl+D
 
 Output will likely be similar to this:
 
@@ -25,7 +27,7 @@ You can hit enter again to finish the multiline statement.
 ## Running Code from a File
 Write the python code using a [text editor]({{int_misc_text_editors}}) or interactive developer environment (IDE) of your choice.
 
-When ready to run the code, make sure to save it.
+When ready to run the code, make sure to save it, remembering the name that you choose to give your file.
 From your operating system's command prompt, run the code by typing in the name of the python program followed by the [path to your code file]({{int_misc_file_paths}})
 ```sh
 python3 helloworld.py
