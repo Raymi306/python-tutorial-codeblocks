@@ -1,4 +1,5 @@
 """Module for building and build-time QA of the python tutorial website"""
+from os import makedirs
 from pathlib import Path
 import sys
 
@@ -29,6 +30,7 @@ def render_templates(env, ctx):
     Render templates in correct order to produce a final render
     """
     py_md_extensions = (
+            'attr_list',
             'fenced_code',
             'codehilite',
             'toc',
@@ -65,6 +67,7 @@ def build():
             )
     ctx = {**codeblocks, **links}
     run_build_checks(env, ctx)
+    makedirs('dist', exist_ok=True)
     for render, path in render_templates(env, ctx):
         write_render(render, path)
 
