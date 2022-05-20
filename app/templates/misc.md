@@ -58,6 +58,7 @@ Below is a non-exhaustive list of some choices:
 - Visual Studio Code
 - PyCharm
 - Visual Studio
+
 ### Linux Terminal Editors
 - nano
 - vi/vim/nvim
