@@ -495,6 +495,67 @@ def functions_splat():
         print(f'Both methods agree; sum of 1, 2, 3, 4 is {result_1}')
 
 
+# WIP
+# pylint: disable=W,C,R
+def random_numbers():
+    import random
+
+    for i in range(10):
+        print(random.randint(1, 100))
+
+
+def guessing_game():
+    from random import randint
+
+    while input('Play game? y/n: ') == 'y':
+        answer = randint(1, 100)
+        guess = int(input('Guess a number between 1 and 100: ').trim())
+        if guess == answer:
+            print('You win!')
+        else:
+            print('You lose!')
+
+
+def argv():
+    from sys import argv
+    print(argv[0]) # is always the name of the program
+    # the below line will fail if at least 2 arguments aren't passed in to the program
+    # print(argv[1], argv[2])
+    for arg in argv:
+        print(arg)
+
+
+def file_io():
+    with open('my_file.txt', 'r') as f:
+        for line in f:
+            print(line)
+
+    with open('my_file.txt', 'a') as f:
+        f.write('This is the end')
+
+    with open('my_file.txt', 'w') as f:
+        assert f.readline() == ''
+        f.write('This is both the beginning\nand the end')
+
+    with open('my_file.txt', 'r+') as f:
+        f.write('foobarbaz')
+        f.seek(1)
+        print(f.readline())
+
+
+def filesystem():
+    pass
+
+
+def imports():
+    pass
+
+
+def requests():
+    pass
+# pylint: enable=W,C,R
+
+
 # names of functions to be exported as codeblocks
 CODEBLOCK_NAMES = (
     'hello_world',

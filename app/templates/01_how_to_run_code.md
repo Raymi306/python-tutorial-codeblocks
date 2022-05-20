@@ -3,13 +3,13 @@
 ## Using the Interpreter
 ### On Windows:
 - open up the [command line]({{int_misc_shells}})
-- depending on the version installed, type `python` or `py` and hit enter
-- to exit, type quit(), and hit enter
+- depending on the version installed, type `python`{: .smolcode} or `py`{: .smolcode} and hit enter
+- to exit, type `quit()`{: .smolcode}, and hit enter
 
 ### On Linux:
 - open up a terminal
-- type `python3` and hit enter
-- to exit, type quit(), and hit enter. You can also use Ctrl+D
+- type `python3`{: .smolcode} and hit enter
+- to exit, type `quit()`{: .smolcode}, and hit enter. You can also use `Ctrl+D`{: .smolcode}
 
 Output will likely be similar to this:
 

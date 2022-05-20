@@ -1,7 +1,7 @@
 wheel
 setuptools
 pylint
-Jinja2
+jinja2
 markdown
 pygments
 aiohttp[speedups]
