@@ -495,6 +495,8 @@ def functions_splat():
         print(f'Both methods agree; sum of 1, 2, 3, 4 is {result_1}')
 
 
+# WIP
+# pylint: disable=W,C,R
 def random_numbers():
     import random
 
@@ -521,7 +523,7 @@ def argv():
     # print(argv[1], argv[2])
     for arg in argv:
         print(arg)
-        
+
 
 def file_io():
     with open('my_file.txt', 'r') as f:
@@ -551,6 +553,7 @@ def imports():
 
 def requests():
     pass
+# pylint: enable=W,C,R
 
 
 # names of functions to be exported as codeblocks
