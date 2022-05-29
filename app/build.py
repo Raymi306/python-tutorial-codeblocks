@@ -8,7 +8,7 @@ from markdown import markdown
 
 from app import config
 from app.templates import TEMPLATES, BASE_HTML
-from app.templates.codeblocks import codeblocks  # pylint: disable=consider-using-from-import
+from app.templates.codeblocks import codeblocks
 from app.templates.links import links
 from app.qa import LinkTester, CodeblocksTester, UnresolvedTemplateVariablesTester
 

@@ -402,19 +402,19 @@ def collections_item_access():
     """
     # lists
     our_list = ['foo', 'bar', 'baz']
-    print(len(our_list))
-    print(our_list[0])
-    print(our_list[1])
-    print(our_list[-1])
-    print(our_list[:2])
-    print(our_list[1:])
+    print(len(our_list)) # 3
+    print(our_list[0]) # foo
+    print(our_list[1]) # bar
+    print(our_list[-1]) # baz
+    print(our_list[:2]) # foo, bar - beginning to second element
+    print(our_list[1:]) # bar, baz - index 1 to end
     for item in our_list:
         print(item)
     # dictionaries
     our_dict = {'key': 'value', 13: 42}
     print(len(our_dict))
-    print(our_dict['key'])
-    print(our_dict[13])
+    print(our_dict['key']) # 'value'
+    print(our_dict[13]) # 42
     for key in our_dict:
         print(key)
     for value in our_dict.values():
@@ -468,8 +468,8 @@ def functions_define():
 
     value_1 = 10
     value_2 = 20
-    print(add_2(value_1, value_2))
-    print(add_2(3, 6))
+    print(add_2(value_1, value_2)) # 30
+    print(add_2(3, 6)) # 9
     list_1 = [1, 1, 2, 3, 5, 8, 13]
     print_collection(list_1)
 
@@ -489,22 +489,28 @@ def functions_splat():
         return accumulator
 
     my_list = [1, 2, 3, 4]
-    result_1 = sum_4_long_signature(*my_list)
+    result_1 = sum_4_long_signature(*my_list) # splat operator unpacks a list or tuple, double splat (**) unpacks a dictionary
     result_2 = sum_many(my_list)
     if result_1 == result_2:
         print(f'Both methods agree; sum of 1, 2, 3, 4 is {result_1}')
 
 
-# WIP
-# pylint: disable=W,C,R
+# pylint: disable=import-outside-toplevel
 def random_numbers():
+    """
+    not going to test this but I could by seeding the rng
+    """
     import random
 
-    for i in range(10):
+    for _ in range(10):
         print(random.randint(1, 100))
+# pylint: enable=import-outside-toplevel
 
-
+# pylint: disable=import-outside-toplevel
 def guessing_game():
+    """
+    not going to test this but I could by seeding the rng
+    """
     from random import randint
 
     while input('Play game? y/n: ') == 'y':
@@ -514,18 +520,27 @@ def guessing_game():
             print('You win!')
         else:
             print('You lose!')
+# pylint: enable=import-outside-toplevel
 
 
+# pylint: disable=import-outside-toplevel,redefined-outer-name
 def argv():
+    """
+    not gonna test this either
+    """
     from sys import argv
     print(argv[0]) # is always the name of the program
     # the below line will fail if at least 2 arguments aren't passed in to the program
     # print(argv[1], argv[2])
     for arg in argv:
         print(arg)
+# pylint: enable=import-outside-toplevel,redefined-outer-name
 
-
+# WIP
+# pylint: disable=W,C,R
 def file_io():
+    """pass
+    """
     with open('my_file.txt', 'r') as f:
         for line in f:
             print(line)
@@ -579,6 +594,10 @@ CODEBLOCK_NAMES = (
     'collections_instantiations',
     'functions_define',
     'functions_splat',
+    'random_numbers',
+    'guessing_game',
+    'argv',
+    'file_io',
     )
 
 locals_proxy = locals()

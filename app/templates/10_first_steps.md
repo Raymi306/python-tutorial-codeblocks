@@ -1,4 +1,4 @@
-<<[prev]({{int_programming_overview}}) [index]({{int_index}})
+<<[prev]({{int_programming_overview}}) [index]({{int_index}}) [next]({{int_first_projects}})>>
 
 [TOC]
 
@@ -264,6 +264,9 @@ Here, we also catch a glimpse of for loops. This syntax allows us to convenientl
 Last but not least on our whirlwind tour is an explanation of functions.
 ```py
 {{functions_define}}
+```
+```py
+{{functions_splat}}
 ```
 The magic of functions lies in structuring our code.
 We can write code inside of a function, and then reuse it anywhere we please in that same file (or others, if we import it)
