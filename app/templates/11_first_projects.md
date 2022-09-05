@@ -30,9 +30,9 @@ You should have the tools now to make yourself a guessing game now. You may want
 {{guessing_game}}
 ```
 
-## System Arguments
+## Command Line Arguments
 
-You can use system arguments to pass values into a program when it starts.
+You can use command line arguments to pass values into a program when it starts.
 
 This is similar to passing an argument into a function.
 
