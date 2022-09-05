@@ -495,22 +495,16 @@ def functions_splat():
         print(f'Both methods agree; sum of 1, 2, 3, 4 is {result_1}')
 
 
-# pylint: disable=import-outside-toplevel
+# WIP
+# pylint: disable=W,C,R
 def random_numbers():
-    """
-    not going to test this but I could by seeding the rng
-    """
     import random
 
-    for _ in range(10):
+    for i in range(10):
         print(random.randint(1, 100))
-# pylint: enable=import-outside-toplevel
 
-# pylint: disable=import-outside-toplevel
+
 def guessing_game():
-    """
-    not going to test this but I could by seeding the rng
-    """
     from random import randint
 
     while input('Play game? y/n: ') == 'y':
@@ -520,14 +514,9 @@ def guessing_game():
             print('You win!')
         else:
             print('You lose!')
-# pylint: enable=import-outside-toplevel
 
 
-# pylint: disable=import-outside-toplevel,redefined-outer-name
 def argv():
-    """
-    not gonna test this either
-    """
     from sys import argv
     print(argv[0]) # is always the name of the program
     # the below line will fail if at least 2 arguments aren't passed in to the program
@@ -538,9 +527,8 @@ def argv():
 
 # WIP
 # pylint: disable=W,C,R
+
 def file_io():
-    """pass
-    """
     with open('my_file.txt', 'r') as f:
         for line in f:
             print(line)
