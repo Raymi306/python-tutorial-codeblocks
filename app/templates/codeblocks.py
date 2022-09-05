@@ -49,8 +49,8 @@ def get_func_body(name):
             line, level = normalize_indentation(line, set_level, level)
             set_level = False
             result.append(line)
-        if '"""' in line:
-            docstring_occurences += 1
+        docstring_occurences += line.count('"""')
+
     return ''.join(result).strip()
 
 
@@ -498,9 +498,7 @@ def functions_splat():
 # WIP
 # pylint: disable=W,C,R
 def random_numbers():
-    """
-    TODO
-    """
+    """TODO"""
     import random
 
     for i in range(10):
@@ -508,9 +506,7 @@ def random_numbers():
 
 
 def guessing_game():
-    """
-    TODO
-    """
+    """TODO"""
     from random import randint
 
     while input('Play game? y/n: ') == 'y':
@@ -523,9 +519,7 @@ def guessing_game():
 
 
 def argv():
-    """
-    TODO
-    """
+    """TODO"""
     from sys import argv
     print(argv[0]) # is always the name of the program
     # the below line will fail if at least 2 arguments aren't passed in to the program
@@ -538,9 +532,7 @@ def argv():
 # pylint: disable=W,C,R
 
 def file_io():
-    """
-    TODO
-    """
+    """TODO"""
     with open('my_file.txt', 'r') as f:
         for line in f:
             print(line)
