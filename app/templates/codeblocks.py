@@ -1,10 +1,16 @@
-"""Exports doctested, minimal codeblocks for templating"""
+"""
+Exports doctested, minimal codeblocks for templating
+Docstrings MUST be double quotes!
+"""
+
 import inspect
 from unittest.mock import patch
 
 
 def normalize_indentation(line, set_level, level):
     """Remove unnecessary indentation resulting from doctesting of code"""
+    if line == '\n':
+        return line, level
     counter = 0
     length = len(line)
     while counter < length - 1 and line[counter] == ' ':
@@ -44,8 +50,12 @@ def get_func_body(name):
                 take = True
         return ''.join(result).strip()
     docstring_occurences = 0
+    consume_whitespace = True
     for line in lines:
         if docstring_occurences >= 2:
+            if not line.strip() and consume_whitespace:
+                continue
+            consume_whitespace = False
             line, level = normalize_indentation(line, set_level, level)
             set_level = False
             result.append(line)
