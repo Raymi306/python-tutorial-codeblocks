@@ -44,7 +44,7 @@ def get_func_body(name):
             if '# END' in line:
                 take = False
             if take:
-                if not line.strip() and consume_whitespace:
+                if not line.strip() and consume_whitespace: # DRY :\
                     continue
                 consume_whitespace = False
                 line, level = normalize_indentation(line, set_level, level)
@@ -56,7 +56,7 @@ def get_func_body(name):
     docstring_occurences = 0
     for line in lines:
         if docstring_occurences >= 2:
-            if not line.strip() and consume_whitespace:
+            if not line.strip() and consume_whitespace: # DRY :\
                 continue
             consume_whitespace = False
             line, level = normalize_indentation(line, set_level, level)
@@ -84,8 +84,6 @@ def input_noop():
     with patch('builtins.input') as input:
         # START
         input()
-        if True:
-            print()
         # END
 
 
