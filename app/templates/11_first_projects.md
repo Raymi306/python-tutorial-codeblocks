@@ -2,7 +2,7 @@
 
 [TOC]
 
-# W.I.P.
+W.I.P.
 # Bringing it all together
 
 ## Randomness
@@ -21,7 +21,23 @@ You should have the tools now to make yourself a guessing game now. You may want
 {{guessing_game}}
 ```
 
-## Program Arguments
+## System Arguments
+
+You can use system arguments to pass values into a program when it starts.
+
+This is similar to passing an argument into a function.
+
+Assuming your program is called hello.py,
+
+```
+python3 hello.py foobarbaz
+```
+
+Your program will receive the string foobarbaz as an argument which it can then make use of.
+
+Python too is a program, and it is being given the argument "hello.py", which in this case Python uses to know what file to run.
+
+The below sample illustrates basic usage of arguments:
 
 ```py
 {{argv}}
@@ -35,6 +51,10 @@ Now, we have a way to make our data persist even after our program ends!
 ```py
 {{file_io}}
 ```
+
+By default, files get opened in text mode.
+You can add a 'b' to the end of the mode to open them in binary mode.
+You might open a file in binary mode if it is an image file or other special format, to gain more direct access to the underlying bits and bytes without the assumptions that text mode makes.
 
 ## Working with file systems
 

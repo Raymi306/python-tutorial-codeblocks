@@ -4,7 +4,7 @@
 
 # Miscellanea
 ---
-## PATH variable
+## PATH Variable
 ---
 ### What does it mean to add Python to the PATH?
 The short answer is, it lets your command line know where to find the Python program when you type things such as `py`{: .smolcode} or `python`{: .smolcode} or `python3`{: .smolcode}.
@@ -17,8 +17,10 @@ You can examine this variable with Window's command prompt with `echo %PATH%`{: 
 If you examine the directories listed you will see that there are a variety of executable programs there.
 If you have already installed Python, you should also see a directory containing the Python executable.
 ---
-## File paths
+## Files and File Paths
 ---
+A file on a computer is analogous to a file in an office's filing cabinet.
+It is a container of information.
 Files have a location within the filesystem of your computer.
 The file path indicates how to reach any given file.
 ### Windows

@@ -555,20 +555,21 @@ def argv():
         print(arg)
 # pylint: enable=import-outside-toplevel,redefined-outer-name
 
+
 def file_io():
     """TODO"""
-    with open('my_file.txt', 'r') as f:
+
+    with open('my_file.txt', 'w') as f: # second argument is the mode to open the file in, w is for write
+        f.write('This is both the beginning\nand the end')
+
+    with open('my_file.txt', 'a') as f: # a is for append
+        f.write('This is the new end')
+
+    with open('my_file.txt', 'r') as f: # r for read
         for line in f:
             print(line)
 
-    with open('my_file.txt', 'a') as f:
-        f.write('This is the end')
-
-    with open('my_file.txt', 'w') as f:
-        assert f.readline() == ''
-        f.write('This is both the beginning\nand the end')
-
-    with open('my_file.txt', 'r+') as f:
+    with open('my_file.txt', 'r+') as f: # r+ for read and write
         f.write('foobarbaz')
         f.seek(1)
         print(f.readline())
