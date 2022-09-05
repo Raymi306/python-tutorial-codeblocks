@@ -1,3 +1,6 @@
+.PHONY: default
+default:
+	@echo "Read the Makefile..."
 .PHONY: clean
 clean:
 	rm -rf dist

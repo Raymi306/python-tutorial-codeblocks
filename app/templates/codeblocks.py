@@ -498,38 +498,62 @@ def functions_splat():
 # WIP
 # pylint: disable=W,C,R
 def random_numbers():
-    """TODO"""
+    """
+    >>> import random
+    >>> random.seed(1)
+    >>> random_numbers()
+    18
+    73
+    98
+    9
+    33
+    16
+    64
+    98
+    58
+    61
+    """
     import random
 
-    for i in range(10):
+    for _ in range(10):
         print(random.randint(1, 100))
 
 
-def guessing_game():
-    """TODO"""
-    from random import randint
+def guessing_game(mocked_input_se):
+    """
+    >>> import random
+    >>> random.seed(1)
+    >>> guessing_game(('y', '18', 'y', '1', 'n'))
+    You win!
+    You lose!
+    Game over!
+    """
+    with patch('builtins.input') as input:
+        input.side_effect = mocked_input_se
+        # START
+        from random import randint
 
-    while input('Play game? y/n: ') == 'y':
-        answer = randint(1, 100)
-        guess = int(input('Guess a number between 1 and 100: ').strip())
-        if guess == answer:
-            print('You win!')
-        else:
-            print('You lose!')
+        while input('Play game? y/n: ') == 'y':
+            answer = randint(1, 100)
+            guess = int(input('Guess a number between 1 and 100: ').strip())
+            if guess == answer:
+                print('You win!')
+            else:
+                print('You lose!')
+        print('Game over!')
+        # END
 
 
+# pylint: disable=import-outside-toplevel,redefined-outer-name
 def argv():
     """TODO"""
     from sys import argv
     print(argv[0]) # is always the name of the program
     # the below line will fail if at least 2 arguments aren't passed in to the program
-    # print(argv[1], argv[2])
+    print(argv[1], argv[2])
     for arg in argv:
         print(arg)
 # pylint: enable=import-outside-toplevel,redefined-outer-name
-
-# WIP
-# pylint: disable=W,C,R
 
 def file_io():
     """TODO"""
