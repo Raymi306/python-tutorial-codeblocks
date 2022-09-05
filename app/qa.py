@@ -18,6 +18,7 @@ class BuildTestResult:
     output: list[str] = field(default_factory=list)
 
 
+# pylint: disable=too-few-public-methods
 class BuildTest(ABC):
     """Abstract class to build tests upon"""
     name = ''
@@ -42,11 +43,9 @@ class BuildTest(ABC):
                 for line in test_result.output:
                     print(f'  {line}')
             raise BuildTestFailure()
-        else:
-            print('  - Pass')
+        print('  - Pass')
 
 
-# pylint: disable=too-few-public-methods
 class CodeblocksTester(BuildTest):
     """Make sure the templated codeblocks do what the tutorial claims"""
     name = 'Codeblocks'

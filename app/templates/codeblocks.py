@@ -509,7 +509,7 @@ def guessing_game():
 
     while input('Play game? y/n: ') == 'y':
         answer = randint(1, 100)
-        guess = int(input('Guess a number between 1 and 100: ').trim())
+        guess = int(input('Guess a number between 1 and 100: ').strip())
         if guess == answer:
             print('You win!')
         else:
