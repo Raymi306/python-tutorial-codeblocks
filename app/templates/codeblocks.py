@@ -548,11 +548,10 @@ def guessing_game(mocked_input_se):
 def argv():
     """TODO"""
     from sys import argv
+    print(argv) # prints all args
     print(argv[0]) # is always the name of the program
-    # the below line will fail if at least 2 arguments aren't passed in to the program
+    # the below line will fail if at least 2 arguments aren't passed in to the program!
     print(argv[1], argv[2])
-    for arg in argv:
-        print(arg)
 # pylint: enable=import-outside-toplevel,redefined-outer-name
 
 

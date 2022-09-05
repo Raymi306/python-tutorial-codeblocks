@@ -24,7 +24,7 @@ Make sure to read the documentation for a full overview of the capabilities of t
 
 ## Making a game
 
-You should have the tools now to make yourself a guessing game now. You may want to give it a go yourself, and then compare it to the sample below:
+You should have the tools to make yourself a guessing game now. You may want to give it a go yourself, and then compare it to the sample below:
 
 ```py
 {{guessing_game}}
