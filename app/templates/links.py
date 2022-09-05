@@ -6,6 +6,9 @@ BASE_URL = config['TUTORIAL_BASE_URL']
 links = {
         'ext_github_repo': 'https://github.com/Raymi306/python-tutorial',
         'ext_python_dl_page': 'https://www.python.org/downloads/windows/',
+        'ext_python3_stdlib': 'https://docs.python.org/3/library/',
+        'ext_stdlib_random': 'https://docs.python.org/3/library/random.html',
+        'ext_stdlib_sys': 'https://docs.python.org/3/library/sys.html',
         'int_home': config['HOMEPAGE_URL'],
         'int_index': f'{BASE_URL}/index.html',
         'int_misc': f'{BASE_URL}/misc.html',

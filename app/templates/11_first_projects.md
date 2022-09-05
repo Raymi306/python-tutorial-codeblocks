@@ -5,9 +5,18 @@
 W.I.P.
 # Bringing it all together
 
+## The Standard Library
+
+Python includes extra functionality that can be accessed with the 'import' keyword.
+This functionality can be exposing inaccesible computer functionality or it can be solutions to common problems.
+For documentation on the many modules in the standard library, look [here]({{ext_python3_stdlib}}).
+Below I will show how to import and use standard library modules, as well as modules downloaded from other sources such as the Python Package Index (PyPI).
+
 ## Randomness
 
-Randomness is great for adding some variety and spice to a program
+Randomness is great for adding some variety and spice to a program.
+Pseudorandom functionality is exposed by the [random]({{ext_stdlib_random}}) module in the standard library.
+Make sure to read the documentation for a full overview of the capabilities of the module.
 
 ```py
 {{random_numbers}}
@@ -37,7 +46,7 @@ Your program will receive the string foobarbaz as an argument which it can then 
 
 Python too is a program, and it is being given the argument "hello.py", which in this case Python uses to know what file to run.
 
-The below sample illustrates basic usage of arguments:
+The below sample illustrates basic usage of arguments, using functionality from the [sys]({{ext_stdlib_sys}}) module:
 
 ```py
 {{argv}}

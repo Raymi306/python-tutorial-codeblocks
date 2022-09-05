@@ -44,6 +44,43 @@ Alternatively, press `<Windows + r>`{: .smolcode}, type 'cmd' or 'powershell', a
 Your chosen command prompt, or shell, will then be ready to interpret your commands
 ### Linux
 there are a variety of options for terminal and shell use, all should be fine for the purposes of this tutorial.
+### Navigation
+A common frustration with beginners is a disconnect between where a file is located and where their terminal currently is.
+On Linux, some key commands for navigation include `pwd`{: .smolcode}, `ls`{: .smolcode}, and `cd`{: .smolcode}.
+pwd is short for 'print working directory', and will tell you where you currently are.
+ls will list directory contents, I often think of it as being short for list.
+cd is short for 'change directory', and can be used to move throughout the filesystem.
+#### Example
+Say you have created a file in `/home/user/projects`{: .smolcode} called sample.py.
+You open your terminal, and you aren't sure where your working directory is.
+```
+$ pwd
+/home/user
+```
+Running the pwd command, you see that you are in /home/user.
+If you wish to run sample.py, you may try the following:
+```text
+$ python3 sample.py
+python3: can't open file '/home/user/sample.py': [Errno 2] No such file or directory
+```
+The error output tells us what is going wrong: We are in /home/user, and the file sample.py does not exist there.
+We can solve this in several ways:
+We can provide an absolute path:
+```
+$ python3 /home/user/projects/sample.py
+```
+We can provide a relative path:
+```
+$ python3 projects/sample.py
+```
+Or we can move our working directory into projects:
+```
+$ cd projects
+$ python3 sample.py
+```
+If you are on Windows, an alternate to 'pwd' is 'cd' run by itself.
+'dir' is equivalent to 'ls', and 'cd' when given a directory can still be used to change directories.
+
 
 ---
 ## Common Text Editors
