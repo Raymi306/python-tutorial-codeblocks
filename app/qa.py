@@ -3,7 +3,6 @@ from abc import ABC, abstractmethod
 import asyncio
 from dataclasses import dataclass, field
 import doctest
-import sys
 
 import aiohttp
 
@@ -18,16 +17,10 @@ class BuildTestResult:
     passed: bool
     output: list[str] = field(default_factory=list)
 
-    def __nonzero__(self):  # allow instance to be truthy or falsey
-        return self.passed
-
 
 class BuildTest(ABC):
     """Abstract class to build tests upon"""
-    @property
-    def name(self):
-        """If a name is provided, use it for more descriptive output"""
-        return ''
+    name = ''
 
     @abstractmethod
     def _test(self):
@@ -38,24 +31,19 @@ class BuildTest(ABC):
         raise NotImplementedError
 
     def test(self):
-        """Manage cli_args and optional exception throwing"""
+        """Universal test logic"""
         test_result = self._test()
+        print(f'\nTesting {self.name or self}')
 
-        if test_result:  # only take action on failures
-            throw = False
-            cli_args = sys.argv[1:]
-            if 'dev' in cli_args:
-                if self.name:
-                    print(f'{self.name}:')
+        if not test_result.passed:  # only take action on failures
+            print('  - Fail!')
+            if test_result.output:
+                print('Output:')
                 for line in test_result.output:
-                    print(line)
-
-            if 'test' in cli_args:
-                if not test_result:
-                    throw = True
-
-            if throw:  # allow any order in the above conditions
-                raise BuildTestFailure()
+                    print(f'  {line}')
+            raise BuildTestFailure()
+        else:
+            print('  - Pass')
 
 
 # pylint: disable=too-few-public-methods
@@ -70,12 +58,13 @@ class CodeblocksTester(BuildTest):
                 verbose=None,
                 report=False
                 )
-        return not BuildTestResult(bool(failure_count))
+        return BuildTestResult(not bool(failure_count))
 
 
 class LinkTester(BuildTest):
     """Make sure all templated links are alive"""
 
+    name = 'Links'
     def __init__(self, concurrency=16):
         """
         Semaphore limits number of concurrent requests for performance
@@ -104,7 +93,7 @@ class LinkTester(BuildTest):
 
         fails = asyncio.run(self.get_failures(links.values()))
         return BuildTestResult(
-                bool(fails),
+                not bool(fails),
                 [f'{fail.url}: {fail.status}' for fail in fails]
                 )
 
@@ -125,15 +114,15 @@ class UnresolvedTemplateVariablesTester(BuildTest):
         from app.templates import TEMPLATES
         # pylint: enable=import-outside-toplevel
 
-        fail = False
+        passed = True
         output = []
         for template in TEMPLATES:
             ast = self.env.parse(self.env.get_template(template).render())
             vars_in_template = meta.find_undeclared_variables(ast)
             if mismatch := vars_in_template.difference(set(self.ctx.keys())):
-                fail = True
+                passed = False
                 output.append(
-                        f'{template}:\n{mismatch}'
+                        f'{template}: {mismatch}'
                         )
-        return BuildTestResult(fail, output)
+        return BuildTestResult(passed, output)
 # pylint: enable=too-few-public-methods

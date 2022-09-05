@@ -14,7 +14,7 @@ Then, type something nonsensical, such as `foobarbaz`{: .smolcode}.
 How did the command line know what to do when you ran the ping command? 
 When you try to run a command, such as `ping`{: .smolcode} on the command line, one of the places that will be searched for matching programs are all of the directories listed in the PATH variable. 
 You can examine this variable with Window's command prompt with `echo %PATH%`{: .smolcode}, and on Linux with `echo $PATH`{: .smolcode}. 
-If you examine the directories listed you will note that there are a variety of executable programs there.
+If you examine the directories listed you will see that there are a variety of executable programs there.
 If you have already installed Python, you should also see a directory containing the Python executable.
 ---
 ## File paths
@@ -23,11 +23,11 @@ Files have a location within the filesystem of your computer.
 The file path indicates how to reach any given file.
 ### Windows
 An example file path on Windows is `C:\Users\user\project\my_code.py`{: .smolcode}.
-A historical artifact of Windows is that filepaths start with a drive name, most commonly 'C'.
+On Windows filepaths start with a drive name, most commonly 'C'.
 ### Linux
 An example file path on Linux is `/home/user/project/my_code.py`{: .smolcode}.
 On Linux, the root of the filesystem is represented by a `/`{: .smolcode}.
-From there, an absolute path to all common file locations can be made by specifiying every directory leading to the file.
+From there, an absolute path to all common file locations can be made by specifying every directory leading to the file.
 ### File paths in Python
 STUB
 
@@ -36,9 +36,9 @@ STUB
 ---
 These terms are often used interchangeably
 ### Windows
-There are two common choices; The command prompt and powershell. Both will work. 
+There are two common choices: the command prompt (cmd) and powershell. Both will work. 
 To easily find them, type the terminal name into the Window's Search Bar. 
-Alternatively, press <Windows + r> and type 'cmd' or 'powershell' and hit enter. 
+Alternatively, press `<Windows + r>`{: .smolcode}, type 'cmd' or 'powershell', and hit enter. 
 Your chosen command prompt, or shell, will then be ready to interpret your commands
 ### Linux
 there are a variety of options for terminal and shell use, all should be fine for the purposes of this tutorial.
@@ -71,4 +71,5 @@ Smarter text editors and IDEs will have niceties such as autoindentation and the
 ---
 On Windows, sometimes you want to change a files extension, for instance from .txt to .py.
 The default settings make this hard to do.
-To change this, you need to have the file explorer open. From there, go to options -> view -> advanced -> and uncheck 'Hide extensions for known file types'.
+To allow for this, open the file explorer. From there, go to options -> view -> advanced -> and uncheck 'Hide extensions for known file types'.
+After this is done, you can rename the file and edit the file extension.

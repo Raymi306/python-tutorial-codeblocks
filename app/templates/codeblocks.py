@@ -598,6 +598,9 @@ CODEBLOCK_NAMES = (
     'guessing_game',
     'argv',
     'file_io',
+    'filesystem',
+    'imports',
+    'requests',
     )
 
 locals_proxy = locals()

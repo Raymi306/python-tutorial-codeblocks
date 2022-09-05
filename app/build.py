@@ -10,7 +10,7 @@ from app import config
 from app.templates import TEMPLATES, BASE_HTML
 from app.templates.codeblocks import codeblocks
 from app.templates.links import links
-from app.qa import LinkTester, CodeblocksTester, UnresolvedTemplateVariablesTester
+from app.qa import LinkTester, CodeblocksTester, UnresolvedTemplateVariablesTester, BuildTestFailure
 
 
 def run_build_checks(env, ctx):
@@ -20,8 +20,14 @@ def run_build_checks(env, ctx):
             CodeblocksTester(),
             UnresolvedTemplateVariablesTester(env, ctx),
             )
+    fail = False
     for tester in testers:
-        tester.test()
+        try:
+            tester.test()
+        except BuildTestFailure:
+            fail = True
+    if fail:
+        sys.exit(1)
 
 
 def render_templates(env, ctx):

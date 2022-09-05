@@ -3,7 +3,7 @@
 [TOC]
 
 # Humble Beginnings
-Lets explore two built-in tools provided to us by Python, `print`{: .smolcode} and `input`{: .smolcode}.
+Let's explore two built-in tools provided to us by Python, `print`{: .smolcode} and `input`{: .smolcode}.
 
 ---
 ## <built-in function print\>
@@ -63,7 +63,7 @@ Note that python is quite clever, and understands that the plus operator, when u
 Note also that we must specify that we want a space in 'You typed: '; Python won't do things like that implicitly.
 
 
-input always returns what we type as a string, but sometimes we would like to interpret the value as a number so we can do fun things like maths.
+`input` always returns what we type as a string, but sometimes we would like to interpret the value as a number so we can do fun things like maths.
 
 ```py
 {{input_and_print_twice}}
@@ -117,14 +117,14 @@ print(...)
 
 So far, we have just been passing one value into the print function, specifically, strings.
 The information that you pass into a function is referred to as **arguments** or **parameters**.
-Print has several more useful abilities beyond printing strings; It can print useful information for any Python object, and can even accept multiple objects, separated by commas.
+Print has several more useful abilities beyond printing strings: it can print useful information for any Python object, and can even accept multiple objects, separated by commas.
 This ability to take multiple arguments is denoted by the '...' in the 2nd line of the above example.
 The other arguments are keyword arguments, they can be specified by name as follows: `print('Hello world, with no line ending!', end='')`{: .smolcode} *('\n' is a way of indicating a new line)*.
 When using keyword arguments by name, make sure to put them after the positional arguments that do not have a name specified.
 If you forget, Python will remind you with an error!
 
 Feel free to read the help for `input`{: .smolcode} as well!
-It is ok if you don't understand everything the documentation is referring to, perhaps with the print function you have no concept of why forcibly flushing a stream is important, or what a stream even is.
+It's ok if you don't understand everything the documentation is referring to, perhaps with the print function you have no concept of why forcibly flushing a stream is important, or what a stream even is.
 However, this still gives you a great starting point, and helps you to know what question to ask next in your learning journey.
 
 Not all of the help entries are as short as `print`{: .smolcode} and `input`{: .smolcode}.
@@ -188,7 +188,7 @@ If we want to do the same thing more than once, repeating yourself is clumsy and
 We program to be lazy; a good mantra is DRY: Don't Repeat Yourself!
 Loops provide the structure to do a task repeatedly, repeat until a condition is met, repeat until every item in a collection is examined, or repeat indefinitely.
 
-Lets first examine the `while`{: .smolcode} loop:
+Let's first examine the `while`{: .smolcode} loop:
 
 ```py
 {{loops_scream}}
