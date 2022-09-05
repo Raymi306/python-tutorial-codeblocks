@@ -68,11 +68,12 @@ class LinkTester(BuildTest):
         """
         Semaphore limits number of concurrent requests for performance
         Is still nonblocking"""
-        self.lock = asyncio.Semaphore(concurrency)
+        self.concurrency = concurrency
 
-    async def fetch(self, session, url):
+    @staticmethod
+    async def fetch(session, url, lock):
         """Locked async HTTP GET"""
-        async with self.lock:
+        async with lock:
             return await session.get(url)
 
     async def get_failures(self, links):
@@ -81,8 +82,9 @@ class LinkTester(BuildTest):
         which do not return 200 OK.
         """
         async with aiohttp.ClientSession() as session:
+            lock = asyncio.Semaphore(self.concurrency)
             responses = await asyncio.gather(
-                    *[self.fetch(session, url) for url in links]
+                    *[self.fetch(session, url, lock) for url in links]
                     )
             failures = [r for r in responses if r.status != 200]
             return failures
