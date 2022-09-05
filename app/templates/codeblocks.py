@@ -49,8 +49,8 @@ def get_func_body(name):
             line, level = normalize_indentation(line, set_level, level)
             set_level = False
             result.append(line)
-        if '"""' in line:
-            docstring_occurences += 1
+        docstring_occurences += line.count('"""')
+
     return ''.join(result).strip()
 
 
@@ -402,19 +402,19 @@ def collections_item_access():
     """
     # lists
     our_list = ['foo', 'bar', 'baz']
-    print(len(our_list))
-    print(our_list[0])
-    print(our_list[1])
-    print(our_list[-1])
-    print(our_list[:2])
-    print(our_list[1:])
+    print(len(our_list)) # 3
+    print(our_list[0]) # foo
+    print(our_list[1]) # bar
+    print(our_list[-1]) # baz
+    print(our_list[:2]) # foo, bar - beginning to second element
+    print(our_list[1:]) # bar, baz - index 1 to end
     for item in our_list:
         print(item)
     # dictionaries
     our_dict = {'key': 'value', 13: 42}
     print(len(our_dict))
-    print(our_dict['key'])
-    print(our_dict[13])
+    print(our_dict['key']) # 'value'
+    print(our_dict[13]) # 42
     for key in our_dict:
         print(key)
     for value in our_dict.values():
@@ -468,8 +468,8 @@ def functions_define():
 
     value_1 = 10
     value_2 = 20
-    print(add_2(value_1, value_2))
-    print(add_2(3, 6))
+    print(add_2(value_1, value_2)) # 30
+    print(add_2(3, 6)) # 9
     list_1 = [1, 1, 2, 3, 5, 8, 13]
     print_collection(list_1)
 
@@ -489,7 +489,7 @@ def functions_splat():
         return accumulator
 
     my_list = [1, 2, 3, 4]
-    result_1 = sum_4_long_signature(*my_list)
+    result_1 = sum_4_long_signature(*my_list) # splat operator unpacks a list or tuple, double splat (**) unpacks a dictionary
     result_2 = sum_many(my_list)
     if result_1 == result_2:
         print(f'Both methods agree; sum of 1, 2, 3, 4 is {result_1}')
@@ -498,6 +498,7 @@ def functions_splat():
 # WIP
 # pylint: disable=W,C,R
 def random_numbers():
+    """TODO"""
     import random
 
     for i in range(10):
@@ -505,11 +506,12 @@ def random_numbers():
 
 
 def guessing_game():
+    """TODO"""
     from random import randint
 
     while input('Play game? y/n: ') == 'y':
         answer = randint(1, 100)
-        guess = int(input('Guess a number between 1 and 100: ').trim())
+        guess = int(input('Guess a number between 1 and 100: ').strip())
         if guess == answer:
             print('You win!')
         else:
@@ -517,15 +519,20 @@ def guessing_game():
 
 
 def argv():
+    """TODO"""
     from sys import argv
     print(argv[0]) # is always the name of the program
     # the below line will fail if at least 2 arguments aren't passed in to the program
     # print(argv[1], argv[2])
     for arg in argv:
         print(arg)
+# pylint: enable=import-outside-toplevel,redefined-outer-name
 
+# WIP
+# pylint: disable=W,C,R
 
 def file_io():
+    """TODO"""
     with open('my_file.txt', 'r') as f:
         for line in f:
             print(line)
@@ -579,6 +586,13 @@ CODEBLOCK_NAMES = (
     'collections_instantiations',
     'functions_define',
     'functions_splat',
+    'random_numbers',
+    'guessing_game',
+    'argv',
+    'file_io',
+    'filesystem',
+    'imports',
+    'requests',
     )
 
 locals_proxy = locals()

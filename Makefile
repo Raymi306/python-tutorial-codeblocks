@@ -1,6 +1,9 @@
 .PHONY: clean
 clean:
 	rm -rf dist
+.PHONY: lint
+lint:
+	pylint app
 .PHONY: basic_build
 basic_build: clean
 	python -m app.build
@@ -11,7 +14,7 @@ pygmentize_css:
 zip:
 	gzip -k -9 dist/*
 .PHONY: build
-build: basic_build pygmentize_css zip
+build: lint basic_build pygmentize_css zip
 .PHONY: rsync
 rsync:
 	rsync -rvz --progress -e 'ssh -p 57018' ./dist/* andrew@let-them.cyou:/srv/www/lt/andrew/tutorials/python

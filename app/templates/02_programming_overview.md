@@ -1,6 +1,6 @@
 <<[prev]({{int_running_code}}) [index]({{int_index}}) [next]({{int_first_steps}})>>
 # Programming is Likely Simpler than you Think
-Programming is both a broad and a deep field; however, getting your foot in the door shouldn't be intimidating.
+Programming is both a broad and a deep field, however, getting your foot in the door shouldn't be intimidating.
 Programming is the act of telling a computer how to do things.
 Programming often boils down to 3 basic steps: Taking data in, manipulating it, and putting data back out.
 Understanding these 3 steps will allow you to create all sorts of interesting programs.
