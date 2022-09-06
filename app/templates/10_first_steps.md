@@ -153,8 +153,8 @@ We are using some fancy new keywords, if, elif (pythonese for else if), and else
 After our `if`{: .smolcode} keyword, we put a conditional statement.
 We're interested to know whether or not something is true. In this case, we are doing a comparison using '=='.
 Note that when we want to check for equality, we use TWO equal signs. One equal sign is for assigning variables!
-So, if the user puts their name as 'max', we take a special action, and print out 'weeb'. If it isn't max, we check to see if it is 'jax'.
-If it is, we print 'cool name!'. Otherwise, we print out 'Hello, ' and their input.
+So, if the user puts their name as 'max', we take a special action, and print out 'Weirdo'. If it isn't max, we check to see if it is 'jax'.
+If it is, we print 'Cool name!'. Otherwise, we print out 'Hello, ' and their input.
 
 Note that after our conditions, or after the 'else' keyword, we MUST put a colon `:`{: .smolcode}.
 Furthermore, on the next line, we must indent.
