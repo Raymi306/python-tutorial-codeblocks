@@ -211,9 +211,9 @@ def futures_try_int_input(mocked_input_ret):
 def conditions_names(mocked_input_ret):
     """
     >>> conditions_names('max')
-    weeb
+    Weirdo
     >>> conditions_names('jax')
-    cool name!
+    Cool name!
     >>> conditions_names('foobarbaz')
     Hello, foobarbaz
     """
@@ -222,9 +222,9 @@ def conditions_names(mocked_input_ret):
         # START
         user_input = input('What\'s your name?')
         if user_input == 'max':
-            print('weeb')
+            print('Weirdo')
         elif user_input == 'jax':
-            print('cool name!')
+            print('Cool name!')
         else:
             print('Hello, ' + user_input)
         # END
