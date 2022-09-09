@@ -61,30 +61,42 @@ Now, we have a way to make our data persist even after our program ends!
 {{file_io}}
 ```
 
+The 'with' clause is introduced here.
+Essentially, it is providing a guarantee that at the end of the with block, all cleanup will be taken care of for you.
+With statements use [context managers](ext_python3_context_managers) behind the scenes.
+Later, you'll be able to create your own, but for a beginner, they offer a convenient and powerful way to safely handle working with files.
+They allow you to conveniently reuse chunks of code that require setup and teardown with error handling.
+
+
 By default, files get opened in text mode.
 You can add a 'b' to the end of the mode to open them in binary mode.
 You might open a file in binary mode if it is an image file or other special format, to gain more direct access to the underlying bits and bytes without the assumptions that text mode makes.
-
-## Working with file systems
-
-Learn how to look around and interact with files located anywhere on your computer.
-
-```py
-{{filesystem}}
-```
-
+To learn more about reading and writing files, check out the [official documentation]({{ext_python3_file_io}}).
 ## More about imports; Working with dependencies; Exploring the web
 
-```py
-{{imports}}
+### Import stuff goes here; discuss importing your own modules briefly
+Every file is its own module as well!
+If you have two python files, named 'example\_a.py' and 'example\_b.py' that are in the same directory, example\_a.py can use code written in the other file like so:
+```
+{{imports_1}}
 ```
 
 ### Downloading packages from the Python Package Index (PyPI)
+pip should have come with your Python installation, and is the tool used to install packages from online.
+It's a good idea to keep pip up to date, you can use the below command for this.
+
 ```sh
 pip install --upgrade pip
 ```
 
 ### Managing dependencies and versions
+If you install a package with pip, that version is likely to end up available for ALL of your python projects on your computer.
+This can cause conflicts and confusion, particularly if you ever need to have projects using different versions of things.
+For this reason, we create a virtual environment for each python project.
+A virtual environment stores our downloaded packages and keeps them isolated.
+When we want to run our project, we must make sure the virtual environment is activated.
+Below are commands to create a virtual environment called 'venv', to activate the environment, and to download packages listed in a file.
+
 ```sh
 python3 -m venv venv
 source venv/bin/activate

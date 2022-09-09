@@ -508,8 +508,7 @@ def functions_splat():
         print(f'Both methods agree; sum of 1, 2, 3, 4 is {result_1}')
 
 
-# WIP
-# pylint: disable=W,C,R
+# pylint: disable=import-outside-toplevel
 def random_numbers():
     """
     >>> import random
@@ -530,8 +529,10 @@ def random_numbers():
 
     for _ in range(10):
         print(random.randint(1, 100))
+# pylint: enable=import-outside-toplevel
 
 
+# pylint: disable=import-outside-toplevel
 def guessing_game(mocked_input_se):
     """
     >>> import random
@@ -555,45 +556,61 @@ def guessing_game(mocked_input_se):
                 print('You lose!')
         print('Game over!')
         # END
+# pylint: enable=import-outside-toplevel
 
 
 # pylint: disable=import-outside-toplevel,redefined-outer-name
 def argv():
-    """TODO"""
+    """
+    >>> import sys
+    >>> sys.argv = 'codeblocks.py', 'foo', 'bar'
+    >>> argv()
+    ('codeblocks.py', 'foo', 'bar')
+    codeblocks.py
+    foo bar
+    """
     from sys import argv
     print(argv) # prints all args
     print(argv[0]) # is always the name of the program
+    # caution!
     # the below line will fail if at least 2 arguments aren't passed in to the program!
     print(argv[1], argv[2])
 # pylint: enable=import-outside-toplevel,redefined-outer-name
 
 
 def file_io():
-    """TODO"""
-    with open('my_file.txt', 'w') as f: # second argument is the mode to open the file in, w is for write
-        f.write('This is both the beginning\nand the end')
+    """no tests, was run manually"""
+    with open('my_file.txt', 'w', encoding='ascii') as f: # second argument is the mode to open the file in, w is for write
+        # encoding above refers to how bytes translates to characters.
+        # ascii is very common for simple english text and special characters.
+        # utf-8 covers characters from many languages, and even emojis
+        # character encodings are an interesting topic for further reading if you're curious
+        f.write('This is both the beginning\nand the end\n')
 
-    with open('my_file.txt', 'a') as f: # a is for append
-        f.write('This is the new end')
+    with open('my_file.txt', 'a', encoding='ascii') as f: # a is for append
+        f.write('This is the new end\n')
 
-    with open('my_file.txt', 'r') as f: # r for read
-        for line in f:
-            print(line)
+    with open('my_file.txt', 'r', encoding='ascii') as f: # r for read
+        for i, line in enumerate(f):
+            print(f'line {i}: {line}', end='') # we can tell print not to add a new line at the end
+            # we already have new lines on the lines we are reading
 
-    with open('my_file.txt', 'r+') as f: # r+ for read and write
+    with open('my_file.txt', 'r+', encoding='ascii') as f: # r+ for read and write
+        f.seek(17) # advance forward in the file 18 characters
         f.write('foobarbaz')
-        f.seek(1)
-        print(f.readline())
+        f.seek(0) # back to the beginning!
+        print(f.readline()) # let's see the result
 
 
-def filesystem():
-    pass
+# pylint: disable=import-outside-toplevel, import-error
+def imports_1():
+    """no tests"""
+    import example_b
+    example_b.some_function() # variables and functions defined inside of example_b can be accessed like so
+# pylint: enable=import-outside-toplevel, import-error
 
 
-def imports():
-    pass
-
-
+# pylint: disable=W,C,R
 def requests():
     pass
 # pylint: enable=W,C,R
@@ -626,8 +643,7 @@ CODEBLOCK_NAMES = (
     'guessing_game',
     'argv',
     'file_io',
-    'filesystem',
-    'imports',
+    'imports_1',
     'requests',
     )
 

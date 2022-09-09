@@ -141,7 +141,8 @@ You can also get help outside of interactive help mode by using help as a functi
 I believe `help`{: .smolcode} to be an underutilized and underappreciated feature of Python that can help programmers of any skill level.
 
 # Conditions and Branching
-Reacting the same way to every possible input is boring. Let's take a different action, depending on what the user types
+Reacting the same way to every possible input is boring.
+Let's take a different action, depending on what the user types
 
 ```py
 {{conditions_names}}
@@ -153,7 +154,8 @@ We are using some fancy new keywords, if, elif (pythonese for else if), and else
 After our `if`{: .smolcode} keyword, we put a conditional statement.
 We're interested to know whether or not something is true. In this case, we are doing a comparison using '=='.
 Note that when we want to check for equality, we use TWO equal signs. One equal sign is for assigning variables!
-So, if the user puts their name as 'max', we take a special action, and print out 'Weirdo'. If it isn't max, we check to see if it is 'jax'.
+So, if the user puts their name as 'max', we take a special action, and print out 'Weirdo'.
+If it isn't max, we check to see if it is 'jax'.
 If it is, we print 'Cool name!'. Otherwise, we print out 'Hello, ' and their input.
 
 Note that after our conditions, or after the 'else' keyword, we MUST put a colon `:`{: .smolcode}.

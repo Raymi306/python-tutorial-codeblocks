@@ -3,10 +3,13 @@ from app import config
 
 BASE_URL = config['TUTORIAL_BASE_URL']
 
+# pylint: disable=line-too-long
 links = {
         'ext_github_repo': 'https://github.com/Raymi306/python-tutorial',
         'ext_python_dl_page': 'https://www.python.org/downloads/windows/',
         'ext_python3_stdlib': 'https://docs.python.org/3/library/',
+        'ext_python3_file_io': 'https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files',
+        'ext_python3_context_managers': 'https://docs.python.org/3/reference/datamodel.html#context-managers',
         'ext_stdlib_random': 'https://docs.python.org/3/library/random.html',
         'ext_stdlib_sys': 'https://docs.python.org/3/library/sys.html',
         'int_home': config['HOMEPAGE_URL'],
@@ -22,3 +25,4 @@ links = {
         'int_first_steps': f'{BASE_URL}/10_first_steps.html',
         'int_first_projects': f'{BASE_URL}/11_first_projects.html',
         }
+# pylint: enable=line-too-long
