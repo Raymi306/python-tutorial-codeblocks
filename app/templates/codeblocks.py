@@ -246,7 +246,7 @@ def conditions_indent():
 def conditions_boolean_logic():
     """
     >>> conditions_boolean_logic()
-    One is Foo!
+    At least one var is Foo!
     Same length OR combined length longer than ten!
     """
 
@@ -258,10 +258,10 @@ def conditions_boolean_logic():
         print('All Foo!')
 
     if var_1 == 'Foo' or var_2 == 'Foo':
-        print('One is Foo!')
+        print('At least one var is Foo!')
 
     if not var_1 or not var_2:
-        print('One is falsey!')
+        print('At least one var is falsey!')
 
     length_var_1 = len(var_1)
     length_var_2 = len(var_2)
