@@ -62,7 +62,7 @@ Now, we have a way to make our data persist even after our program ends!
 
 The 'with' clause is introduced here.
 Essentially, it is providing a guarantee that at the end of the with block, all cleanup will be taken care of for you.
-With statements use [context managers](ext_python3_context_managers) behind the scenes.
+With statements use [context managers]({{ext_python3_context_managers}}) behind the scenes.
 Later, you'll be able to create your own, but for a beginner, they offer a convenient and powerful way to safely handle working with files.
 They allow you to conveniently reuse chunks of code that require setup and teardown with error handling.
 
@@ -102,7 +102,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-See [this link](ext_python3_venv_activate_commands) for all the ways to activate a venv on different platforms.
+See [this link]({{ext_python3_venv_activate_commands}}) for all the ways to activate a venv on different platforms.
 
 ### Browsing the web with the requests package
 Let's use a package from PyPI! 
