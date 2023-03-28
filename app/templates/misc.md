@@ -47,11 +47,11 @@ There are a variety of options for terminal and shell use, all should be fine fo
 ### Navigation
 A common frustration with beginners is a disconnect between where a file is located and where their terminal currently is.
 On Linux, some key commands for navigation include `pwd`{: .smolcode}, `ls`{: .smolcode}, and `cd`{: .smolcode}.
-pwd is short for 'print working directory', and will tell you where you currently are.
-ls will list directory contents, I often think of it as being short for list.
-cd is short for 'change directory', and can be used to move throughout the filesystem.
-If you are on Windows, an alternate to 'pwd' is 'cd' run by itself.
-'dir' is equivalent to 'ls', and 'cd' when given a directory can still be used to change directories.
+'pwd' is short for 'print working directory', and will tell you where you currently are.
+'ls' will list directory contents, I often think of it as being short for list.
+'cd' is short for 'change directory', and can be used to move throughout the filesystem.
+If you are on Windows, an alternate to 'pwd' is 'cd' run by itself (On Linux it will return you to your home directory).
+On Windows 'dir' is equivalent to 'ls', and 'cd' when given a directory can still be used to change directories.
 #### Example
 Say you have created a file on a Linux system at `/home/user/projects`{: .smolcode}, or on Windows at `C:\Users\User\Desktop`{: .smolcode} called sample.py.
 You open your terminal, and you aren't sure where your working directory is.
