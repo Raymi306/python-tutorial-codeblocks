@@ -1,6 +1,7 @@
 [index]({{int_index}}) [next]({{int_running_code}})>>
 # Installation
-## Windows | [link to download page]({{ext_python_dl_page}})
+[link to download page]({{ext_python_dl_page}})
+## Windows
 Find the download link for the latest stable version of Python and download it.
 Once the download is complete, run the file.
 A typical installer will guide you through the setup process, only requiring you to press 'Next'.
