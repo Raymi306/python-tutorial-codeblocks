@@ -7,7 +7,7 @@
 ## The Standard Library
 
 Python includes extra functionality that can be accessed with the 'import' keyword.
-This functionality can be exposing inaccesible computer functionality or it can be solutions to common problems.
+This functionality includes solutions to common problems and access to operating system functionality.
 For documentation on the many modules in the standard library, look [here]({{ext_python3_stdlib}}).
 Below I will show how to import and use standard library modules, as well as modules downloaded from other sources such as the Python Package Index (PyPI).
 
