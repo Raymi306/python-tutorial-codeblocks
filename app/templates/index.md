@@ -5,4 +5,5 @@
 - [Running Code]({{int_running_code}})
 - [Prelude]({{int_programming_overview}})
 - [First Steps]({{int_first_steps}})
+- [First Projects]({{int_first_projects}})
 - [Miscellanea]({{int_misc}})

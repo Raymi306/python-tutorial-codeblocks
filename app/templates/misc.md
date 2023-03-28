@@ -3,6 +3,7 @@
 [TOC]
 
 # Miscellanea
+
 ---
 ## PATH Variable
 ---
@@ -16,6 +17,7 @@ When you try to run a command, such as `ping`{: .smolcode} on the command line, 
 You can examine this variable with Window's command prompt with `echo %PATH%`{: .smolcode}, and on Linux with `echo $PATH`{: .smolcode}. 
 If you examine the directories listed you will see that there are a variety of executable programs there.
 If you have already installed Python, you should also see a directory containing the Python executable.
+
 ---
 ## Files and File Paths
 ---
@@ -30,8 +32,6 @@ On Windows filepaths start with a drive name, most commonly 'C'.
 An example file path on Linux is `/home/user/project/my_code.py`{: .smolcode}.
 On Linux, the root of the filesystem is represented by a `/`{: .smolcode}.
 From there, an absolute path to all common file locations can be made by specifying every directory leading to the file.
-### File paths in Python
-STUB
 
 ---
 ## Command Prompts, Shells, Terminals
@@ -43,15 +43,17 @@ To easily find them, type the terminal name into the Window's Search Bar.
 Alternatively, press `<Windows + r>`{: .smolcode}, type 'cmd' or 'powershell', and hit enter. 
 Your chosen command prompt, or shell, will then be ready to interpret your commands
 ### Linux
-there are a variety of options for terminal and shell use, all should be fine for the purposes of this tutorial.
+There are a variety of options for terminal and shell use, all should be fine for the purposes of this tutorial.
 ### Navigation
 A common frustration with beginners is a disconnect between where a file is located and where their terminal currently is.
 On Linux, some key commands for navigation include `pwd`{: .smolcode}, `ls`{: .smolcode}, and `cd`{: .smolcode}.
 pwd is short for 'print working directory', and will tell you where you currently are.
 ls will list directory contents, I often think of it as being short for list.
 cd is short for 'change directory', and can be used to move throughout the filesystem.
+If you are on Windows, an alternate to 'pwd' is 'cd' run by itself.
+'dir' is equivalent to 'ls', and 'cd' when given a directory can still be used to change directories.
 #### Example
-Say you have created a file in `/home/user/projects`{: .smolcode} called sample.py.
+Say you have created a file on a Linux system at `/home/user/projects`{: .smolcode}, or on Windows at `C:\Users\User\Desktop`{: .smolcode} called sample.py.
 You open your terminal, and you aren't sure where your working directory is.
 ```
 $ pwd
@@ -78,9 +80,6 @@ Or we can move our working directory into projects:
 $ cd projects
 $ python3 sample.py
 ```
-If you are on Windows, an alternate to 'pwd' is 'cd' run by itself.
-'dir' is equivalent to 'ls', and 'cd' when given a directory can still be used to change directories.
-
 
 ---
 ## Common Text Editors

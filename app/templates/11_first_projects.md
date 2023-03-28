@@ -2,7 +2,6 @@
 
 [TOC]
 
-W.I.P.
 # Bringing it all together
 
 ## The Standard Library
@@ -95,7 +94,7 @@ This can cause conflicts and confusion, particularly if you ever need to have pr
 For this reason, we create a virtual environment for each python project.
 A virtual environment stores our downloaded packages and keeps them isolated.
 When we want to run our project, we must make sure the virtual environment is activated.
-Below are commands to create a virtual environment called 'venv', to activate the environment, and to download packages listed in a file.
+Below are Linux commands to create a virtual environment called 'venv', to activate the environment, and to download packages listed in a file.
 
 ```sh
 python3 -m venv venv
@@ -103,7 +102,39 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+See [this link](ext_python3_venv_activate_commands) for all the ways to activate a venv on different platforms.
+
 ### Browsing the web with the requests package
-```py
-{{requests}}
+Let's use a package from PyPI! 
+First, and optionally, create a virtual environment and enable it.
+```sh
+python3 -m venv venv
+source venv/bin/activate
 ```
+Then, run:
+```sh
+pip install requests
+```
+Now, when your Python programs run inside of the virtual environment can `import requests` and make use of the tools in this library.
+[Check out the documentation]({{ext_requests_docs}}) for the library to get a feel for all of the things you can do with it.
+Let's look at the contents of a simple website:
+```py
+{{requests_demo}}
+```
+The body of the response for this webpage is in HTML.
+This website is fairly simple, with only a few elements in its body.
+Getting the raw HTML of a page isn't immediately useful to us though, how do we make sense of it?
+Let's pull in [another library]({{ext_beautifulsoup4_docs}})!
+```sh
+pip install beautifulsoup4
+```
+```py
+{{soup_demo}}
+```
+On HTML pages, important information is often stored in header elements.
+Header elements are numbered and their tag is simple "hn", with n being a number and lower numbers being most important.
+With a little bit of study into how HTML is structured, you can use different HTML tags and information inside the tags to extract any information you want out of a website!
+Using your browsers developer tools, often pulled up by hitting f12, can be a great help here.
+Not only can you inspect the HTML content, but you can inspect the network requests that a website makes in order to work.
+Be aware that some websites generate content with scripts and web requests:
+In this case, sometimes you can mimic the web requests that the site is making and get the information directly.

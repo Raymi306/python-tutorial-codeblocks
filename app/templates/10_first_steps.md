@@ -55,6 +55,7 @@ The label can be used to retrieve the data at a later point in our program.
 You can call your labels whatever you like, so long as it adheres to certain rules in Python regarding naming things.
 You want to be sure to not reuse an important name, such as with a statement like `print = input()`{: .smolcode}. 
 This would hide the built-in function `print`{: .smolcode} with whatever string input returns, and will likely lead to confusion with anyone reading the code later.
+
 Generally speaking, a variable's label, or name, can have any character from a-z A-Z, and the digits 0-9, so long as the digit is NOT the first character in the name.
 The underscore character '\_' is commonly used in lieu of spaces, which are not allowed in variable names.
 So what do we do with our newly defined variable?
@@ -63,7 +64,7 @@ Note that python is quite clever, and understands that the plus operator, when u
 Note also that we must specify that we want a space in 'You typed: '; Python won't do things like that implicitly.
 
 
-`input` always returns what we type as a string, but sometimes we would like to interpret the value as a number so we can do fun things like maths.
+`input`{: .smolcode} always returns what we type as a string, but sometimes we would like to interpret the value as a number so we can do fun things like maths.
 
 ```py
 {{input_and_print_twice}}
@@ -281,4 +282,4 @@ In a similar way to how input returned a string, and int returned an integer, we
 Once a return statement is hit, the function exits with the value given in the statement.
 Functions are a powerful tool, and they can even call themselves, a concept called recursion.
 
-<<[prev]({{int_running_code}}) [index]({{int_index}})
+<<[prev]({{int_programming_overview}}) [index]({{int_index}}) [next]({{int_first_projects}})>>

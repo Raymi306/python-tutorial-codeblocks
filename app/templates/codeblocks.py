@@ -596,7 +596,7 @@ def file_io():
             # we already have new lines on the lines we are reading
 
     with open('my_file.txt', 'r+', encoding='ascii') as f: # r+ for read and write
-        f.seek(17) # advance forward in the file 18 characters
+        f.seek(17) # advance forward in the file 17 characters
         f.write('foobarbaz')
         f.seek(0) # back to the beginning!
         print(f.readline()) # let's see the result
@@ -610,12 +610,29 @@ def imports_1():
 # pylint: enable=import-outside-toplevel, import-error
 
 
-# pylint: disable=W,C,R
-def requests():
-    pass
-# pylint: enable=W,C,R
+# pylint: disable=import-outside-toplevel, import-error
+def requests_demo():
+    """no tests"""
+    import requests
+    response = requests.get('http://example.com')
+    print(response.text)
+# pylint: enable=import-outside-toplevel, import-error
 
 
+# pylint: disable=import-outside-toplevel, import-error
+def soup_demo():
+    """no tests"""
+    from bs4 import BeautifulSoup
+    import requests
+    response = requests.get('http://example.com')
+    html_doc = response.text
+    soup = BeautifulSoup(html_doc, 'html.parser')
+    headers = soup.find_all('h1')
+    print(headers[0].text)
+# pylint: enable=import-outside-toplevel, import-error
+
+
+# TODO slap these suckers in a class and use some metaprogramming to do it automagically  # pylint: disable=fixme
 # names of functions to be exported as codeblocks
 CODEBLOCK_NAMES = (
     'hello_world',
@@ -644,7 +661,8 @@ CODEBLOCK_NAMES = (
     'argv',
     'file_io',
     'imports_1',
-    'requests',
+    'requests_demo',
+    'soup_demo',
     )
 
 locals_proxy = locals()
