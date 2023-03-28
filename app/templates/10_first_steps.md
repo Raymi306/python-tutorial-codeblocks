@@ -153,7 +153,7 @@ Several things are going on here.
 We are using some fancy new keywords, if, elif (pythonese for else if), and else.
 
 After our `if`{: .smolcode} keyword, we put a conditional statement.
-We're interested to know whether or not something is true. In this case, we are doing a comparison using '=='.
+We're interested to know whether or not something is true. In this case, we are doing a comparison using `==`{: .smolcode}.
 Note that when we want to check for equality, we use TWO equal signs. One equal sign is for assigning variables!
 So, if the user puts their name as 'max', we take a special action, and print out 'Weirdo'.
 If it isn't max, we check to see if it is 'jax'.
@@ -161,7 +161,7 @@ If it is, we print 'Cool name!'. Otherwise, we print out 'Hello, ' and their inp
 
 Note that after our conditions, or after the 'else' keyword, we MUST put a colon `:`{: .smolcode}.
 Furthermore, on the next line, we must indent.
-If you have multiple lines indented to the same level, they will all execute if that branch is taken, ie:
+If you have multiple lines indented to the same level, they will all execute if that branch is taken, e.g.:
 
 ```py
 {{conditions_indent}}
