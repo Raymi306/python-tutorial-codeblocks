@@ -141,7 +141,7 @@ Many of the topics go quite in depth, and should match the official documentatio
 You can also get help outside of interactive help mode by using help as a function, and passing either a string with what you need help on (as listed in modules, keywords, etc), or a python object.
 I believe `help`{: .smolcode} to be an underutilized and underappreciated feature of Python that can help programmers of any skill level.
 
-# Conditions and Branching
+## Conditions and Branching
 Reacting the same way to every possible input is boring.
 Let's take a different action, depending on what the user types
 
@@ -185,7 +185,7 @@ You can negate a condition with `not`{: .smolcode} to test for the inverse of a 
 If you want to check for a condition that is False, negating the condition would give you `True`{: .smolcode} and thus would let the branch evaluate.
 Finally, if you wish to check that two items are not equal, you can use `!=`{: .smolcode}.
 
-# Repetition, Looping
+## Repetition, Looping
 Generally, code executes line by line, starting at the top and continuing to the bottom.
 If we want to do the same thing more than once, repeating yourself is clumsy and hard to read.
 We program to be lazy; a good mantra is DRY: Don't Repeat Yourself!
@@ -230,12 +230,12 @@ This program prints out the number of each iteration, except for the cases where
 We also have a different approach for a conditional that wishes to check equality against several items.
 In this case, we ask if the number is within a set of other numbers.
 
-# Collections
-## Creating collections
+## Collections
+### Creating collections
 ```py
 {{collections_instantiations}}
 ```
-## Accessing items
+### Accessing items
 ```py
 {{collections_item_access}}
 ```
@@ -263,7 +263,7 @@ to learn about the many options these collections provide.
 Strings can also be indexed and iterated over in a manner similar to a tuple or list, allowing you to access individual characters.
 Strings, like tuples, are immutable.
 Here, we also catch a glimpse of for loops. This syntax allows us to conveniently loop through each item in a collection.
-# Functions
+## Functions
 Last but not least on our whirlwind tour is an explanation of functions.
 ```py
 {{functions_define}}
