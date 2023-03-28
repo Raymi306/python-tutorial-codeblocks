@@ -14,7 +14,7 @@ Below I will show how to import and use standard library modules, as well as mod
 ## Randomness
 
 Randomness is great for adding some variety and spice to a program.
-Pseudorandom functionality is exposed by the [random]({{ext_stdlib_random}}) module in the standard library.
+Pseudorandom functionality is provided by the [random]({{ext_stdlib_random}}) module in the standard library.
 Make sure to read the documentation for a full overview of the capabilities of the module.
 
 ```py
