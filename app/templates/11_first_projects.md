@@ -115,7 +115,7 @@ Then, run:
 ```sh
 pip install requests
 ```
-Now, when your Python programs run inside of the virtual environment can `import requests` and make use of the tools in this library.
+Now, when your Python programs run inside of the virtual environment they can `import requests` and make use of the tools in this library.
 [Check out the documentation]({{ext_requests_docs}}) for the library to get a feel for all of the things you can do with it.
 Let's look at the contents of a simple website:
 ```py
