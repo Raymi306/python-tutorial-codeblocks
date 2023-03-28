@@ -73,7 +73,6 @@ You might open a file in binary mode if it is an image file or other special for
 To learn more about reading and writing files, check out the [official documentation]({{ext_python3_file_io}}).
 ## More about imports; Working with dependencies; Exploring the web
 
-### Import stuff goes here; discuss importing your own modules briefly
 Every file is its own module as well!
 If you have two python files, named 'example\_a.py' and 'example\_b.py' that are in the same directory, example\_a.py can use code written in the other file like so:
 ```
