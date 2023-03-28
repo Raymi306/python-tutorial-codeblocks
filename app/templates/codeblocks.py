@@ -133,9 +133,9 @@ def input_and_print_double_v1(mocked_input_ret):
 
 def input_and_print_double_v2(mocked_input_ret):
     """
-    >>> input_and_print_double_v1('7')
+    >>> input_and_print_double_v2('7')
     14
-    >>> input_and_print_double_v1('foo')
+    >>> input_and_print_double_v2('foo')
     Traceback (most recent call last):
     ValueError: invalid literal for int() with base 10: 'foo'
     """
@@ -149,9 +149,9 @@ def input_and_print_double_v2(mocked_input_ret):
 
 def input_and_print_double_v3(mocked_input_ret):
     """
-    >>> input_and_print_double_v1('7')
+    >>> input_and_print_double_v3('7')
     14
-    >>> input_and_print_double_v1('foo')
+    >>> input_and_print_double_v3('foo')
     Traceback (most recent call last):
     ValueError: invalid literal for int() with base 10: 'foo'
     """
@@ -164,9 +164,9 @@ def input_and_print_double_v3(mocked_input_ret):
 
 def input_and_print_double_v4(mocked_input_ret):
     """
-    >>> input_and_print_double_v1('7')
+    >>> input_and_print_double_v4('7')
     14
-    >>> input_and_print_double_v1('foo')
+    >>> input_and_print_double_v4('foo')
     Traceback (most recent call last):
     ValueError: invalid literal for int() with base 10: 'foo'
     """
