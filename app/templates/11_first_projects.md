@@ -41,7 +41,7 @@ Assuming your program is called hello.py,
 python3 hello.py foobarbaz
 ```
 
-Your program will receive the string foobarbaz as an argument which it can then make use of.
+Your program will receive the string foobarbaz as an argument which it can then use.
 
 Python too is a program, and it is being given the argument "hello.py", which in this case Python uses to know what file to run.
 
