@@ -64,11 +64,12 @@ class LinkTester(BuildTest):
     """Make sure all templated links are alive"""
 
     name = 'Links'
-    def __init__(self, concurrency=16):
+    def __init__(self, concurrency=16, ignore_internal_links=False):
         """
         Semaphore limits number of concurrent requests for performance
         Is still nonblocking"""
         self.concurrency = concurrency
+        self.ignore_internal_links = ignore_internal_links
 
     @staticmethod
     async def fetch(session, url, lock):
@@ -84,19 +85,30 @@ class LinkTester(BuildTest):
         async with aiohttp.ClientSession() as session:
             lock = asyncio.Semaphore(self.concurrency)
             responses = await asyncio.gather(
-                    *[self.fetch(session, url, lock) for url in links]
-                    )
+                *[self.fetch(session, url, lock) for url in links]
+            )
             failures = [r for r in responses if r.status != 200]
             return failures
 
     def _test(self):
         from app.templates.links import links  # pylint: disable=import-outside-toplevel
 
-        fails = asyncio.run(self.get_failures(links.values()))
+        def strip_fragment_identifiers(link):
+            return link.split('#')[0]
+
+        if self.ignore_internal_links:
+            links = set(
+                strip_fragment_identifiers(link) for template_var, link in links.items()
+                if not template_var.startswith('int')
+            )
+        else:
+            links = set(strip_fragment_identifiers(link) for link in links.values())
+
+        fails = asyncio.run(self.get_failures(links))
         return BuildTestResult(
-                not bool(fails),
-                [f'{fail.url}: {fail.status}' for fail in fails]
-                )
+            not bool(fails),
+            [f'{fail.url}: {fail.status}' for fail in fails]
+        )
 
 
 class UnresolvedTemplateVariablesTester(BuildTest):
@@ -122,8 +134,6 @@ class UnresolvedTemplateVariablesTester(BuildTest):
             vars_in_template = meta.find_undeclared_variables(ast)
             if mismatch := vars_in_template.difference(set(self.ctx.keys())):
                 passed = False
-                output.append(
-                        f'{template}: {mismatch}'
-                        )
+                output.append(f'{template}: {mismatch}')
         return BuildTestResult(passed, output)
 # pylint: enable=too-few-public-methods

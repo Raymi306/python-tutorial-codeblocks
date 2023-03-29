@@ -7,3 +7,4 @@
 - [First Steps]({{int_first_steps}})
 - [First Projects]({{int_first_projects}})
 - [Miscellanea]({{int_misc}})
+- [Additional Resources]({{int_resources}})

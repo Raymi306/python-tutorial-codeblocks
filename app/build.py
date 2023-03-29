@@ -16,8 +16,10 @@ from app.qa import LinkTester, CodeblocksTester, UnresolvedTemplateVariablesTest
 
 def run_build_checks(env, ctx):
     """QA for build process"""
+    args = sys.argv[1:]
+    ignore_internal = '--new-internal-links' in args
     testers = (
-            LinkTester(),
+            LinkTester(ignore_internal_links=ignore_internal),
             CodeblocksTester(),
             UnresolvedTemplateVariablesTester(env, ctx),
             )
@@ -58,7 +60,7 @@ def render_templates(env, ctx):
 def write_render(render, path):
     """Write final render to appropriate path"""
     args = sys.argv[1:]
-    if 'dry-run' not in args:
+    if '--dry-run' not in args:
         with open(path, 'w', encoding='utf-8') as f:
             f.write(render)
 
