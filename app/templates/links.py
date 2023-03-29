@@ -7,6 +7,7 @@ BASE_URL = config['TUTORIAL_BASE_URL']
 links = {
         'ext_github_repo': 'https://github.com/Raymi306/python-tutorial',
         'ext_python_dl_page': 'https://www.python.org/downloads',
+        'ext_python3_docs': 'https://docs.python.org/3/',
         'ext_python3_stdlib': 'https://docs.python.org/3/library/',
         'ext_python3_file_io': 'https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files',
         'ext_python3_context_managers': 'https://docs.python.org/3/reference/datamodel.html#context-managers',
@@ -15,6 +16,8 @@ links = {
         'ext_stdlib_sys': 'https://docs.python.org/3/library/sys.html',
         'ext_requests_docs': 'https://docs.python-requests.org/en/latest/index.html',
         'ext_beautifulsoup4_docs': 'https://beautiful-soup-4.readthedocs.io/en/latest/#',
+        'ext_python_the_python_tutorial': 'https://docs.python.org/3/tutorial/index.html',
+        'ext_python_wiki_learning_resources': 'https://wiki.python.org/moin/BeginnersGuide/Programmers',
         'ext_automate_the_boring_stuff': 'https://automatetheboringstuff.com/',
         'ext_invent_with_python': 'https://inventwithpython.com/',
         'ext_codewars': 'https://codewars.com',

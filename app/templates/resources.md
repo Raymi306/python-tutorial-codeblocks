@@ -14,6 +14,9 @@ scheduling tasks to occur at certain times, sending emails, manipulating images,
 The author has several [other books]({{ext_invent_with_python}}) that may pique your interest as well, definitely worth checking out!
 His other books cover a variety topics such as making games, cracking codes, and project ideas.
 
+## Official Python Resources
+There is an [official tutorial]({{ext_python_the_python_tutorial}}) and a [list of resources]({{ext_python_wiki_learning_resources}})
+on the Python wiki. Also, don't forget the [official documentation]({{ext_python3_docs}})!
 ## Online Code Challenges: Codewars
 [link]({{ext_codewars}})
 
