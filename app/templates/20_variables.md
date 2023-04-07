@@ -91,12 +91,12 @@ Mutating global variables can lead to unexpected behavior in different parts of 
 It is often considered bad practice.
 If you find yourself relying heavily on the 'global' keyword, restructuring your code may be of great help.
 
-## Values vs References
-As a language, Python has many abstractions to try and smooth out the development process.
-One thing that is abstracted is the concept of pointers.
-Pointers are a value which represent an address in memory.
-The importance of this, is that sometimes a Python variable represents a value, as is the case of numbers and strings, and sometimes a variable represents the value behind an address.
-This is the case for many collections, such as lists, and user defined classes.
+## Mutable vs Immutable Objects
+Some objects such as integers, floats, and strings, are immutable in Python.
+This means that if you want to perform an operation on them, a new object is created for the result as the original cannot be changed.
+If you try and assign two variables to the same immutable object, and then make a change to one of the variables, a new object is created.
+However, user-defined objects and collections are mutable objects.
+If you point two variables at the same mutable object, changes to one will affect the other.
 The best way to illustrate the consequences of this is an example:
 ```py
 list_1 = [1, 2, 3]
