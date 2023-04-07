@@ -92,10 +92,10 @@ It is often considered bad practice.
 If you find yourself relying heavily on the 'global' keyword, restructuring your code may be of great help.
 
 ## Mutable vs Immutable Objects
-Some objects such as integers, floats, and strings, are immutable in Python.
+Some objects such as numbers, booleans, tuples, and strings are immutable in Python.
 This means that if you want to perform an operation on them, a new object is created for the result as the original cannot be changed.
 If you try and assign two variables to the same immutable object, and then make a change to one of the variables, a new object is created.
-However, user-defined objects and collections are mutable objects.
+However, user-defined objects and many collections besides tuples are mutable objects.
 If you point two variables at the same mutable object, changes to one will affect the other.
 The best way to illustrate the consequences of this is an example:
 ```py
@@ -114,6 +114,10 @@ print(list_2)  # [1, 2, 3]
 
 # alternatively, you may copy a list with the following syntax:
 list_3 = list_1[:]
+
+# dictionaries have a copy method, saving you an import
+dict_1 = {1: 2}
+dict_2 = dict_1.copy()
 ```
 
 ## Naming Conventions
