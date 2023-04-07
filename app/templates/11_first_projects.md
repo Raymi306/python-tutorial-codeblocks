@@ -1,4 +1,4 @@
-<<[prev]({{int_first_steps}}) [index]({{int_index}})
+<<[prev]({{int_first_steps}}) [index]({{int_index}}) [next]({{int_variables}})>>
 
 [TOC]
 
@@ -154,3 +154,5 @@ On most desktop browsers, you can open the developer tools by hitting F12.
 Not only can you inspect the HTML content, but you can also inspect the network requests that a website makes in order to work.
 Be aware that some websites generate content with a combination of scripts and web requests.
 If this is the case, you can often mimic the web requests that the site is making and get the information directly.
+
+<<[prev]({{int_first_steps}}) [index]({{int_index}}) [next]({{int_variables}})>>

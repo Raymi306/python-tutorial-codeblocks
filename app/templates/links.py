@@ -34,5 +34,6 @@ links = {
         'int_programming_overview': f'{BASE_URL}/02_programming_overview.html',
         'int_first_steps': f'{BASE_URL}/10_first_steps.html',
         'int_first_projects': f'{BASE_URL}/11_first_projects.html',
+        'int_variables': f'{BASE_URL}/20_variables.html',
         }
 # pylint: enable=line-too-long
