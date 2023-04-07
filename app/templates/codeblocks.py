@@ -67,13 +67,14 @@ def get_func_body(name):
     return ''.join(result).strip()
 
 
-def mark(fn):
-    """Give something for code inspection to find functions that we wish to include as codeblocks, and make fn static"""
-    fn.__mark = None
+def mark(fn):  # pylint: disable=invalid-name
+    """Give something for code inspection to find functions
+    that we wish to include as codeblocks, and make fn static"""
+    fn.__mark = None  # pylint: disable=protected-access
     return staticmethod(fn)
 
 
-class Codeblocks:
+class Codeblocks:  # pylint: disable=too-many-public-methods
     """Container of functions needed for templating"""
 
     # pylint: disable=line-too-long
