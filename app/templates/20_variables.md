@@ -35,7 +35,7 @@ Functions have their own unique scope.
 ```py
 var_1 = 2
 def func_1():
-        var_2 = 3
+    var_2 = 3
 
 print(var_1)  # 2
 print(var_2)  # NameError: name 'var2' is not defined
@@ -60,19 +60,18 @@ Below are some examples of variable assignment with and without using the keywor
 var_1 = 9.3
 
 def func_1():
-        # accessing variables from an outer scope works fine
-        print(var_1)  # 9.3
-        # trying to change them will not work as expected
-        var_1 = 0.0
-        print(var_1)  # 0.0
-
+    # accessing variables from an outer scope works fine
+    print(var_1)  # 9.3
+    # trying to change them will not work as expected
+    var_1 = 0.0
+    print(var_1)  # 0.0
 func_1()
 print(var_1)  # 9.3
 
 def func_2():
-        # the global keyword here grants the ability to modify var_1
-        global var_1
-        var_1 = 'foo'
+    # the global keyword here grants the ability to modify var_1
+    global var_1
+    var_1 = 'foo'
 
 func_2()
 print(var_1)  # 'foo'
@@ -80,12 +79,12 @@ print(var_1)  # 'foo'
 
 ```py
 def outer_func():
-        var_1 = 42
-        def inner_func():
-                nonlocal var_1
-                var_1 = 13
-        inner_func()
-        print(var_1)  # 42
+    var_1 = 42
+    def inner_func():
+        nonlocal var_1
+        var_1 = 13
+    inner_func()
+    print(var_1)  # 42
 ```
 
 Mutating global variables can lead to unexpected behavior in different parts of your program far removed from where you made the change.
@@ -127,4 +126,4 @@ Classes should use Pascal case. Each word should start with an upper case letter
 In addition to cases, be kind to yourself, your future self, and others when naming variables.
 Unnecessarily short variables are hard to understand, as are unnecessarily long ones.
 Be as descriptive as you need to be with the variable.
-If their is important assumptions about the data that are not immediately obvious, such as a time being in seconds rather than minutes, consider adding that info to the variable name.
+If there are important assumptions about the data that are not immediately obvious, such as a time being in seconds rather than minutes, consider adding that info to the variable name.
