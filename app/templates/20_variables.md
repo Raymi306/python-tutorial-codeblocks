@@ -35,6 +35,18 @@ In addition to cases, be kind to yourself, your future self, and others when nam
 Unnecessarily short variables are hard to understand, as are unnecessarily long ones.
 Be as descriptive as you need to be with the variable.
 If there are important assumptions about the data that are not immediately obvious, such as a time being in seconds rather than minutes, consider adding that info to the variable name.
+If you wish to use a variable that is a keyword or would override another, you may append an underscore to it, 'id' -> 'id_'
+If there is a variable that you do not need to use, use a single underscore for the variable name.
+
+```py
+for _ in range(3):  # we don't need the numbers in the range, we just want to do an action n times
+    print("hello")
+
+def returns_two():
+    return 3, 'foo'
+
+_, my_var = returns_two()  # we do not intend to use the first element of the returned tuple
+```
 
 ## Scope
 Scope is the concept of where in code a variable is accessible from.
