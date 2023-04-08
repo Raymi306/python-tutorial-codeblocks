@@ -650,18 +650,21 @@ class Codeblocks:  # pylint: disable=too-many-public-methods
         4
         4
         """
+        # pylint: disable-all
         def foo():
             return 4
         def bar():
             return 5
         def do_something(v1, v2):
             pass
+        # pylint: enable-all
         # START
         # assignment as statement
         my_var = foo()
         if my_var:
             print(my_var)
         # assignment as expression, using 'walrus' operator
+        # NOTE: The walrus operator only works on Python3.8+
         if my_var := foo():
             print(my_var)
 
