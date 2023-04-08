@@ -79,7 +79,7 @@ if foo():
     print("do something")
 else:
     var_1 = True
-print(var_1)  # if foo() returns a falsey value, this will cause an error
+print(var_1)  # if foo() returns a truthy value, this will cause an error!
 ```
 
 In Python, [variable resolution occurs at runtime](https://docs.python.org/3/reference/executionmodel.html?highlight=variable%20scope#interaction-with-dynamic-features).
