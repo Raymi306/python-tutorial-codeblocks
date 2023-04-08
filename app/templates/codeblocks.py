@@ -643,6 +643,34 @@ class Codeblocks:  # pylint: disable=too-many-public-methods
         print(headers[0].text)
     # pylint: enable=import-outside-toplevel, import-error
 
+    @mark
+    def variables_assignments():
+        """
+        >>> Codeblocks.variables_assignments()
+        4
+        4
+        """
+        def foo():
+            return 4
+        def bar():
+            return 5
+        def do_something(v1, v2):
+            pass
+        # START
+        # assignment as statement
+        my_var = foo()
+        if my_var:
+            print(my_var)
+        # assignment as expression, using 'walrus' operator
+        if my_var := foo():
+            print(my_var)
+
+        # a more complicated example
+        if (var_1 := foo()) and (var_2 := bar()):
+            do_something(var_1, var_2)
+        # END
+
+
 
 codeblocks = {
     fn_name: get_func_body(
