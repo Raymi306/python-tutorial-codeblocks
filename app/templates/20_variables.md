@@ -48,8 +48,7 @@ _, my_var = returns_two()  # we do not intend to use the first element of the re
 Scope is the concept of variable visibility.
 That is to say, from where in code is a variable accessible.
 A variable is 'in-scope' on succeeding lines, with the exception of inside of class definitions.
-Class definitions create a new scope.
-Functions have their own unique scope.
+Class and function definitions create a new scope.
 
 ```py
 var_1 = 2
@@ -61,7 +60,29 @@ print(var_1)  # 2
 print(var_2)  # NameError: name 'var2' is not defined
 ```
 
-[Variable resolution occurs at runtime](https://docs.python.org/3/reference/executionmodel.html?highlight=variable%20scope#interaction-with-dynamic-features).
+One notable difference between Python and some other languages is that there is no new scope inside of blocks introduced by for loops, while loops, and if-elses.
+The below is valid Python:
+
+```py
+if foo():
+    var_1 = 100.13
+else:
+    var_1 = -33.12
+print(var_1)  # 100.13
+```
+
+Be careful if you take advantage of this, as it can be an easy way to introduce bugs.
+Consider the instance where you forget to assign to the variable in one branch of an if-else:
+
+```py
+if foo():
+    print("do something")
+else:
+    var_1 = True
+print(var_1)  # if foo() returns a falsey value, this will cause an error
+```
+
+In Python, [variable resolution occurs at runtime](https://docs.python.org/3/reference/executionmodel.html?highlight=variable%20scope#interaction-with-dynamic-features).
 The below example shows one possibly unexpected ramification of this.
 ```py
 i = 15
