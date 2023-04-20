@@ -97,7 +97,7 @@ Expressions differ from statements by the fact that they return a value.
 3
 ```
 ## Comparison
-### \<, \<=, \>, \>=
+### <, <=, \>, \>=
 ```py
 >>> 3 < 2
 False
@@ -153,6 +153,7 @@ You may negate conditions by placing 'not' in front of them.
 False
 >>> not (True and False) 
 True
+```
 ### is
 Objects in Python all have a unique id. To check if two objects are the same, you may use 'is'. The most common use of this is checking to see if a value is None.
 ```py
