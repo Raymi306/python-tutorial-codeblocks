@@ -1,4 +1,4 @@
-<<[prev]({{int_variables}}) [index]({{int_index}})
+<<[prev]({{int_variables}}) [index]({{int_index}}) [next]({{int_debugger}})>>
 
 [TOC]
 
@@ -222,4 +222,4 @@ False
 True
 ```
 
-<<[prev]({{int_variables}}) [index]({{int_index}})
+<<[prev]({{int_variables}}) [index]({{int_index}}) [next]({{int_debugger}})>>

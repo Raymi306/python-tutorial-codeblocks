@@ -8,5 +8,6 @@
 - [First Projects]({{int_first_projects}})
 - [Variables]({{int_variables}})
 - [Operators]({{int_operators}})
+- [Debugging]({{int_debugger}})
 - [Miscellanea]({{int_misc}})
 - [Additional Resources]({{int_resources}})
