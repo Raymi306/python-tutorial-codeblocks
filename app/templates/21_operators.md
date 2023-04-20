@@ -1,4 +1,4 @@
-<<[prev]({{int_first_projects}}) [index]({{int_index}})
+<<[prev]({{int_variables}}) [index]({{int_index}})
 
 [TOC]
 
@@ -123,6 +123,7 @@ True
 ```
 ### and
 You may combine conditions and require that both hold True with 'and'.
+Given the expression "x and y", "x" is evaluated first. If it is false, "x" is returned, otherwise "y" is evaluated and returned.
 ```py
 >>> 3 > 1 and 3 < 1000
 True
@@ -136,6 +137,14 @@ You may combine conditions and require that at least one hold True with 'or'.
 True
 >>> 3 > 1 or 3 < 2
 True
+```
+Given the expression "x or y", "x" is evaluated first. If it is true, "x" is returned, otherwise "y" is evaluated and returned.
+This can be useful for assigning a default value in the case that a variable ends up being falsey.
+```py
+>>> s = ""
+>>> q = s or "foo"
+>>> q
+"foo"
 ```
 ### not
 You may negate conditions by placing 'not' in front of them.
@@ -164,3 +173,5 @@ False
 >>> 'bar' in 'foobarbaz'
 True
 ```
+
+<<[prev]({{int_variables}}) [index]({{int_index}})

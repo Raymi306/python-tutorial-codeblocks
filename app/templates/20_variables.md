@@ -1,4 +1,4 @@
-<<[prev]({{int_first_projects}}) [index]({{int_index}})
+<<[prev]({{int_first_projects}}) [index]({{int_index}}) [next]({{int_operators}})>>
 
 [TOC]
 
@@ -161,4 +161,4 @@ dict_1 = {1: 2}
 dict_2 = dict_1.copy()
 ```
 
-<<[prev]({{int_first_projects}}) [index]({{int_index}})
+<<[prev]({{int_first_projects}}) [index]({{int_index}}) [next]({{int_operators}})>>

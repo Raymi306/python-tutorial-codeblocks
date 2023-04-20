@@ -7,11 +7,14 @@ clean:
 .PHONY: lint
 lint:
 	pylint app
+.PHONY: init_dist_dir
+init_dist_dir:
+	mkdir -p dist
 .PHONY: basic_build
-basic_build: clean
+basic_build: clean init_dist_dir
 	python -m app.build
 .PHONY: basic_build_new_internal_links
-basic_build_new_internal_links: clean
+basic_build_new_internal_links: clean init_dist_dir
 	python -m app.build --new-internal-links
 .PHONY: pygmentize_css
 pygmentize_css:
