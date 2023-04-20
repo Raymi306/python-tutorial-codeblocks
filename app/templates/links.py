@@ -13,6 +13,7 @@ links = {
         'ext_python3_file_io': 'https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files',
         'ext_python3_context_managers': 'https://docs.python.org/3/reference/datamodel.html#context-managers',
         'ext_python3_venv_activate_commands': 'https://docs.python.org/3/library/venv.html#how-venvs-work',
+        'ext_python3_operator_precedence': 'https://docs.python.org/3/reference/expressions.html#operator-precedence',
         'ext_stdlib_random': 'https://docs.python.org/3/library/random.html',
         'ext_stdlib_sys': 'https://docs.python.org/3/library/sys.html',
         'ext_requests_docs': 'https://docs.python-requests.org/en/latest/index.html',
