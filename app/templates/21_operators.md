@@ -78,7 +78,7 @@ The floor division operator divides numbers with the result being an integer rou
 The modulo operator provides the remainder after a division.
 It is particularly useful for testing if a number is even or odd, and for clock arithmetic where a number cycles back to 0 after reaching a given point.
 You may see it being used with strings as a formatting operator in older Python code.
-Prefer str.format and f-strings when possible.
+Prefer [str.format]({{ext_stdlib_format_strings}}) and [f-strings]({{ext_python3_fstring}}) when possible.
 ```py
 >>> 5 % 2
 1
