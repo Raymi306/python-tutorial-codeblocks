@@ -197,7 +197,7 @@ False
 ---
 ### in
 ---
-You may check if a value or subsequence is contained within another sequence with 'in'.
+'in' tests for membership. You may check if a value or subsequence is contained within another collection with 'in'.
 ```py
 >>> 3 in [1, 2, 3, 4, 5]
 True
