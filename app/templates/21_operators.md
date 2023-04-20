@@ -78,6 +78,7 @@ The floor division operator divides numbers with the result being an integer rou
 The modulo operator provides the remainder after a division.
 It is particularly useful for testing if a number is even or odd, and for clock arithmetic where a number cycles back to 0 after reaching a given point.
 You may see it being used with strings as a formatting operator in older Python code.
+Prefer str.format and f-strings when possible.
 ```py
 >>> 5 % 2
 1
@@ -85,6 +86,8 @@ You may see it being used with strings as a formatting operator in older Python 
 0
 >>> 25 % 24
 1
+>>> "foo%sbaz" % "bar"
+"foobarbaz"
 ```
 ## Precedence
 You may group operators together using parentheses to change their precedence.
@@ -113,6 +116,18 @@ Expressions differ from statements by the fact that they return a value.
 ```py
 >>> var := 3
 3
+```
+The Python Enhancement Proposal, or PEP, for [assignment expressions]({{ext_pep_572}}) provides several examples of how they can be a powerful tool:
+```py
+if (match := pattern.search(data)) is not None:
+    # Do something with match
+
+while chunk := file.read(4096):
+    # Do something with chunk
+
+[y := f(x), y**2, y**3]
+
+filtered_data = [y for x in data if (y := f(x)) is not None]
 ```
 ## Comparison and Boolean
 ---

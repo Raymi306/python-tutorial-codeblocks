@@ -16,6 +16,7 @@ links = {
         'ext_python3_operator_precedence': 'https://docs.python.org/3/reference/expressions.html#operator-precedence',
         'ext_stdlib_random': 'https://docs.python.org/3/library/random.html',
         'ext_stdlib_sys': 'https://docs.python.org/3/library/sys.html',
+        'ext_pep_572': 'https://peps.python.org/pep-0572/',
         'ext_requests_docs': 'https://docs.python-requests.org/en/latest/index.html',
         'ext_beautifulsoup4_docs': 'https://beautiful-soup-4.readthedocs.io/en/latest/#',
         'ext_python_the_python_tutorial': 'https://docs.python.org/3/tutorial/index.html',
