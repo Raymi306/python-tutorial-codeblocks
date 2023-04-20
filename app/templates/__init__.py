@@ -11,4 +11,4 @@ else:
     os.chdir(os.path.dirname(__file__))
     TEMPLATES = tuple(glob.glob('*.md'))
     os.chdir(cwd)
-BASE_HTML = 'base_html.html'
+BASE_HTML = 'base.html'
