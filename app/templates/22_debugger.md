@@ -32,6 +32,7 @@ Frames are a container of local and global state at a given point in time of the
 Often times, functions are a common source of frames.
 When you call a new function, you enter a new frame.
 The frame that you are in determines the context of the commands that you run, and is similar to a scope in this sense.
+
 Many commands can be abbreviated.
 In the help, if a command is listed with parentheses such as "w(here)", you may either type the full command or the abbreviation to the left of the parentheses.
 "help" also lists all valid abbreviations.
