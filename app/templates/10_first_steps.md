@@ -30,6 +30,12 @@ When you try running this code, experiment with removing the quotation marks and
 'syntax error' may be a little vague to us right now, but getting comfortable with common errors will make it easier to know where to look for help and what to do next time.
 Overall, Python makes the classic 'Hello world' programming tutorial very simple indeed!
 
+At this point I wish to reiterate something, as I find it to be a common problem for beginners.
+
+If you type anything in Python, it MUST be defined, otherwise you will get an error.
+
+Some things are a keyword or are built-in to Python and start out defined. Other things, you will define yourself. Try not to confuse strings with syntactic elements of the language. "Dog" has meaning as a string, or textual data. `Dog`{: .smolcode} has none, unless you define Dog.
+
 ---
 ## <built-in function input\>
 ---

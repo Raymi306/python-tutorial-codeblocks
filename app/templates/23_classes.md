@@ -79,13 +79,65 @@ Implementing these magic methods on your class allows for printing both a pretty
 "\_\_repr\_\_"'s implementation's return value should contain enough information to recreate the object instance.
 If this is not possible, then information in the form of `<...descriptive information goes here...>`{: .smolcode} should be returned.
 The return value for \_\_repr\_\_ must be a string.
-### `__eq__`
-equality checks
-### `__call__`
-make an object act like a function
-### `__enter__, __exit__`
-context managers
+### `__eq__(self, other)`
+Implementing "\_\_eq\_\_" allows for equality checks between two object instances. You may choose to compare certain attributes of the class to itself, or perhaps use the id of the class.
+```py
+class Foo:
+    def __init__(self, value):
+        self.value = value
 
+    # def __eq__(self, other):
+    # """only equal if objects have the same id,
+    # that is to say that they are the same exact object instance"""
+        # return self is other:
+
+    def __eq__(self, other):
+        return self.value == other.value
+```
+### `__call__`
+Implementing "\_\_call\_\_" allows you to call an object as if it were a function, performing the action that you have defined inside of the body of "\_\_call\_\_".
+### `__enter__, __exit__`
+context managers are used in "with" statements.
+An action is performed when you enter the context manager per the implementation of "\_\_enter\_\_".
+An other action is performed when you exit the context manager, typically to perform cleanup tasks. This is defined by the implementation of "\_\_exit\_\_".
+
+
+## Enumerations
+If a class represents a type of an object, an enum, or enumeration, represents a collection of possibilities.
+Imagine the colors of a stop light. There are 3 possibilities.
+You could use strings to represent them, "green", "yellow", and "red".
+However, strings are vulnerable to typos, and there is always the possibility of a different color entirely being passed in.
+If you wish to codify a set of choices, create an enumeration as follows:
+
+```py
+from enum import Enum
+
+# The below syntax represents inheritance
+# This means that our class StoplightColors has all of the properties of the Enum class
+class StoplightColors(Enum):
+    # You must assign an integer to each enumerated value
+    GREEN = 1,
+    YELLOW = 2,
+    RED = 3,
+
+>>> StoplightColors.YELLOW
+StoplightColors.YELLOW
+>>> StoplightColors.YELLOW.value
+2
+
+# The below syntax represents multiple inheritance
+# This gives the properties of both str and Enum to our class
+# This may be useful if we want to retrieve a string value instead of an integer value
+class StoplightColors(Enum, str):
+    GREEN = 'green',
+    YELLOW = 'yellow',
+    RED = 'red,
+
+>>> StoplightColors.GREEN
+StoplightColors.GREEN
+>>> StoplightColors.GREEN.value
+'green'
+```
 
 ## Dataclasses
 A common pattern is to use a class as a simple container mapping named attributes to data.

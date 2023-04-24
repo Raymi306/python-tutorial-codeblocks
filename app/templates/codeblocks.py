@@ -476,6 +476,9 @@ class Codeblocks:  # pylint: disable=too-many-public-methods
         >>> Codeblocks.functions_define()
         30
         9
+        12
+        14
+        8
         1
         1
         2
@@ -491,10 +494,16 @@ class Codeblocks:  # pylint: disable=too-many-public-methods
             for item in collection:
                 print(item)
 
+        def add_2_default_args(num_1=8, num_2=4):
+            return num_1 + num_2
+
         value_1 = 10
         value_2 = 20
         print(add_2(value_1, value_2)) # 30
         print(add_2(3, 6)) # 9
+        print(add_2_default_args()) # 12
+        print(add_2_default_args(10)) # 14
+        print(add_2_default_args(num_2=0)) # 8
         list_1 = [1, 1, 2, 3, 5, 8, 13]
         print_collection(list_1)
 
@@ -503,6 +512,8 @@ class Codeblocks:  # pylint: disable=too-many-public-methods
         """
         >>> Codeblocks.functions_splat()
         Both methods agree; sum of 1, 2, 3, 4 is 10
+        (1, 2, 3)
+        {'key': 'value', 'foo': 'bar'}
         """
         def sum_4_long_signature(num_1, num_2, num_3, num_4):
             return num_1 + num_2 + num_3 + num_4
@@ -513,11 +524,21 @@ class Codeblocks:  # pylint: disable=too-many-public-methods
                 accumulator += num
             return accumulator
 
+        # in a function signature, * represents variable positional arguments and will be represented as a tuple.
+        # ** represents variable keyword arguments and will be represented as a dictionary
+        def varargs(*args, **kwargs):
+            print(args)
+            print(kwargs)
+
         my_list = [1, 2, 3, 4]
         result_1 = sum_4_long_signature(*my_list) # splat operator unpacks a list or tuple, double splat (**) unpacks a dictionary
         result_2 = sum_many(my_list)
         if result_1 == result_2:
             print(f'Both methods agree; sum of 1, 2, 3, 4 is {result_1}')
+
+        varargs(1, 2, 3, key='value', foo='bar')
+        # (1, 2, 3)
+        # {'key': 'value', 'foo': 'bar'}
 
     # pylint: disable=import-outside-toplevel
     @mark
