@@ -15,8 +15,8 @@ class MyType:
     class_attribute = 0
     def __init__(self, arg):
         self.regular_attribute = arg
-        MyType.static_attribute += 1
-        self.instance = MyType.static_attribute
+        MyType.class_attribute += 1
+        self.instance = MyType.class_attribute
 
     def method(self):
         return self.class_attribute, self.regular_attribute

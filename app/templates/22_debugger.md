@@ -49,7 +49,7 @@ We also might want to monitor the state of a variable over time.
 Use the "display" command followed by an expression or the variable name, and it will print out the result of the expression with each step through the code.
 
 ## Where to next?
-To execute the current line and step into the next function or line, run the "step" command or "s" for short.
+To execute the current line and step into the next function or line, run the "step" command, or "s" for short.
 
 To continue execution until the next line, run "n(ext)". This will NOT go in to a function.
 

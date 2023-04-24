@@ -10,6 +10,7 @@ links = {
         'ext_python3_context_managers': 'https://docs.python.org/3/reference/datamodel.html#context-managers',
         'ext_python3_docs': 'https://docs.python.org/3/',
         'ext_python3_file_io': 'https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files',
+        'ext_python3_numeric_types': 'https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex',
         'ext_python3_fstring': 'https://docs.python.org/3/reference/lexical_analysis.html#f-strings',
         'ext_python3_keywords': 'https://docs.python.org/3/reference/lexical_analysis.html#keywords',
         'ext_python3_operator_precedence': 'https://docs.python.org/3/reference/expressions.html#operator-precedence',

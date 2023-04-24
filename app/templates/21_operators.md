@@ -7,7 +7,7 @@
 ---
 ### +
 ---
-The addition operator adds numbers together. If used with strings or sequences, it concatenates, or combines them.
+The addition operator adds numbers together. If used with strings or sequences, it concatenates, or combines, them.
 ```py
 >>> 2 + 2
 4
@@ -46,7 +46,7 @@ The multiplication operator multiplies numbers. Multiplying a string or other se
 ---
 ### **
 ---
-The power operator raises a number to a power. Do not confuse ** with ^, ^ is the bitwise xor operator which operates on the binary representation of the value. Bitwise operators will be a topic for another time.
+The power operator raises a number to a power. Do not confuse "**" with "^". "^" is the bitwise xor operator which operates on the binary representation of the value. Bitwise operators will be a topic for another time.
 ```py
 >>> 2 ** 31
 2147483648
@@ -55,9 +55,9 @@ The power operator raises a number to a power. Do not confuse ** with ^, ^ is th
 # 0b0000_0010 ^ 0b0001_1111 = 0b0001_1101
 ```
 ---
-### / 
+### /
 ---
-The true division operator divides numbers with the result being a float.
+The true division operator divides numbers with the result being a [float]({{ext_python3_numeric_types}}).
 ```py
 >>> 3 / 2
 1.5
