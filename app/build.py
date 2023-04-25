@@ -6,6 +6,7 @@ import sys
 from jinja2 import Environment, PackageLoader, DebugUndefined
 from markdown import markdown
 from markdown.extensions.toc import TocExtension
+from markdown.extensions.codehilite import CodeHiliteExtension
 
 from app import config
 from app.templates import TEMPLATES, BASE_HTML
@@ -41,7 +42,7 @@ def render_templates(env, ctx):
     py_md_extensions = (
             'attr_list',
             'fenced_code',
-            'codehilite',
+            CodeHiliteExtension(guess_lang=False),
             TocExtension(toc_depth='2-6', anchorlink=True),
             )
     base_html_template = env.get_template(BASE_HTML)

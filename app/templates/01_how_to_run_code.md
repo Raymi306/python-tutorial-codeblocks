@@ -29,7 +29,7 @@ Write the python code using a [text editor]({{int_misc_text_editors}}) or intera
 
 When ready to run the code, make sure to save it, remembering the name that you choose to give your file.
 From your operating system's command prompt, run the code by typing in the name of the python program followed by the [path to your code file]({{int_misc_file_paths}})
-```sh
+```
 python3 helloworld.py
 ```
 It will interpret your file as code and run it from start to finish.
