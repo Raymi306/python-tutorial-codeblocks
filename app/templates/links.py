@@ -22,10 +22,13 @@ links = {
         'ext_stdlib_format_strings': 'https://docs.python.org/3/library/string.html#format-string-syntax',
         'ext_stdlib_random': 'https://docs.python.org/3/library/random.html',
         'ext_stdlib_sys': 'https://docs.python.org/3/library/sys.html',
+        'ext_pep_8': 'https://peps.python.org/pep-0008/',
         'ext_pep_257': 'https://peps.python.org/pep-0257/',
         'ext_pep_572': 'https://peps.python.org/pep-0572/',
-        'ext_requests_docs': 'https://docs.python-requests.org/en/latest/index.html',
         'ext_beautifulsoup4_docs': 'https://beautiful-soup-4.readthedocs.io/en/latest/#',
+        'ext_requests_docs': 'https://docs.python-requests.org/en/latest/index.html',
+        'ext_pylint': 'https://pylint.org/',
+        'ext_ruff': 'https://beta.ruff.rs/docs/',
         'ext_python_the_python_tutorial': 'https://docs.python.org/3/tutorial/index.html',
         'ext_python_wiki_learning_resources': 'https://wiki.python.org/moin/BeginnersGuide/Programmers',
         'ext_automate_the_boring_stuff': 'https://automatetheboringstuff.com/',
@@ -48,5 +51,6 @@ links = {
         'int_operators': f'{BASE_URL}/21_operators.html',
         'int_debugger': f'{BASE_URL}/22_debugger.html',
         'int_classes': f'{BASE_URL}/23_classes.html',
+        'int_linter': f'{BASE_URL}/24_linter.html',
         }
 # pylint: enable=line-too-long
