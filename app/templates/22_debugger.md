@@ -1,4 +1,4 @@
-<<[prev]({{int_operators}}) [index]({{int_index}})
+<<[prev]({{int_operators}}) [index]({{int_index}}) [next]({{int_classes}})>>
 
 [TOC]
 
@@ -62,4 +62,4 @@ To continue until the next breakpoint, run "cont(inue)".
 
 To quit out of the debugger, run "quit".
 
-<<[prev]({{int_operators}}) [index]({{int_index}})
+<<[prev]({{int_operators}}) [index]({{int_index}}) [next]({{int_classes}})>>

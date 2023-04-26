@@ -1,4 +1,4 @@
-[index]({{int_index}})
+<<[prev]({{int_debugger}}) [index]({{int_index}})
 
 [TOC]
 
@@ -251,3 +251,5 @@ You may call "help" with the object or class as an argument and receive any docu
 You may document your own creations with [docstrings]({{ext_pep_257}}).
 A handy trick to see what attributes and methods are available on a given object is to use the builtin "dir" function.
 Call "dir" and pass the object or class as an argument and receive a list of all the available attributes.
+
+<<[prev]({{int_debugger}}) [index]({{int_index}})

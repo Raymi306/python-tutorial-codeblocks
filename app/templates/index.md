@@ -9,5 +9,6 @@
 - [Variables]({{int_variables}})
 - [Operators]({{int_operators}})
 - [Debugging]({{int_debugger}})
+- [Classes]({{int_classes}})
 - [Miscellanea]({{int_misc}})
 - [Additional Resources]({{int_resources}})

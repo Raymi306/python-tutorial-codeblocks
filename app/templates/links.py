@@ -47,5 +47,6 @@ links = {
         'int_variables': f'{BASE_URL}/20_variables.html',
         'int_operators': f'{BASE_URL}/21_operators.html',
         'int_debugger': f'{BASE_URL}/22_debugger.html',
+        'int_classes': f'{BASE_URL}/23_classes.html',
         }
 # pylint: enable=line-too-long
