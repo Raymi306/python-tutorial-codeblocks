@@ -8,6 +8,7 @@ There is one definitive source of guidelines that you should be aware of: [PEP 8
 
 PEP 8 outlines the coding convention that the Python project follows for code in the standard library.
 PEP 8 can be followed manually, but tools exist to check for style violations.
+
 Linters check for issues of style, and can also check for possible errors such as using a module that you forgot to import.
 The sooner in your project that you start using a linter, the easier it is to keep your code compliant.
 

@@ -6,7 +6,7 @@ BASE_URL = config['TUTORIAL_BASE_URL']
 # pylint: disable=line-too-long
 links = {
         'ext_github_repo': 'https://github.com/Raymi306/python-tutorial',
-        'ext_python_dl_page': 'https://www.python.org/downloads',
+        'ext_python_dl_page': 'https://www.python.org/downloads/',
         'ext_python3_context_managers': 'https://docs.python.org/3/reference/datamodel.html#context-managers',
         'ext_python3_docs': 'https://docs.python.org/3/',
         'ext_python3_enum': 'https://docs.python.org/3/library/enum.html',
@@ -33,7 +33,7 @@ links = {
         'ext_python_wiki_learning_resources': 'https://wiki.python.org/moin/BeginnersGuide/Programmers',
         'ext_automate_the_boring_stuff': 'https://automatetheboringstuff.com/',
         'ext_invent_with_python': 'https://inventwithpython.com/',
-        'ext_codewars': 'https://codewars.com',
+        'ext_codewars': 'https://www.codewars.com',
         'int_home': config['HOMEPAGE_URL'],
         'int_index': f'{BASE_URL}/index.html',
         'int_misc': f'{BASE_URL}/misc.html',

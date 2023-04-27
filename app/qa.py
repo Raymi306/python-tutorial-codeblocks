@@ -75,7 +75,7 @@ class LinkTester(BuildTest):
     async def fetch(session, url, lock):
         """Locked async HTTP GET"""
         async with lock:
-            return await session.get(url)
+            return await session.get(url, allow_redirects=False, timeout=3)
 
     async def get_failures(self, links):
         """
