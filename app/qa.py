@@ -67,7 +67,8 @@ class LinkTester(BuildTest):
     def __init__(self, concurrency=16, ignore_internal_links=False):
         """
         Semaphore limits number of concurrent requests for performance
-        Is still nonblocking"""
+        Is still nonblocking
+        """
         self.concurrency = concurrency
         self.ignore_internal_links = ignore_internal_links
 
@@ -75,7 +76,10 @@ class LinkTester(BuildTest):
     async def fetch(session, url, lock):
         """Locked async HTTP GET"""
         async with lock:
-            return await session.get(url, allow_redirects=False, timeout=3)
+            try:
+                return await session.get(url, allow_redirects=False, timeout=5)
+            except asyncio.exceptions.TimeoutError:
+                print(f"Took too long trying to fetch {url}")
 
     async def get_failures(self, links):
         """
