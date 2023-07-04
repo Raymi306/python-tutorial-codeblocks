@@ -47,6 +47,15 @@ This allows us to access the Python interpreter's help, rather than pdb's help, 
 
 We also might want to monitor the state of a variable over time.
 Use the "display" command followed by an expression or the variable name, and it will print out the result of the expression with each step through the code.
+Unfortunately, display does not work with the "continue" command when you are using `breakpoint()`{: .smolcode} inside your source code.
+To get around this, you can put your breakpoint in a different location or start your program with pdb and no initial breakpoints.
+Then, use "break" followed by a line number to set your breakpoint.
+Now, display will work as we expect and will update us on changes that occur after we "continue".
+
+You may wish to have the full capabilities of the Python interpreter.
+Type "interact" to invoke an interpreter.
+Note that any state you create inside of the interpreter will be lost when you return to the debugger.
+One way around this is to create any variables you wish to save between both sessions inside the debugger before invoking the interpreter.
 
 ## Where to next?
 To execute the current line and step into the next function or line, run the "step" command, or "s" for short.
