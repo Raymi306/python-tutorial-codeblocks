@@ -12,7 +12,8 @@ However, a better tool exists, and it comes with Python.
 On a new line in your code, write `breakpoint()`{: .smolcode} and run your code.
 When execution hits a line with a breakpoint, the code will pause and drop you into pdb.
 From here, you can explore the state of the program, set new breakpoints, jump forwards or backwards in code, step through the program, and more.
-If you ever forget what commands are available to you, type `help`{: .smolcode}. For a detailed help explaining all available commands at once and a summary of how to use pdb, type `help pdb`{: .smolcode}.
+If you ever forget what commands are available to you, type `help`{: .smolcode}.
+For a detailed help explaining all available commands at once and a summary of how to use pdb, type `help pdb`{: .smolcode}.
 
 ## Where am I?
 There are several commands that can help orient you.
@@ -42,22 +43,12 @@ Inside the debugger, you can type any python expression and it will attempt to e
 If you type "p" followed by a variable name and hit enter, you can see the current value.
 You may omit the "p" if the variable name does not collide with a pdb command.
 "pp" will pretty print the value, which sometimes makes reading collections and nested data structures easier on the eyes.
-If you wish to run a function or inspect a variable with a name collision, you can start your command with an exclamation point "!".
+If you wish to interact with a function or variable with a name collision, you can start your command with an exclamation point "!".
 This allows us to access the Python interpreter's help, rather than pdb's help, by typing `!help()`{: .smolcode}.
 
-We also might want to monitor the state of a variable over time.
-Use the "display" command followed by an expression or the variable name, and it will print out the result of the expression with each step through the code.
-Unfortunately, display does not work with the "continue" command when you are using `breakpoint()`{: .smolcode} inside your source code.
-To get around this, you can put your breakpoint in a different location or start your program with pdb and no initial breakpoints.
-Then, use "break" followed by a line number to set your breakpoint.
-Now, display will work as we expect and will update us on changes that occur after we "continue".
-
-You may wish to have the full capabilities of the Python interpreter.
-Type "interact" to invoke an interpreter.
-Note that any state you create inside of the interpreter will be lost when you return to the debugger.
-One way around this is to create any variables you wish to save between both sessions inside the debugger before invoking the interpreter.
-
 ## Where to next?
+To continue until the next breakpoint, run "cont(inue)".
+
 To execute the current line and step into the next function or line, run the "step" command, or "s" for short.
 
 To continue execution until the next line, run "n(ext)". This will NOT go in to a function.
@@ -67,8 +58,21 @@ If not given a line number n, it will continue execution until a line with a num
 
 To continue until the return of a frame, run "r(eturn)".
 
-To continue until the next breakpoint, run "cont(inue)".
+To traverse up and down stack frames, run "up" and "down" respectively
 
 To quit out of the debugger, run "quit".
+On Unix systems, you may also press <Ctrl+D\>
+
+## Miscellaneous
+Use the "display" command followed by an expression or variable name to watch its state over time.
+Unfortunately, display does not work with the "continue" command when you are using `breakpoint()`{: .smolcode} inside your source code.
+To get around this, you can put your breakpoint in a different location or start your program with pdb and no initial breakpoints.
+Then, use "break" followed by a line number to set your breakpoint.
+Now, display will work as we expect and will update us on changes that occur after we "continue".
+
+You may notice that inside pdb, you cannot make use of multiline statements such as for loops.
+Type "interact" to invoke the full Python interpreter.
+Note that any state you create inside of the interpreter will be lost when you return to the debugger.
+You may create mutable variables (such as a list or dictionary) inside of pdb before entering the interpreter to get around this limitation.
 
 <<[prev]({{int_operators}}) [index]({{int_index}}) [next]({{int_classes}})>>
