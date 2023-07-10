@@ -1,4 +1,5 @@
 """Module for building and build-time QA of the python tutorial website"""
+import argparse
 from os import makedirs
 from pathlib import Path
 import sys
@@ -12,15 +13,24 @@ from app import config
 from app.templates import TEMPLATES, BASE_HTML
 from app.templates.codeblocks import codeblocks
 from app.templates.links import links
-from app.qa import LinkTester, CodeblocksTester, UnresolvedTemplateVariablesTester, BuildTestFailure
+from app.qa import (
+    LinkTester, CodeblocksTester, UnresolvedTemplateVariablesTester, BuildTestFailure
+)
 
+parser = argparse.ArgumentParser()
+parser.add_argument('--new-internal-links')
+parser.add_argument(
+    '--dry-run',
+    help="""
+    Do not write any files or directories.
+    Still perform network requests for link checks
+    """
+)
 
-def run_build_checks(env, ctx):
+def run_build_checks(env, ctx, args):
     """QA for build process"""
-    args = sys.argv[1:]
-    ignore_internal = '--new-internal-links' in args
     testers = (
-            LinkTester(ignore_internal_links=ignore_internal),
+            LinkTester(ignore_internal_links=args.new_internal_links),
             CodeblocksTester(),
             UnresolvedTemplateVariablesTester(env, ctx),
             )
@@ -60,13 +70,11 @@ def render_templates(env, ctx):
 
 def write_render(render, path):
     """Write final render to appropriate path"""
-    args = sys.argv[1:]
-    if '--dry-run' not in args:
-        with open(path, 'w', encoding='utf-8') as f:
-            f.write(render)
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(render)
 
 
-def build():
+def main(args):
     """
     Perform all of the actions necessary to output the python tutorial webpages
     """
@@ -76,11 +84,13 @@ def build():
             undefined=DebugUndefined,
             )
     ctx = {**codeblocks, **links}
-    run_build_checks(env, ctx)
-    makedirs('dist', exist_ok=True)
-    for render, path in render_templates(env, ctx):
-        write_render(render, path)
+    run_build_checks(env, ctx, args)
+    if not args.dry_run:
+        makedirs('dist', exist_ok=True)
+        for render, path in render_templates(env, ctx):
+            write_render(render, path)
 
 
 if __name__ == '__main__':
-    build()
+    args_ = parser.parse_args()
+    main(args_)

@@ -80,6 +80,7 @@ class LinkTester(BuildTest):
                 return await session.get(url, allow_redirects=False, timeout=5)
             except asyncio.exceptions.TimeoutError:
                 print(f"Took too long trying to fetch {url}")
+                return None
 
     async def get_failures(self, links):
         """
@@ -91,7 +92,7 @@ class LinkTester(BuildTest):
             responses = await asyncio.gather(
                 *[self.fetch(session, url, lock) for url in links]
             )
-            failures = [r for r in responses if r.status != 200]
+            failures = [r for r in responses if r is not None and r.status != 200]
             return failures
 
     def _test(self):

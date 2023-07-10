@@ -1,6 +1,6 @@
 .PHONY: default
-default:
-	@echo "Read the Makefile..."
+default: build
+
 .PHONY: clean
 clean:
 	rm -rf dist
@@ -12,10 +12,10 @@ init_dist_dir:
 	mkdir -p dist
 .PHONY: basic_build
 basic_build: clean init_dist_dir
-	python -m app.build
+	python -m app
 .PHONY: basic_build_new_internal_links
 basic_build_new_internal_links: clean init_dist_dir
-	python -m app.build --new-internal-links
+	python -m app --new-internal-links
 .PHONY: pygmentize_css
 pygmentize_css:
 	pygmentize -S solarized-light -f html -a .codehilite > dist/styles.css
