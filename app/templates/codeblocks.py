@@ -457,15 +457,15 @@ class Codeblocks:  # pylint: disable=too-many-public-methods
         """
         my_list = [1, 2, 3, 4]
         my_tuple = (1, 2, 3)
-        my_tuple_single_item = (1,)
+        my_tuple_single_item = (1,)  # note the comma here!
         my_dictionary = {'key': 'value', 1: 2}
         my_set = {1, 2}
         my_big_list = [
-                'lorem ipsum',
-                123456,
-                'foo bar baz',
-                7890
-                ]
+            'lorem ipsum',
+            123456,
+            'foo bar baz',
+            7890
+        ]
         print(my_list, my_tuple, my_tuple_single_item)
         print(my_set, my_dictionary)
         print(my_big_list)
