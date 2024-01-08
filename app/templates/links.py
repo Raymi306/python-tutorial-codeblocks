@@ -28,7 +28,7 @@ links = {
         'ext_beautifulsoup4_docs': 'https://beautiful-soup-4.readthedocs.io/en/latest/#',
         'ext_requests_docs': 'https://docs.python-requests.org/en/latest/index.html',
         'ext_pylint': 'https://pylint.org/',
-        'ext_ruff': 'https://beta.ruff.rs/docs/',
+        'ext_ruff': 'https://docs.astral.sh/ruff/',
         'ext_python_the_python_tutorial': 'https://docs.python.org/3/tutorial/index.html',
         'ext_python_wiki_learning_resources': 'https://wiki.python.org/moin/BeginnersGuide/Programmers',
         'ext_automate_the_boring_stuff': 'https://automatetheboringstuff.com/',
