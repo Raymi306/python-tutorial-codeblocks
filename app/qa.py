@@ -7,6 +7,9 @@ import doctest
 import aiohttp
 
 
+TIMEOUT_SEC = 10
+
+
 class BuildTestFailure(BaseException):
     """Custom exception to indicate a build test failure"""
 
@@ -77,10 +80,12 @@ class LinkTester(BuildTest):
         """Locked async HTTP GET"""
         async with lock:
             try:
-                return await session.get(url, allow_redirects=False, timeout=5)
+                return await session.get(url, allow_redirects=False, timeout=TIMEOUT_SEC)
+            except (aiohttp.ClientConnectorSSLError, aiohttp.ClientConnectorCertificateError):
+                print(f"SSL error when fetching {url}")
+                return await session.get(url, allow_redirects=False, timeout=TIMEOUT_SEC, ssl=False)
             except asyncio.exceptions.TimeoutError:
                 print(f"Took too long trying to fetch {url}")
-                return None
 
     async def get_failures(self, links):
         """
@@ -100,6 +105,8 @@ class LinkTester(BuildTest):
 
         def strip_fragment_identifiers(link):
             return link.split('#')[0]
+
+        print()
 
         if self.ignore_internal_links:
             links = set(
