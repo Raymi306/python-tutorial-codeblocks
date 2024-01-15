@@ -8,7 +8,7 @@
 
 Sometimes, things go wrong.
 If your code attempts an unsupported operation, such as dividing by zero or accessing a key in a dictionary that doesn't exist, an exception is thrown.
-An unhandled exception causes the program to halt, but sometimes, we can recover from these errors and want different behavior.
+An unhandled exception causes the program to halt, but sometimes, we want to recover from or handle these errors.
 Let's explore how to handle exceptions!
 
 ## Illustrating the Problem
