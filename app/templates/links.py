@@ -52,5 +52,6 @@ links = {
         'int_debugger': f'{BASE_URL}/22_debugger.html',
         'int_classes': f'{BASE_URL}/23_classes.html',
         'int_linter': f'{BASE_URL}/24_linter.html',
+        'int_error_handling': f'{BASE_URL}/25_error_handling.html',
         }
 # pylint: enable=line-too-long
