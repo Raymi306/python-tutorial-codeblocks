@@ -67,25 +67,42 @@ class LinkTester(BuildTest):
     """Make sure all templated links are alive"""
 
     name = 'Links'
-    def __init__(self, concurrency=16, ignore_internal_links=False):
+    def __init__(self, concurrency=16, warn=False):
         """
         Semaphore limits number of concurrent requests for performance
         Is still nonblocking
         """
         self.concurrency = concurrency
-        self.ignore_internal_links = ignore_internal_links
+        self.warn_only = warn
 
-    @staticmethod
-    async def fetch(session, url, lock):
+    async def fetch(self, session, url, lock):
         """Locked async HTTP GET"""
         async with lock:
             try:
                 return await session.get(url, allow_redirects=False, timeout=TIMEOUT_SEC)
-            except (aiohttp.ClientConnectorSSLError, aiohttp.ClientConnectorCertificateError):
-                print(f"SSL error when fetching {url}")
-                return await session.get(url, allow_redirects=False, timeout=TIMEOUT_SEC, ssl=False)
-            except asyncio.exceptions.TimeoutError:
-                print(f"Took too long trying to fetch {url}")
+            except (
+                aiohttp.ClientConnectorSSLError,
+                aiohttp.ClientConnectorCertificateError
+            ) as err:
+                if self.warn_only:
+                    print(f"SSL error when fetching {url}")
+                    return await session.get(
+                        url,
+                        allow_redirects=False,
+                        timeout=TIMEOUT_SEC,
+                        ssl=False
+                    )
+                raise err
+            except aiohttp.ClientResponseError as err:
+                if self.warn_only:
+                    print(f"Error fetching {url}, status code: {err.status}")
+                else:
+                    raise err
+            except asyncio.exceptions.TimeoutError as err:
+                if self.warn_only:
+                    print(f"Took too long trying to fetch {url}")
+                else:
+                    raise err
 
     async def get_failures(self, links):
         """
@@ -106,17 +123,17 @@ class LinkTester(BuildTest):
         def strip_fragment_identifiers(link):
             return link.split('#')[0]
 
+        # formatting
         print()
 
-        if self.ignore_internal_links:
-            links = set(
-                strip_fragment_identifiers(link) for template_var, link in links.items()
-                if not template_var.startswith('int')
-            )
-        else:
-            links = set(strip_fragment_identifiers(link) for link in links.values())
+        links = set(strip_fragment_identifiers(link) for link in links.values())
 
         fails = asyncio.run(self.get_failures(links))
+        if self.warn_only:
+            print('\nAdditional Warnings:')
+            for fail in fails:
+                print(f'{fail.url}: {fail.status}')
+            return BuildTestResult(True)
         return BuildTestResult(
             not bool(fails),
             [f'{fail.url}: {fail.status}' for fail in fails]

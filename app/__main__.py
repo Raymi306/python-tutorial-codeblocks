@@ -18,19 +18,24 @@ from app.qa import (
 )
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--new-internal-links')
 parser.add_argument(
     '--dry-run',
+    action="store_true",
     help="""
     Do not write any files or directories.
     Still perform network requests for link checks
     """
 )
+parser.add_argument(
+    '--warn-links',
+    action="store_true",
+    help="Do not error on link checker failures",
+)
 
 def run_build_checks(env, ctx, args):
     """QA for build process"""
     testers = (
-            LinkTester(ignore_internal_links=args.new_internal_links),
+            LinkTester(warn=args.warn_links),
             CodeblocksTester(),
             UnresolvedTemplateVariablesTester(env, ctx),
             )
