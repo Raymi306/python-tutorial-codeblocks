@@ -142,7 +142,26 @@ def futures_try_int_input(mocked_input_ret):
             print(my_number * 2)
         # END
 
-
+def conditions_names(mocked_input_ret):
+    """
+    >>> conditions_names('Joshua')
+    Greetings.  Would you like to play a game?
+    >>> conditions_names('Dave')
+    I'm sorry, Dave.  I'm afraid I still can't open the podbay doors.
+    >>> conditions_names('foobarbaz')
+    Hello, foobarbaz
+    """
+    with patch('builtins.input') as input:
+        input.return_value = mocked_input_ret
+        # START
+        user_input = input('What\'s your name?')
+        if user_input == 'Joshua':
+            print('Greetings.  Would you like to play a game?')
+        elif user_input == 'Dave':
+            print("I'm sorry, Dave.  I'm afraid I still can't open the podbay doors.")
+        else:
+            print('Hello, ' + user_input)
+        # END
 
 
 # pylint: disable=using-constant-test
