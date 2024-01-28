@@ -221,10 +221,10 @@ class Codeblocks:  # pylint: disable=too-many-public-methods
     @mark
     def conditions_names(mocked_input_ret):
         """
-        >>> Codeblocks.conditions_names('max')
-        Weirdo
-        >>> Codeblocks.conditions_names('jax')
-        Cool name!
+        >>> Codeblocks.conditions_names('Joshua')
+        Greetings.  Would you like to play a game?
+        >>> Codeblocks.conditions_names('Dave')
+        I'm sorry, Dave.  I'm afraid I still can't open the podbay doors.
         >>> Codeblocks.conditions_names('foobarbaz')
         Hello, foobarbaz
         """
@@ -232,10 +232,10 @@ class Codeblocks:  # pylint: disable=too-many-public-methods
             input.return_value = mocked_input_ret
             # START
             user_input = input('What\'s your name?')
-            if user_input == 'max':
-                print('Weirdo')
-            elif user_input == 'jax':
-                print('Cool name!')
+            if user_input == 'Joshua':
+                print('Greetings.  Would you like to play a game?')
+            elif user_input == 'Dave':
+                print("I'm sorry, Dave.  I'm afraid I still can't open the podbay doors.")
             else:
                 print('Hello, ' + user_input)
             # END
@@ -258,7 +258,6 @@ class Codeblocks:  # pylint: disable=too-many-public-methods
         """
         >>> Codeblocks.conditions_boolean_logic()
         At least one var is Foo!
-        Same length OR combined length longer than ten!
         """
 
         # Experimenting with conditional logic can be more convenient in the interpreter
@@ -273,15 +272,6 @@ class Codeblocks:  # pylint: disable=too-many-public-methods
 
         if not var_1 or not var_2:
             print('At least one var is falsey!')
-
-        length_var_1 = len(var_1)
-        length_var_2 = len(var_2)
-
-        if length_var_1 == length_var_2 and length_var_1 + length_var_2 > 10:
-            print('Same length AND combined length longer than ten!')
-
-        if length_var_1 == length_var_2 or length_var_1 + length_var_2 > 10:
-            print('Same length OR combined length longer than ten!')
 
     @mark
     def loops_scream():
