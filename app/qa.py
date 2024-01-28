@@ -31,7 +31,7 @@ class BuildTest(ABC):
     def test(self, *args, **kwargs):
         """Universal test logic"""
         test_result = self._test(*args, **kwargs)
-        print(f'\nTesting {self.name or self}')
+        print(f'Testing {self.name or self}')
 
         if not test_result.passed:  # only take action on failures
             print('  - Fail!')

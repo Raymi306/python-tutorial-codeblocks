@@ -1,29 +1,33 @@
+"""11_first_projects.md"""
 from unittest.mock import patch
 # pylint: disable=line-too-long
 # pylint: disable=redefined-builtin
 # pylint: disable=import-outside-toplevel
 
 
-def random_numbers():
-        """
-        >>> import random
-        >>> random.seed(1)
-        >>> random_numbers()
-        18
-        73
-        98
-        9
-        33
-        16
-        64
-        98
-        58
-        61
-        """
-        import random
+NONLOCALS = ("patch",)
 
-        for _ in range(10):
-            print(random.randint(1, 100))
+
+def random_numbers():
+    """
+    >>> import random
+    >>> random.seed(1)
+    >>> random_numbers()
+    18
+    73
+    98
+    9
+    33
+    16
+    64
+    98
+    58
+    61
+    """
+    import random
+
+    for _ in range(10):
+        print(random.randint(1, 100))
 
 
 def guessing_game(mocked_input_se):
@@ -51,6 +55,7 @@ def guessing_game(mocked_input_se):
         # END
 
 
+# pylint: disable=redefined-outer-name
 def argv():
     """
     >>> import sys
@@ -66,6 +71,7 @@ def argv():
     # caution!
     # the below line will fail if at least 2 arguments aren't passed in to the program!
     print(argv[1], argv[2])
+# pylint: enable=redefined-outer-name
 
 
 def file_io():

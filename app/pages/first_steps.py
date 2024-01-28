@@ -1,6 +1,10 @@
+"""10_first_steps.md"""
 from unittest.mock import patch
 # pylint: disable=line-too-long
 # pylint: disable=redefined-builtin
+
+
+NONLOCALS = ("patch",)
 
 
 def hello_world():

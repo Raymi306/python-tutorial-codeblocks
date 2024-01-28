@@ -3,6 +3,9 @@ from unittest.mock import patch
 # pylint: disable=redefined-builtin
 
 
+NONLOCALS = ("patch",)
+
+
 def variables_assignments():
     """
     >>> variables_assignments()

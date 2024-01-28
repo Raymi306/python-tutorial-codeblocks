@@ -1,4 +1,4 @@
-"""Module for building and build-time QA of the python tutorial website"""
+"""Module for building and build-time QA of the python tutorial codeblocks"""
 import inspect
 import json
 from os import makedirs
@@ -13,7 +13,9 @@ PAGE_MODULES = (
      first_steps,
      first_projects,
      variables,
- )
+)
+
+OUTPUT_DIR = "dist"
 
 
 def run_build_checks():
@@ -33,13 +35,20 @@ def main():
     """
     Perform all of the actions necessary to output the python tutorial codeblocks
     """
+    print()
     run_build_checks()
-    makedirs('dist', exist_ok=True)
-    with open('dist/codeblocks.json', 'w', encoding='utf-8') as f:
-        json.dump(get_func_body, f)
+    print()
+    makedirs(OUTPUT_DIR, exist_ok=True)
+    with open(f'{OUTPUT_DIR}/codeblocks.json', 'w', encoding='utf-8') as f:
+        codeblock_map = {}
         for module in PAGE_MODULES:
-            for fn_name, fn in inspect.getmembers(module):
-                print(fn_name, fn)
+            nonlocals = getattr(module, "NONLOCALS", ())
+            print(f"extracting from {module.__name__}:")
+            for member_name, member in inspect.getmembers(module, inspect.isfunction):
+                if member_name not in nonlocals:
+                    print("    ", member_name)
+                    codeblock_map[member_name] = get_func_body(member)
+        json.dump(codeblock_map, f)
 
 
 if __name__ == '__main__':
