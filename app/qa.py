@@ -4,9 +4,6 @@ from dataclasses import dataclass, field
 import doctest
 
 
-TIMEOUT_SEC = 10
-
-
 class BuildTestFailure(BaseException):
     """Custom exception to indicate a build test failure"""
 
@@ -31,9 +28,9 @@ class BuildTest(ABC):
         """
         raise NotImplementedError
 
-    def test(self):
+    def test(self, *args, **kwargs):
         """Universal test logic"""
-        test_result = self._test()
+        test_result = self._test(*args, **kwargs)
         print(f'\nTesting {self.name or self}')
 
         if not test_result.passed:  # only take action on failures
@@ -50,12 +47,17 @@ class CodeblocksTester(BuildTest):
     """Make sure the templated codeblocks do what the tutorial claims"""
     name = 'Codeblocks'
 
+    def __init__(self, page_modules):
+        self.page_modules = page_modules
+
     def _test(self):
-        from app import codeblocks  # pylint: disable=import-outside-toplevel
-        failure_count, _ = doctest.testmod(
-                codeblocks,
+        failure_counts = []
+        for module in self.page_modules:
+            failure_count, _ = doctest.testmod(
+                module,
                 verbose=None,
                 report=False
-                )
-        return BuildTestResult(not bool(failure_count))
+            )
+            failure_counts.append(failure_count)
+        return BuildTestResult(not sum(failure_counts))
 # pylint: enable=too-few-public-methods
