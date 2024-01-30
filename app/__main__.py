@@ -5,7 +5,7 @@ from os import makedirs
 import sys
 
 from app.codeblocks import get_func_body
-from app.pages import first_steps, first_projects, variables, classes
+from app.pages import first_steps, first_projects, variables, classes, error_handling
 from app.qa import CodeblocksTester, BuildTestFailure
 
 
@@ -14,6 +14,7 @@ PAGE_MODULES = (
      first_projects,
      variables,
      classes,
+     error_handling,
 )
 
 OUTPUT_DIR = "dist"
