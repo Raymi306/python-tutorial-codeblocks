@@ -1,9 +1,5 @@
-# python-tutorial
+# python-tutorial-codeblocks
 
-## Brief summary
+Codeblocks that are automatically tested before being exported for use with https://github.com/Raymi306/personal-site
 
-A tutorial with eventual content for both absolute beginners and experienced programmers.
-Codeblocks that are automatically tested before being exported for use on my personal page's Python tutorial.
-
-Once, this repository held both a site generator and the markdown content of my Python tutorial.
-It is due for a name change...
+Long ago this repository also contained a handwritten site generator and the markdown content of my Python tutorial
